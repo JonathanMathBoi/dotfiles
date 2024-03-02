@@ -1,6 +1,7 @@
 require("jhart.remap")
 require("jhart.lazy")
 require("jhart.catppuccin")
+require("jhart.lualine")
 
 require('gitsigns').setup()
 

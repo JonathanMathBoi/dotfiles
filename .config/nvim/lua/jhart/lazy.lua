@@ -26,5 +26,9 @@ require("lazy").setup({
   {'hrsh7th/nvim-cmp'},
   {'L3MON4D3/LuaSnip'},
   {'ThePrimeagen/vim-be-good'},
-  {'lewis6991/gitsigns.nvim'}
+  {'lewis6991/gitsigns.nvim'},
+  {
+      'nvim-lualine/lualine.nvim',
+      dependencies = { 'nvim-tree/nvim-web-devicons' }
+  }
 })
