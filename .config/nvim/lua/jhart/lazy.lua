@@ -36,5 +36,13 @@ require("lazy").setup({
       event = "InsertEnter",
       config = true
   },
-  {'tpope/vim-fugitive'}
+  {'tpope/vim-fugitive'},
+  {
+      'stevearc/aerial.nvim',
+      opts = {},
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter",
+         "nvim-tree/nvim-web-devicons"
+      },
+  }
 })
