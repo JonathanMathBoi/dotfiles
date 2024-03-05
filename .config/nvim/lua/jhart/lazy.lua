@@ -55,6 +55,8 @@ require("lazy").setup({
                   ext = '.md'
               }
           }
+
+          vim.g.vimwiki_global_ext = 0
       end
   }
 })
