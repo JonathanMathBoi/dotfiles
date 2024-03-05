@@ -44,5 +44,17 @@ require("lazy").setup({
          "nvim-treesitter/nvim-treesitter",
          "nvim-tree/nvim-web-devicons"
       },
+  },
+  {
+      'vimwiki/vimwiki',
+      init = function()
+          vim.g.vimwiki_list = {
+              {
+                  path = '~/vimwiki/',
+                  syntax = 'markdown',
+                  ext = '.md'
+              }
+          }
+      end
   }
 })
