@@ -1,11 +1,16 @@
 require('catppuccin').setup({
   flavour = 'macchiato',
   transparent_backqround = true,
-  gitsigns = true,
-  cmp = true,
-  treesitter = true,
-  telescope = {
-      enabled = true
+  integrations = {
+      gitsigns = true,
+      cmp = true,
+      treesitter = true,
+      telescope = {
+          enabled = true
+      },
+      aerial = true,
+      markdown = true,
+      mason = true
   }
 })
 
