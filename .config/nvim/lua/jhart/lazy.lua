@@ -58,5 +58,6 @@ require("lazy").setup({
 
           vim.g.vimwiki_global_ext = 0
       end
-  }
+  },
+  {'mbbill/undotree'}
 })
