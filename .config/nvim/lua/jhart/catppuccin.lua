@@ -10,7 +10,8 @@ require('catppuccin').setup({
       },
       aerial = true,
       markdown = true,
-      mason = true
+      mason = true,
+      vimwiki = true
   }
 })
 
