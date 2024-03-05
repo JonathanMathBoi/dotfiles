@@ -13,3 +13,12 @@ vim.api.nvim_create_autocmd({"FileType"}, {
     callback = git_commit_rulers
 })
 
+local function vimwiki_ruler()
+    vim.opt.cc = "100"
+end
+
+vim.api.nvim_create_autocmd({'FileType'}, {
+    pattern = {'vimwiki'},
+    callback = vimwiki_ruler
+})
+
