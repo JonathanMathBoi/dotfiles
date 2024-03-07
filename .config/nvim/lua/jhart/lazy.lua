@@ -50,7 +50,7 @@ require("lazy").setup({
       init = function()
           vim.g.vimwiki_list = {
               {
-                  path = '~/vimwiki/',
+                  path = '~/documents/vimwiki/',
                   syntax = 'markdown',
                   ext = '.md'
               }
