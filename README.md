@@ -12,3 +12,8 @@ This repository was designed with the use of [GNU Stow](https://www.gnu.org/soft
 The easiest way to use this is to place this repository in your home directory, and then to call
 `stow .` from within this repository.
 
+## Credits
+
+- zDyanTB's [HyprNova dotfiles](https://github.com/zDyanTB/HyprNova) 
+    - Used most of their `hyprlock.conf` to make mine.
+
