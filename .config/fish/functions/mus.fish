@@ -1,4 +1,4 @@
 function mus --wraps=ncmpcpp --description 'alias mus=ncmpcpp'
-  ncmpcpp $argv
+  ncmpcpp -q $argv
         
 end
