@@ -44,6 +44,12 @@
         },
     },
 
+    "cpu": {
+        "format": "{usage}% 󰍛",
+        "interval": 1,
+        // TODO: right click to open htop
+    },
+
     // Separators
     "custom/separator#dot": {
         "format": "",
