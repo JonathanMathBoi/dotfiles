@@ -16,4 +16,6 @@ The easiest way to use this is to place this repository in your home directory, 
 
 - zDyanTB's [HyprNova dotfiles](https://github.com/zDyanTB/HyprNova) 
     - Used most of their `hyprlock.conf` to make mine.
+- lgaboury's [Sway waybar install](https://github.com/lgaboury/Sway-Waybar-Install-Script)
+    - Copyed their waybar weather module and python script
 
