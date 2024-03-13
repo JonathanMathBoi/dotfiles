@@ -1,5 +1,6 @@
 {
     "group/motherboard": {
+        "orientation": "horizontal",
         "modules": [
             "cpu",
             "memory",
