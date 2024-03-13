@@ -68,6 +68,13 @@
         "format-icons": ["󰈸"],
     },
 
+    // TODO: adjust for btrfs compression
+    "disk": {
+        "interval": 30,
+        "format": "{percentage_used}% 󰋊",
+        "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+    },
+
     // Separators
     "custom/separator#dot": {
         "format": "",
