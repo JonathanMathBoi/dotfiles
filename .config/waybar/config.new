@@ -1,8 +1,8 @@
 {
     "include": "./modules",
-    "layer": "top".
+    "layer": "top",
     "position": "top",
-    "height": 12,
+    "height": 30,
     "margin-left": 10,
     "margin-right": 10,
     "margin-top": 2,

@@ -7,6 +7,13 @@
         "return-type": "json"
     },
 
+    "clock": {
+        "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I:%M %p}", // hh:MM AM/PM format
+        "format-alt": "{:%m-%d-%Y}" // mm-dd-yyyy format
+    },
+
     // Separators
     "custom/separator#dot": {
         "format": "",
