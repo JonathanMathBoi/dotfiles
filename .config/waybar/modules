@@ -9,6 +9,14 @@
         ],
     },
 
+    "group/audio": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "pulseaudio#microphone",
+        ],
+    },
+
     "custom/weather": {
         "format": "{}",
         "tooltip": true,
