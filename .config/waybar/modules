@@ -1,4 +1,13 @@
 {
+    "group/motherboard": {
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature",
+            "disk",
+        ],
+    },
+
     "custom/weather": {
         "format": "{}",
         "tooltip": true,
