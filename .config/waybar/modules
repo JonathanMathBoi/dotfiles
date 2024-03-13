@@ -83,6 +83,30 @@
         "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
     },
 
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} 󰂰 {volume}%",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", "󰕾", ""], 
+            "ignored-sinks": ["Easy Effects Sink"],
+        },
+        "scroll-step": 1,
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        // TODO: Add mic volume control
+    },
+
     // Separators
     "custom/separator#dot": {
         "format": "",
