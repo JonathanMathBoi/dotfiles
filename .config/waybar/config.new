@@ -16,7 +16,7 @@
     ],
 
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/workspaces#radio"
     ],
 
     "modules-right": [
