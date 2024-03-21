@@ -114,6 +114,10 @@
         // TODO: Add mic volume control
     },
 
+    "tray": {
+        "spacing": 5
+    },
+
     // Separators
     "custom/separator#dot": {
         "format": "",
