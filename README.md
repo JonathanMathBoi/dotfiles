@@ -16,7 +16,10 @@ The easiest way to use this is to place this repository in your home directory, 
 
 - zDyanTB's [HyprNova dotfiles](https://github.com/zDyanTB/HyprNova) 
     - Used most of their `hyprlock.conf` to make mine.
-    - Much inpriation for waybar config
+    - Much inspiration for waybar config
 - lgaboury's [Sway waybar install](https://github.com/lgaboury/Sway-Waybar-Install-Script)
-    - Copyed their waybar weather module and python script
+    - Copied their waybar weather module and python script
+- Dreams of Code
+    - Great beginner tmux config tutorial.
+      [*Tmux has forever changed the way I write code.*](https://youtu.be/DzNmUNvnB04?si=aIrAnJhVNn3tWHF5)
 
