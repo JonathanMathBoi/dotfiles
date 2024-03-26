@@ -1,0 +1,2 @@
+set -g @catppuccin_flavour 'macchiato'
+
