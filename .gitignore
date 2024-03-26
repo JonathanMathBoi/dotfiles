@@ -1,0 +1,3 @@
+# Ignore Plugins Folder for tmux
+# Ignored for space and cleanliness
+.config/tmux/plugins
