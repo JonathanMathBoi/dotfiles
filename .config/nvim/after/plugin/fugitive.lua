@@ -1,2 +1,2 @@
-vim.keymap.set('n', '<leader>gc', '<cmd>G commit<cr>')
-
+vim.keymap.set('n', '<leader>gc', function() vim.cmd.Git('commit') end)
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
