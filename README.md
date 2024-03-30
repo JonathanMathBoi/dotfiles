@@ -9,8 +9,23 @@ contains all the configuration files critical to my workflow on Linux.
 
 This repository was designed with the use of [GNU Stow](https://www.gnu.org/software/stow/) in mind.
 
-The easiest way to use this is to place this repository in your home directory, and then to call
-`stow .` from within this repository.
+1. Clone this repository into your home directory.
+
+```
+git clone https://github.com/JonathanMathBoi/dotfiles.git
+```
+
+2. Change directory into this repo.
+
+```
+cd dotfiles
+```
+
+3. Use GNU Stow to symlink the configuration files to their proper location.
+
+```
+stow .
+```
 
 ## Credits
 
