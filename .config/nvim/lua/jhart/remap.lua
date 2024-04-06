@@ -11,5 +11,6 @@ vim.keymap.set({ 'n', 't' }, '<C-l>', '<C-w>l', {})
 vim.keymap.set('n', '<leader>tn', vim.cmd.tabnext)
 vim.keymap.set('n', '<leader>tp', vim.cmd.tabprev)
 
--- Set <leader>q to quit the current file
+-- Set leader keybinds for split management
 vim.keymap.set('n', '<leader>q', vim.cmd.quit)
+vim.keymap.set('n', '<leader>v', '<C-w>v')
