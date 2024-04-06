@@ -10,3 +10,6 @@ vim.keymap.set({ 'n', 't' }, '<C-l>', '<C-w>l', {})
 -- Set next and previous for tabs
 vim.keymap.set('n', '<leader>tn', vim.cmd.tabnext)
 vim.keymap.set('n', '<leader>tp', vim.cmd.tabprev)
+
+-- Set <leader>q to quit the current file
+vim.keymap.set('n', '<leader>q', vim.cmd.quit)
