@@ -40,7 +40,7 @@ stow .
       [*Tmux has forever changed the way I write code.*](https://youtu.be/DzNmUNvnB04?si=aIrAnJhVNn3tWHF5)
     - Great tutorial on dotfile management. (The inspiration for this repo.)
       [*Stow has forever changed the way I manage my dotfiles*](https://youtu.be/y6XCebnB9gs?si=6KnujL4hR3DT3mbE)
-    - Great tutorial for `zoxide`. (which I use for `cd`)
+    - Great tutorial for `zoxide` (which I use for `cd`).
       [*zoxide has forever improved the way I navigate in the terminal.*](https://youtu.be/aghxkpyRVDY?si=wfni-WZ3MEOVKjLW)
 - The Primeagen
     - Excellent crash course in Neovim. The source for the base of my nvim config.
