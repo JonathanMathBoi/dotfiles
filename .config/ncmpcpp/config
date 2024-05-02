@@ -382,9 +382,9 @@ mpd_music_dir = ~/music
 ##
 #media_library_primary_tag = artist
 #
-#media_library_albums_split_by_date = yes
+media_library_albums_split_by_date = no
 #
-#media_library_hide_album_dates = no
+media_library_hide_album_dates = yes
 #
 ## Available values: wrapped, normal.
 ##
