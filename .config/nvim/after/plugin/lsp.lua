@@ -19,3 +19,13 @@ lspconfig.clangd.setup({
         "--function-arg-placeholders=0"
     }
 })
+
+lspconfig.lua_ls.setup({
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
