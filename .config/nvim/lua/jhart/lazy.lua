@@ -71,5 +71,6 @@ require("lazy").setup({
         config = function()
             require("octo").setup()
         end
-    }
+    },
+    { 'HiPhish/rainbow-delimiters.nvim' },
 })
