@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 
 -- Set <C-direction> to move between splits in normal and terminal mode
 vim.keymap.set({ 'n', 't' }, '<C-h>', '<C-w>h', {})
