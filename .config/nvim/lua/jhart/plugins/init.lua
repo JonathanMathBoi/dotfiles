@@ -22,14 +22,6 @@ return {
         event = "InsertEnter",
         config = true
     },
-    {
-        'stevearc/aerial.nvim',
-        opts = {},
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-tree/nvim-web-devicons"
-        },
-    },
     { 'mbbill/undotree' },
     {
         'pwntester/octo.nvim',
