@@ -13,7 +13,6 @@ return {
     { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
     { 'ThePrimeagen/vim-be-good' },
-    { 'lewis6991/gitsigns.nvim' },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
@@ -23,7 +22,6 @@ return {
         event = "InsertEnter",
         config = true
     },
-    { 'tpope/vim-fugitive' },
     {
         'stevearc/aerial.nvim',
         opts = {},
