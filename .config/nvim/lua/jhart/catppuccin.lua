@@ -13,6 +13,7 @@ require('catppuccin').setup({
         mason = true,
         vimwiki = true,
         rainbow_delimiters = true,
+        octo = true,
     }
 })
 
