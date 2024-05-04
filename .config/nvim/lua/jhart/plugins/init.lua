@@ -4,7 +4,6 @@ return {
         tag = '0.1.4',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    { 'catppuccin/nvim',                  name = 'catppuccin', priority = 1000 },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
     { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate" },

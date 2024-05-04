@@ -1,6 +1,5 @@
 require("jhart.remap")
 require("jhart.lazy")
-require("jhart.catppuccin")
 
 local function git_commit_rulers()
     vim.opt.cc = "50,72"
