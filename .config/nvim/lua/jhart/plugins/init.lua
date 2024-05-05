@@ -14,10 +14,6 @@ return {
     { 'L3MON4D3/LuaSnip' },
     { 'ThePrimeagen/vim-be-good' },
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },
-    {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
