@@ -1,9 +1,4 @@
 return {
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
     { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate" },
