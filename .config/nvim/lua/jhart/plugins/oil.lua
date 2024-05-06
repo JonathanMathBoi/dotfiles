@@ -1,11 +1,9 @@
 return {
-    {
-        'stevearc/oil.nvim',
-        opts = {},
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require('oil').setup()
-            vim.keymap.set('n', '-', vim.cmd.Oil)
-        end,
-    },
+    'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+    config = function(_, opts)
+        require('oil').setup(opts)
+        vim.keymap.set('n', '-', vim.cmd.Oil)
+    end,
 }
