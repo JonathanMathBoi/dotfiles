@@ -1,8 +1,5 @@
 vim.g.mapleader = " "
 
--- Consider of removing in favor of the '-' Oil binding
-vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
-
 -- Set <C-direction> to move between splits in normal and terminal mode
 vim.keymap.set({ 'n', 't' }, '<C-h>', '<C-w>h', {})
 vim.keymap.set({ 'n', 't' }, '<C-j>', '<C-w>j', {})
