@@ -10,15 +10,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     callback = git_commit_rulers
 })
 
-local function vimwiki_ruler()
-    vim.opt.cc = "100"
-end
-
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-    pattern = { 'vimwiki' },
-    callback = vimwiki_ruler
-})
-
 -- Use LSP to format file before saving
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     callback = function()
