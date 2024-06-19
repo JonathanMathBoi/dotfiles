@@ -20,7 +20,11 @@ return {
             'nvim-telescope/telescope.nvim',
             'nvim-tree/nvim-web-devicons'
         },
-        opts = {},
+        opts = {
+            suppress_missing_scope = {
+                projects_v2 = true,
+            },
+        },
     },
     { 'HiPhish/rainbow-delimiters.nvim' },
 }
