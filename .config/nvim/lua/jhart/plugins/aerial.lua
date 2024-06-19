@@ -5,8 +5,7 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     opts = {},
-    config = function(_, opts)
-        require('aerial').setup(opts)
-        vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
-    end,
+    keys = {
+        { '<leader>a', '<cmd>AerialToggle!<CR>', desc = 'Open Outline', },
+    },
 }
