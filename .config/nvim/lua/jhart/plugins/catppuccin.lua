@@ -18,6 +18,8 @@ return {
             vimwiki = true,
             rainbow_delimiters = true,
             octo = true,
+            which_key = true,
+            lsp_trouble = true,
         },
     },
     config = function(_, opts)
