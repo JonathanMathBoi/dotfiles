@@ -11,19 +11,29 @@ This repository was designed with the use of [GNU Stow](https://www.gnu.org/soft
 
 1. Clone this repository into your home directory.
 
-```
+```bash
 git clone https://github.com/JonathanMathBoi/dotfiles.git
 ```
 
 2. Change directory into this repo.
 
-```
+```bash
 cd dotfiles
 ```
 
-3. Use GNU Stow to symlink the configuration files to their proper location.
+3. **CRITICAL:** Ensure your local .config directory exists.
 
+If ~/.config does not exist, Stow will symlink the entire folder, which can cause issues with
+other applications. Creating the folder first forces Stow to symlink individual subfolders (like
+`nvim`, `fish`, etc.) inside it.
+
+```bash
+mkdir -p ~/.config
 ```
+
+4. Use GNU Stow to symlink the configuration files to their proper location.
+
+```bash
 stow .
 ```
 
