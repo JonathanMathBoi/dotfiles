@@ -1,7 +1,7 @@
 -- Set leader to <SPACE>
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 -- TODO: Learn what localleader is
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = '\\'
 
 -- Set <C-direction> to move between splits
 vim.keymap.set({ 'n', 't' }, '<C-h>', '<C-w>h')
