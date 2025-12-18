@@ -27,7 +27,7 @@ return {
         map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = 'Toggle Blame' })
         map('n', '<leader>gB', function()
           gs.blame_line({ full = true })
-        end, 'Show Full Blame')
+        end, { desc = 'Show Full Blame' })
       end,
     },
   },
