@@ -8,6 +8,7 @@ return {
     integrations = {
       rainbow_delimiters = true,
       treesitter = true,
+      lualine = true, -- Handled in lualine, but just in case catppuccin changes in future
     },
   },
   config = function(_, opts)
