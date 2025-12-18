@@ -1,0 +1,7 @@
+# Default ignores and documentation
+\.git
+README\.md
+\.gitignore
+
+# Neovim transition ignores
+\.config/nvim\.old
