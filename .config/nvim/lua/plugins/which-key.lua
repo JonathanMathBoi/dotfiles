@@ -23,6 +23,8 @@ return {
       { '<leader>g', group = 'Git' },
       { '<leader>h', group = 'Git Hunks' },
       { '<leader>b', group = 'Buffer' },
+      { '<leader>c', group = 'Code' },
+      { '<leader>d', group = 'Diagnostics' },
     })
   end,
 }
