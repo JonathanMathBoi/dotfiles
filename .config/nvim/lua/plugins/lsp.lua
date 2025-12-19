@@ -34,6 +34,11 @@ return {
         end,
       })
 
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+      })
+
       -- Lua setup (keeps 'vim' global from complaining)
       vim.lsp.config('lua_ls', {
         settings = {
@@ -42,6 +47,7 @@ return {
           },
         },
       })
+      vim.lsp.enable('lua_ls')
     end,
   },
 }
