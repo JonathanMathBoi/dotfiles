@@ -9,6 +9,12 @@ return {
       rainbow_delimiters = true,
       treesitter = true,
       lualine = true, -- Handled in lualine, but just in case catppuccin changes in future
+      gitsigns = true,
+      telescope = {
+        enabled = true,
+      },
+      which_key = true,
+      mason = true,
     },
   },
   config = function(_, opts)
