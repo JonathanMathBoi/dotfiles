@@ -25,6 +25,7 @@ return {
       { '<leader>b', group = 'Buffer' },
       { '<leader>c', group = 'Code' },
       { '<leader>d', group = 'Diagnostics' },
+      { '<leader>f', group = 'Find' },
     })
   end,
 }
