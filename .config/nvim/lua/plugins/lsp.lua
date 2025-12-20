@@ -8,7 +8,16 @@ return {
     config = function()
       require('mason').setup()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'lua_ls' },
+        ensure_installed = {
+          'lua_ls',
+          'ts_ls',
+          'cssls',
+          'jsonls',
+
+          -- Needed for Web Dev course
+          'html',
+          'emmet_ls',
+        },
       })
 
       vim.api.nvim_create_autocmd('LspAttach', {
