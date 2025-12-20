@@ -33,8 +33,6 @@ return {
           -- Diagnostic Group (<leader>d)
           vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Floating Diagnostic' })
           vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = 'Diagnostics to Quickfix' })
-          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
-          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
 
           -- Code Group (<leader>c)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action', buffer = ev.buf })
