@@ -5,3 +5,6 @@ README\.md
 
 # Neovim transition ignores
 \.config/nvim\.old
+
+# NixOS Flakes
+nixos
