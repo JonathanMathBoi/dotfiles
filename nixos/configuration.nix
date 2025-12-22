@@ -87,8 +87,6 @@
     shell = pkgs.fish;
   };
 
-  # programs.firefox.enable = true;
-
   environment.systemPackages = with pkgs; [
     # Browser
     brave
@@ -111,6 +109,9 @@
     zoxide
     yazi
     bat
+
+    # Udisk operation
+    udisks2
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -125,6 +126,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # For mounting drives as a user
+  services.udisks2.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
