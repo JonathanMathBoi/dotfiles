@@ -64,6 +64,7 @@
   users.users.jonathan = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+      shell = pkgs.fish;
   };
 
   # programs.firefox.enable = true;
