@@ -61,10 +61,7 @@
 
   programs.bat = {
     enable = true;
-    # TODO: Make this actually set the theme for bat
-    config = {
-      theme = "catppuccin-macchiato";
-    };
+    # TODO: Theme with catppuccin
   };
 
   home.sessionVariables = {
