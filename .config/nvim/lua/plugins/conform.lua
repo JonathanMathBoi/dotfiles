@@ -9,6 +9,7 @@ return {
       html = { 'prettier' },
       css = { 'prettier' },
       ejs = { 'prettier' },
+      nix = { 'nixfmt' },
     },
     format_on_save = {
       timeout_ms = 500,

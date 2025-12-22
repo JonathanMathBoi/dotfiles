@@ -5,9 +5,21 @@
   home.homeDirectory = "/home/jonathan";
 
   # This value determines the Home Manager release that the configuration is compatible with.
-  home.stateVersion = "25.11"; 
+  home.stateVersion = "25.11";
 
-  home.packages = [];
+  home.packages = with pkgs; [
+    # LSPs
+    lua-language-server
+    typescript-language-server # Provides ts_ls
+    vscode-langservers-extracted # Provides cssls, jsonls, and html
+    emmet-ls
+    nixd
+
+    # Formatters
+    stylua
+    prettierd
+    nixfmt-rfc-style
+  ];
 
   programs.fish = {
     enable = true;
@@ -41,6 +53,9 @@
     enableFishIntegration = true;
     options = [ "--cmd cd" ];
   };
+
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/nvim";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

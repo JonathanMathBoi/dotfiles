@@ -6,9 +6,11 @@ return {
       'williamboman/mason-lspconfig.nvim',
     },
     config = function()
+      local is_nixos = vim.fn.has('unix') == 1 and vim.fn.executable('nixos-version') == 1
+
       require('mason').setup()
       require('mason-lspconfig').setup({
-        ensure_installed = {
+        ensure_installed = is_nixos and {} or {
           'lua_ls',
           'ts_ls',
           'cssls',
@@ -55,6 +57,9 @@ return {
         },
       })
       vim.lsp.enable('lua_ls')
+
+      -- Nix LSP
+      vim.lsp.enable('nixd')
     end,
   },
 }

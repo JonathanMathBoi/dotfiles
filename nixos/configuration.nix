@@ -2,15 +2,23 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -69,9 +77,14 @@
   programs.fish.enable = true;
 
   users.users.jonathan = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
-      shell = pkgs.fish;
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "audio"
+    ];
+    shell = pkgs.fish;
   };
 
   # programs.firefox.enable = true;
@@ -82,7 +95,7 @@
 
     # Terminal
     alacritty
-  
+
     # Desktop & Utilities
     waybar
     hyprpaper
@@ -91,7 +104,7 @@
     dunst
     wofi
     git
-  
+
     # Tools for the terminal
     fish
     starship
@@ -144,4 +157,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-
