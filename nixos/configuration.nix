@@ -59,6 +59,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
   programs.fish.enable = true;
 
   users.users.jonathan = {
@@ -73,9 +80,8 @@
     # Browser
     brave
 
-    # Terminal & Editor
+    # Terminal
     alacritty
-    neovim
   
     # Desktop & Utilities
     waybar
