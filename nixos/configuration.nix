@@ -123,6 +123,9 @@
   # For mounting drives as a user
   services.udisks2.enable = true;
 
+  # QEMU Guest services
+  services.qemuGuest.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
