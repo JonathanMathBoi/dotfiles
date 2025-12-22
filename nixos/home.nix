@@ -64,6 +64,30 @@
     # TODO: Theme with catppuccin
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Jonathan Hart";
+    userEmail = "jonathan.e.hart@outlook.com";
+
+    signing = {
+      key = "8D216E5BA2708CD8";
+      signByDefault = true;
+    };
+
+    extraConfig = {
+      pull = {
+        rebase = true;
+        ff = "only";
+      };
+
+      merge.ff = false;
+
+      init.defaultBranch = "main";
+    };
+  };
+
+  programs.gpg.enable = true;
+
   home.sessionVariables = {
     # Use bat for coloring man pages
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
