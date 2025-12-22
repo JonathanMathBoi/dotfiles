@@ -19,6 +19,11 @@
     stylua
     prettierd
     nixfmt-rfc-style
+
+    # Terminal tools
+    yazi
+    tmux
+    ripgrep
   ];
 
   programs.fish = {
@@ -52,6 +57,20 @@
     enable = true;
     enableFishIntegration = true;
     options = [ "--cmd cd" ];
+  };
+
+  programs.bat = {
+    enable = true;
+    # TODO: Make this actually set the theme for bat
+    config = {
+      theme = "catppuccin-macchiato";
+    };
+  };
+
+  home.sessionVariables = {
+    # Use bat for coloring man pages
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    MANROFFOPT = "-c";
   };
 
   xdg.configFile."nvim".source =

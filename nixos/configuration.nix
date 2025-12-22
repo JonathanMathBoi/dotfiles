@@ -103,13 +103,6 @@
     wofi
     git
 
-    # Tools for the terminal
-    fish
-    starship
-    zoxide
-    yazi
-    bat
-
     # Udisk operation
     udisks2
   ];
