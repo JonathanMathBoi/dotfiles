@@ -11,6 +11,28 @@
 
   programs.fish.enable = true;
 
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -gx GPG_TTY (tty)
+    '';
+    shellAliases = {
+      mus = "ncmpcpp -q";
+    };
+    functions = {
+      ya = {
+        body = ''
+          set tmp (mktemp -t "yazi-cwd.XXXXX")
+          yazi $argv --cwd-file="$tmp"
+          if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+              cd "$cwd"
+          end
+          rm -f -- "$tmp"
+        '';
+      };
+    };
+  };
+
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
