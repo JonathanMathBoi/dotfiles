@@ -24,26 +24,9 @@
     ripgrep
   ];
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set -gx GPG_TTY (tty)
-    '';
-    shellAliases = {
-      mus = "ncmpcpp -q";
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-    options = [ "--cmd cd" ];
-  };
+  imports = [
+    ../../modules/home/common.nix
+  ];
 
   programs.bat = {
     enable = true;
