@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   # This value determines the Home Manager release that the configuration is compatible with.
