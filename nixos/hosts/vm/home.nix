@@ -21,7 +21,6 @@
     nixfmt-rfc-style
 
     # Terminal tools
-    yazi
     ripgrep
   ];
 
@@ -32,18 +31,6 @@
     '';
     shellAliases = {
       mus = "ncmpcpp -q";
-    };
-    functions = {
-      ya = {
-        body = ''
-          set tmp (mktemp -t "yazi-cwd.XXXXX")
-          yazi $argv --cwd-file="$tmp"
-          if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-              cd "$cwd"
-          end
-          rm -f -- "$tmp"
-        '';
-      };
     };
   };
 
@@ -61,6 +48,12 @@
   programs.bat = {
     enable = true;
     # TODO: Theme with catppuccin
+  };
+
+  programs.yazi = {
+    enable = true;
+    shellWrapperName = "ya";
+    enableFishIntegration = true;
   };
 
   programs.git = {
