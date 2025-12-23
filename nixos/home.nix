@@ -66,15 +66,18 @@
 
   programs.git = {
     enable = true;
-    userName = "Jonathan Hart";
-    userEmail = "jonathan.e.hart@outlook.com";
 
     signing = {
       key = "8D216E5BA2708CD8";
       signByDefault = true;
     };
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Jonathan Hart";
+        email = "jonathan.e.hart@outlook.com";
+      };
+
       pull = {
         rebase = true;
         ff = "only";
