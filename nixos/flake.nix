@@ -14,10 +14,9 @@
       ...
     }:
     {
-      # NOTE: 'nixos' is the default hostname
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
         modules = [
-          ./configuration.nix
+          ./hosts/vm/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
