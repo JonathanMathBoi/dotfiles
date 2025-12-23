@@ -11,32 +11,7 @@
     ../../modules/home/common.nix
   ];
 
-  programs.git = {
-    enable = true;
-
-    signing = {
-      key = "8D216E5BA2708CD8";
-      signByDefault = true;
-    };
-
-    settings = {
-      user = {
-        name = "Jonathan Hart";
-        email = "jonathan.e.hart@outlook.com";
-      };
-
-      pull = {
-        rebase = true;
-        ff = "only";
-      };
-
-      merge.ff = false;
-
-      init.defaultBranch = "main";
-    };
-  };
-
-  programs.gpg.enable = true;
+  programs.git.signing.key = "8D216E5BA2708CD8";
 
   programs.tmux = {
     enable = true;
