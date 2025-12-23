@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "jonathan";
-  home.homeDirectory = "/home/jonathan";
-
   # This value determines the Home Manager release that the configuration is compatible with.
   home.stateVersion = "25.11";
 
@@ -26,8 +23,6 @@
     publicShare = "${config.home.homeDirectory}/public";
     templates = "${config.home.homeDirectory}/templates";
   };
-
-  home.language.base = "en_US.UTF-8";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
