@@ -7,23 +7,6 @@
   # This value determines the Home Manager release that the configuration is compatible with.
   home.stateVersion = "25.11";
 
-  home.packages = with pkgs; [
-    # LSPs
-    lua-language-server
-    typescript-language-server # Provides ts_ls
-    vscode-langservers-extracted # Provides cssls, jsonls, and html
-    emmet-ls
-    nixd
-
-    # Formatters
-    stylua
-    prettierd
-    nixfmt-rfc-style
-
-    # Terminal tools
-    ripgrep
-  ];
-
   imports = [
     ../../modules/home/common.nix
   ];
@@ -77,9 +60,6 @@
       set -g renumber-windows on
     '';
   };
-
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/nvim";
 
   xdg.userDirs = {
     enable = true;
