@@ -123,8 +123,9 @@
   # For mounting drives as a user
   services.udisks2.enable = true;
 
-  # QEMU Guest services
+  # QEMU Guest services and clipboard sharing
   services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
