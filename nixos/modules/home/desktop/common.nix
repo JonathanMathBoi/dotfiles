@@ -10,5 +10,7 @@
     # TODO: Switch from waybar to AGS
     ./waybar.nix
     ./dunst.nix
+
+    ./brave.nix
   ];
 }
