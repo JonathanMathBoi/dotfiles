@@ -35,6 +35,17 @@
 
   programs.hyprland.enable = true;
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # The command to run tuigreet
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
   # QEMU Guest services and clipboard sharing
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
