@@ -16,6 +16,7 @@
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
     ../../modules/system/sshd.nix
+    ../../modules/system/pipewire.nix
   ];
 
   nix.settings.experimental-features = [
@@ -33,11 +34,6 @@
   networking.hostName = "nixos";
 
   programs.hyprland.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
 
   # QEMU Guest services and clipboard sharing
   services.qemuGuest.enable = true;
