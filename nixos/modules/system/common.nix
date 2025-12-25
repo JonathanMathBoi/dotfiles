@@ -2,12 +2,8 @@
 
 {
   imports = [
+    ./nix-settings.nix
     ./fonts.nix
-  ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
   ];
 
   time.timeZone = "America/New_York";
