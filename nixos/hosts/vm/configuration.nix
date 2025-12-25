@@ -13,33 +13,19 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
     ../../modules/system/sshd.nix
     ../../modules/system/pipewire.nix
+    ../../modules/system/hyprland.nix
+    ../../modules/system/greetd.nix
   ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos";
-
-  programs.hyprland.enable = true;
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        # The command to run tuigreet
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --cmd Hyprland";
-        user = "greeter";
-      };
-    };
-  };
 
   # QEMU Guest services and clipboard sharing
   services.qemuGuest.enable = true;
