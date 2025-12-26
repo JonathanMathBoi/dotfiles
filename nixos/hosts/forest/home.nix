@@ -24,7 +24,7 @@
       "~/pictures/wallpapers/toon-totk.jpg"
       "~/pictures/wallpapers/forest-b-verse.jpg"
     ];
-    wallpapers = [
+    wallpaper = [
       "DP-5,~/pictures/wallpapers/toon-totk.jpg"
       "DP-3,~/pictures/wallpapers/forest-b-verse.jpg"
     ];
