@@ -18,4 +18,15 @@
   '';
 
   xdg.configFile."hypr/hyprlock.conf".source = ../../../.config/hypr/hyprlock.conf;
+
+  services.hyprpaper.settings = {
+    preload = [
+      "~/pictures/wallpapers/toon-totk.jpg"
+      "~/pictures/wallpapers/forest-b-verse.jpg"
+    ];
+    wallpapers = [
+      "DP-5,~/pictures/wallpapers/toon-totk.jpg"
+      "DP-3,~/pictures/wallpapers/forest-b-verse.jpg"
+    ];
+  };
 }

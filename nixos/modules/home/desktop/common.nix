@@ -4,6 +4,7 @@
   imports = [
     ./hyprland.nix
     ./cursor.nix
+    ./hyprpaper.nix
     ./hyprlauncher.nix
     ./hypridle.nix
     ./hyprlock.nix
