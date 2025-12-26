@@ -16,4 +16,6 @@
     monitor=DP-5,3440x1440@144,0x0,1
     monitor=DP-3,1920x1080@60,3440x360,1
   '';
+
+  xdg.configFile."hypr/hyprlock.conf".source = ../../../.config/hypr/hyprlock.conf;
 }
