@@ -1,11 +1,10 @@
 # My Dotfiles
 
-## 🚧 WIP: Stow -> Home Manager
+## 🛑 WIP: Stow -> Home Manager 🚧
 
-I'm working to convert my main machine from Arch to NixOS. Thus you may notice the `nixos` folder.
-This stores my work on my NixOS VM. Most config improvements I make will go straight to Nix rather
-than the rest of my dots. The one exception is Neovim config, as I prefer the Lazy.nvim way of
-config to stringified Lua.
+I have converted my main desktop from Arch to NixOS and am in the process of updating my remaining
+configurations in order to support that in a clean NixOS idiomatic way. As a result some configs may
+no longer work on Arch.
 
 ## Introduction
 
