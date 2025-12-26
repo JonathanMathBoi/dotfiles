@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import json
 import requests
 from datetime import datetime
@@ -88,28 +86,45 @@ def format_chances(hour):
     return ", ".join(conditions)
 
 
-data['text'] = WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
-    " " + weather['current_condition'][0]['FeelsLikeF']+ "°"
-#data['text'] = weather['current_condition'][0]['FeelsLikeF']+"°"
+data['text'] = WEATHER_CODES[weather['current_condition'][0]['weatherCode']] \
+    + " " + weather['current_condition'][0]['FeelsLikeF'] + "°"
+# data['text'] = weather['current_condition'][0]['FeelsLikeF']+"°"
 
-data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_F']}°</b>\n"
-data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeF']}°\n"
-data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
-data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
+data['tooltip'] = (
+    f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} "
+    f"{weather['current_condition'][0]['temp_F']}°</b>\n"
+)
+data['tooltip'] += (
+    f"Feels like: {weather['current_condition'][0]['FeelsLikeF']}°\n"
+)
+data['tooltip'] += (
+    f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
+)
+data['tooltip'] += (
+    f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
+)
+
 for i, day in enumerate(weather['weather']):
-    data['tooltip'] += f"\n<b>"
+    data['tooltip'] += "\n<b>"
     if i == 0:
         data['tooltip'] += "Today, "
     if i == 1:
         data['tooltip'] += "Tomorrow, "
     data['tooltip'] += f"{day['date']}</b>\n"
     data['tooltip'] += f"⬆️ {day['maxtempF']}° ⬇️ {day['mintempF']}° "
-    data['tooltip'] += f" {day['astronomy'][0]['sunrise']}  {day['astronomy'][0]['sunset']}\n"
+    data['tooltip'] += (
+        f" {day['astronomy'][0]['sunrise']} "
+        f" {day['astronomy'][0]['sunset']}\n"
+    )
     for hour in day['hourly']:
         if i == 0:
             if int(format_time(hour['time'])) < datetime.now().hour-2:
                 continue
-        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeF'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        data['tooltip'] += (
+            f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]}"
+            f" {format_temp(hour['FeelsLikeF'])} "
+            f"{hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        )
 
 
 print(json.dumps(data))

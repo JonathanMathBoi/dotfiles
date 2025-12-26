@@ -21,7 +21,7 @@
         "format": "{}",
         "tooltip": true,
         "interval": 1800, // Update every 30 min
-        "exec": "$HOME/.config/waybar/scripts/wttr.py",
+        "exec": "wttr-weather",
         "return-type": "json"
     },
 
