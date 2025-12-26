@@ -14,16 +14,31 @@
       ...
     }:
     {
-      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/vm/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jonathan = import ./hosts/vm/home.nix;
-          }
-        ];
+      nixosConfigurations = {
+	vm = nixpkgs.lib.nixosSystem {
+	  modules = [
+	    ./hosts/vm/configuration.nix
+	    home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      home-manager.users.jonathan = import ./hosts/vm/home.nix;
+	    }
+	  ];
+	};
+
+        forest = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+	  modules = [
+	    ./hosts/forest/configuration.nix
+	    home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      home-manager.users.jonathan = import ./hosts/forest/home.nix;
+	    }
+          ];
+        };
       };
     };
 }
