@@ -1,47 +1,12 @@
-# My Dotfiles
+# NixOS Configuration
 
-## 🛑 WIP: Stow -> Home Manager 🚧
+## Overview
 
-I have converted my main desktop from Arch to NixOS and am in the process of updating my remaining
-configurations in order to support that in a clean NixOS idiomatic way. As a result some configs may
-no longer work on Arch.
+This repository contains my personal NixOS configuration, managed using **Nix Flakes** and **Home
+Manager**.
 
-## Introduction
-
-This repository serves as a way for me to version control and backup my Arch Linux configuration. It
-contains all the configuration files critical to my workflow on Linux.
-
-## How to use
-
-This repository was designed with the use of [GNU Stow](https://www.gnu.org/software/stow/) in mind.
-
-1. Clone this repository into your home directory.
-
-```bash
-git clone https://github.com/JonathanMathBoi/dotfiles.git
-```
-
-2. Change directory into this repo.
-
-```bash
-cd dotfiles
-```
-
-3. **CRITICAL:** Ensure your local .config directory exists.
-
-If ~/.config does not exist, Stow will symlink the entire folder, which can cause issues with
-other applications. Creating the folder first forces Stow to symlink individual subfolders (like
-`nvim`, `fish`, etc.) inside it.
-
-```bash
-mkdir -p ~/.config
-```
-
-4. Use GNU Stow to symlink the configuration files to their proper location.
-
-```bash
-stow .
-```
+While this repository includes specific host configurations for my desktop ("forest"), it is
+primarily designed as a collection of reusable Nix modules.
 
 ## Credits
 
@@ -54,11 +19,10 @@ stow .
 - Dreams of Code
     - Great beginner tmux config tutorial.
       [*Tmux has forever changed the way I write code.*](https://youtu.be/DzNmUNvnB04?si=aIrAnJhVNn3tWHF5)
-    - Great tutorial on dotfile management. (The inspiration for this repo.)
-      [*Stow has forever changed the way I manage my dotfiles*](https://youtu.be/y6XCebnB9gs?si=6KnujL4hR3DT3mbE)
     - Great tutorial for `zoxide` (which I use for `cd`).
       [*zoxide has forever improved the way I navigate in the terminal.*](https://youtu.be/aghxkpyRVDY?si=wfni-WZ3MEOVKjLW)
 - The Primeagen
-    - Excellent crash course in Neovim. The source for the base of my nvim config.
+    - Excellent crash course in Neovim. The inspiration for me to try Neovim and make my own
+      configuration.
       [*0 to LSP : Neovim RC From Scratch*](https://youtu.be/w7i4amO_zaE?si=8QsyfXWeBeq6a1Dk)
 
