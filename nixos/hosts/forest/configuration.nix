@@ -2,21 +2,26 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ../../modules/system/systemd-boot.nix
-      ../../modules/system/common.nix
-      ../../modules/system/networkmanager.nix
-      ../../modules/system/sshd.nix
-      ../../modules/system/udisks.nix
-      ../../modules/system/pipewire.nix
-      ../../modules/system/hyprland.nix
-      ../../modules/system/greetd.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/system/systemd-boot.nix
+    ../../modules/system/common.nix
+    ../../modules/system/networkmanager.nix
+    ../../modules/system/sshd.nix
+    ../../modules/system/udisks.nix
+    ../../modules/system/docker.nix
+    ../../modules/system/pipewire.nix
+    ../../modules/system/hyprland.nix
+    ../../modules/system/greetd.nix
+  ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -63,4 +68,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-
