@@ -11,5 +11,6 @@
     ./neovim.nix
     ./terminal-tools.nix
     ./tmux.nix
+    ./fastfetch.nix
   ];
 }
