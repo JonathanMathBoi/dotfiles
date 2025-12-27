@@ -18,7 +18,7 @@
     monitor=DP-3,1920x1080@60,3440x360,1
   '';
 
-  xdg.configFile."hypr/hyprlock.conf".source = ../../../.config/hypr/hyprlock.conf;
+  xdg.configFile."hypr/hyprlock.conf".source = ../../../hypr/hyprlock.conf;
 
   services.hyprpaper.settings = {
     preload = [
