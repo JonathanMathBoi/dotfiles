@@ -22,10 +22,22 @@
     };
 
     gc = {
-      automatic = true;
+      # See nh for cleaning
+      automatic = false;
       persistent = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
   };
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/jonathan/dotfiles";
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 5";
+    };
+  };
+
+  systemd.timers."nh-clean".timerConfig.Persistent = true;
 }
