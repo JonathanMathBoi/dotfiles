@@ -6,6 +6,29 @@
     interactiveShellInit = ''
       set -gx GPG_TTY (tty)
     '';
+
+    functions = {
+      shutdown = {
+        body = ''
+          read -p "echo 'Shutdown the system? (y/N): '" -l confirm
+          if test "$confirm" = "y" -o "$confirm" = "Y"
+              systemctl poweroff
+          else
+              echo "Aborted."
+          end
+        '';
+      };
+      reboot = {
+        body = ''
+          read -p "echo 'Reboot the system? (y/N): '" -l confirm
+          if test "$confirm" = "y" -o "$confirm" = "Y"
+              systemctl reboot
+          else
+              echo "Aborted."
+          end
+        '';
+      };
+    };
   };
 
   programs.starship = {
