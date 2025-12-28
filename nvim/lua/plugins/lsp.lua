@@ -60,6 +60,11 @@ return {
 
       -- Nix LSP
       vim.lsp.enable('nixd')
+
+      -- Enable web deb LSPs
+      vim.lsp.enable('ts_ls')
+      vim.lsp.enable('cssls')
+      vim.lsp.enable('jsonls')
     end,
   },
 }

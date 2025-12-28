@@ -3,12 +3,12 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { 'prettier' },
-      typescript = { 'prettier' },
-      json = { 'prettier' },
-      html = { 'prettier' },
-      css = { 'prettier' },
-      ejs = { 'prettier' },
+      javascript = { 'prettierd' },
+      typescript = { 'prettierd' },
+      json = { 'prettierd' },
+      html = { 'prettierd' },
+      css = { 'prettierd' },
+      ejs = { 'prettierd' },
       nix = { 'nixfmt' },
     },
     format_on_save = {
