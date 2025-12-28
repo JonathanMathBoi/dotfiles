@@ -32,6 +32,9 @@
     enableSSHSupport = true;
   };
 
+  # Switched away from referance impl because it causes UWSM race conditions at shutdown
+  services.dbus.implementation = "broker";
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (
