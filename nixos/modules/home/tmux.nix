@@ -6,6 +6,7 @@
     mouse = true;
     baseIndex = 1;
     terminal = "tmux-256color";
+    keyMode = "vi";
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
