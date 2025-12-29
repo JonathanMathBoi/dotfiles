@@ -19,6 +19,7 @@
     ../../modules/system/udisks.nix
     ../../modules/system/docker.nix
     ../../modules/system/pipewire.nix
+    ../../modules/system/bluetooth.nix
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
   ];
