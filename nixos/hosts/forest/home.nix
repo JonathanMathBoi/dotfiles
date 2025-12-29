@@ -14,8 +14,9 @@
   programs.git.signing.key = "8D216E5BA2708CD8";
 
   xdg.configFile."hypr/monitors.conf".text = ''
-    monitor=DP-5,3440x1440@144,0x0,1
-    monitor=DP-3,1920x1080@60,3440x360,1
+    # Ultrawide only has VRR in fullscreen to prevent desktop flickering
+    monitor=DP-5,3440x1440@144,0x0,1,vrr,2
+    monitor=DP-3,2560x1440@100,3440x0,1
   '';
 
   xdg.configFile."hypr/hyprlock.conf".source = ../../../hypr/hyprlock.conf;
