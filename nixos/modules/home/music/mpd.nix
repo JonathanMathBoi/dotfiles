@@ -22,6 +22,9 @@
   services.mpdris2 = {
     enable = true;
     notifications = true;
-    multimediaKeys = true;
+
+    # Set multimediaKeys to false to prevent mpd from hijacking and blocking the signal from going
+    # to anyone else
+    multimediaKeys = false;
   };
 }
