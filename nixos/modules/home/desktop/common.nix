@@ -8,6 +8,7 @@
     ./hyprlauncher.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./mpris.nix
 
     # TODO: Switch from waybar to AGS
     ./waybar.nix
