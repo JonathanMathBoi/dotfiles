@@ -10,7 +10,10 @@
   # Needed to ensure Brave (and other chromium based apps) close cleanly at DE teardown
   systemd.user.services."wayland-wm@hyprland-uwsm.desktop" = {
     unitConfig = {
-      Before = [ "graphical-session.target" ];
+      Before = [
+        "graphical-session.target"
+        "app-graphical.slice"
+      ];
     };
   };
 }
