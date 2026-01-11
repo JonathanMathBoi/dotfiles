@@ -17,7 +17,7 @@
       # Formatters
       stylua
       prettierd
-      nixfmt-rfc-style
+      nixfmt
 
       # Telescope Live Grep
       ripgrep
