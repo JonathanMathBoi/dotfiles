@@ -27,8 +27,14 @@
       "~/pictures/wallpapers/forest-b-verse.jpg"
     ];
     wallpaper = [
-      "DP-5,~/pictures/wallpapers/toon-totk.jpg"
-      "DP-3,~/pictures/wallpapers/forest-b-verse.jpg"
+      {
+        monitor = "DP-5";
+        path = "~/pictures/wallpapers/toon-totk.jpg";
+      }
+      {
+        monitor = "DP-3";
+        path = "pictures/wallpapers/forest-b-verse.jpg";
+      }
     ];
   };
 }
