@@ -22,6 +22,7 @@
     ../../modules/system/bluetooth.nix
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
+    ../../modules/system/steam.nix
   ];
 
   # Use latest kernel.
@@ -52,6 +53,11 @@
       };
     };
   };
+
+  # Make sure steam library gets mounted without weird permission issues
+  systemd.tmpfiles.rules = [
+    "d /home/jonathan/.local/share/Steam 0755 jonathan users - -"
+  ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
