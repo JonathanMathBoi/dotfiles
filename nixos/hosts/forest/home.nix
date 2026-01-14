@@ -37,4 +37,26 @@
       }
     ];
   };
+
+  # Set Steam to use dGPU so that it launches properly
+  xdg.desktopEntries.steam = {
+    name = "Steam";
+    genericName = "Application Manager";
+    comment = "Application for managing and playing games on Steam";
+    exec = "steam %U";
+    icon = "steam";
+    terminal = false;
+    categories = [
+      "Network"
+      "FileTransfer"
+      "Game"
+    ];
+    mimeType = [
+      "x-scheme-handler/steam"
+      "x-scheme-handler/steamlink"
+    ];
+    settings = {
+      PrefersNonDefaultGPU = "true"; # Set to "false" if you want the default GPU
+    };
+  };
 }
