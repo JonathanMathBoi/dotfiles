@@ -3,7 +3,6 @@
 {
   programs.bat = {
     enable = true;
-    # TODO: Theme with catppuccin
   };
 
   programs.yazi = {
