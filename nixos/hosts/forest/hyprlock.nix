@@ -1,0 +1,101 @@
+{ ... }:
+
+let
+  # Catppuccin Macchiato colors
+  base = "rgb(36, 39, 58)";
+  text = "rgb(202, 211, 245)";
+  lavender = "rgb(183, 189, 248)";
+  blue = "rgb(138, 173, 244)";
+  red = "rgb(237, 135, 150)";
+in
+{
+  programs.hyprlock.settings = {
+    general = {
+      hide_cursor = true;
+      grace = 2;
+      ignore_empty_input = true;
+    };
+
+    background = [
+      {
+        monitor = "DP-5";
+        path = "~/pictures/wallpapers/toon-totk.png";
+        blur_size = 4;
+        blur_passes = 3;
+        noise = 0.0117;
+        contrast = 1.3;
+        brightness = 0.8;
+        vibrancy = 0.21;
+        vibrancy_darkness = 0.0;
+      }
+      {
+        monitor = "DP-3";
+        path = "~/pictures/wallpapers/forest-b.png";
+        color = base;
+        blur_size = 4;
+        blur_passes = 3;
+        noise = 0.0117;
+        contrast = 1.3;
+        brightness = 0.8;
+        vibrancy = 0.21;
+        vibrancy_darkness = 0.0;
+      }
+    ];
+
+    input-field = [
+      {
+        monitor = "DP-5";
+        size = "250, 50";
+        outline_thickness = 3;
+        dots_size = 0.2;
+        dots_spacing = 0.64;
+        dots_center = true;
+        outer_color = lavender;
+        inner_color = base;
+        font_color = text;
+        fade_on_empty = true;
+        placeholder_text = "<i>Password...</i>";
+        hide_input = false;
+        position = "0, 80";
+        halign = "center";
+        valign = "bottom";
+      }
+    ];
+
+    label = [
+      {
+        # Current time
+        monitor = "DP-5";
+        text = "cmd[update:1000] echo \"<b><big> $(date +\"%I:%M:%S %p\") </big></b>\"";
+        color = text;
+        font_size = 64;
+        font_family = "JetBrains Mono Nerd Font 10";
+        position = "0, 120";
+        halign = "center";
+        valign = "center";
+      }
+      {
+        # User label
+        monitor = "DP-5";
+        text = "Hey <span text_transform=\"capitalize\" size=\"larger\">$USER</span>";
+        color = text;
+        font_size = 20;
+        font_family = "JetBrains Mono Nerd Font 10";
+        position = "0, 20";
+        halign = "center";
+        valign = "center";
+      }
+      {
+        # Type to unlock
+        monitor = "DP-5";
+        text = "Type to unlock!";
+        color = text;
+        font_size = 16;
+        font_family = "JetBrains Mono Nerd Font 10";
+        position = "0, 40";
+        halign = "center";
+        valign = "bottom";
+      }
+    ];
+  };
+}

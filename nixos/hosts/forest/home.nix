@@ -9,6 +9,7 @@
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop/common.nix
     ../../modules/home/music/common.nix
+    ./hyprlock.nix
   ];
 
   programs.git.signing.key = "8D216E5BA2708CD8";
@@ -18,8 +19,6 @@
     monitor=DP-5,3440x1440@144,0x0,1,vrr,2
     monitor=DP-3,2560x1440@100,3440x0,1
   '';
-
-  xdg.configFile."hypr/hyprlock.conf".source = ../../../hypr/hyprlock.conf;
 
   services.hyprpaper.settings = {
     preload = [
