@@ -15,7 +15,7 @@
 
   xdg.configFile."hypr/monitors.conf".text = ''
     # Ultrawide only has VRR in fullscreen to prevent desktop flickering
-    monitor=DP-5,3440x1440@144,0x0,1,vrr,2
+    monitor=DP-5,3440x1440@144,0x0,1,vrr,0
     monitor=DP-3,2560x1440@100,3440x0,1
   '';
 
