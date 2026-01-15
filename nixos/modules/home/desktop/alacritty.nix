@@ -16,6 +16,7 @@
     };
   };
 
-  # Disable Nix/Home Manager managed catppuccin theme for alacritty since I already manage it myself
+  # Disable Nix/Home Manager managed catppuccin theme for alacritty
+  # since I don't love the purple background
   catppuccin.alacritty.enable = false;
 }
