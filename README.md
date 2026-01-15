@@ -12,8 +12,8 @@ primarily designed as a collection of reusable Nix modules.
 
 - SDG (Soli Deo Gloria)
 - zDyanTB's [HyprNova dotfiles](https://github.com/zDyanTB/HyprNova) 
-    - Used most of their `hyprlock.conf` to make mine.
     - Much inspiration for waybar config
+    - Inspiration for hyprlock config
 - lgaboury's [Sway waybar install](https://github.com/lgaboury/Sway-Waybar-Install-Script)
     - Copied their waybar weather module and python script
 - Dreams of Code

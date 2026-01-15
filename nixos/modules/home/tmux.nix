@@ -10,10 +10,6 @@
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
-      {
-        plugin = catppuccin;
-        extraConfig = "set -g @catppuccin_flavour 'macchiato'";
-      }
     ];
 
     extraConfig = ''
@@ -24,4 +20,7 @@
       set -g renumber-windows on
     '';
   };
+
+  # Explicitly turning on catppuccin theme for tmux
+  catppuccin.tmux.enable = true;
 }

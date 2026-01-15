@@ -9,7 +9,6 @@
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop/common.nix
     ../../modules/home/music/common.nix
-    ./hyprlock.nix
   ];
 
   programs.git.signing.key = "8D216E5BA2708CD8";
@@ -33,6 +32,33 @@
       {
         monitor = "DP-3";
         path = "pictures/wallpapers/forest-b-verse.jpg";
+      }
+    ];
+  };
+
+  programs.hyprlock.settings = {
+    background = [
+      {
+        monitor = "DP-5";
+        path = "~/pictures/wallpapers/toon-totk.png";
+        blur_size = 4;
+        blur_passes = 3;
+        noise = 0.0117;
+        contrast = 1.3;
+        brightness = 0.8;
+        vibrancy = 0.21;
+        vibrancy_darkness = 0.0;
+      }
+      {
+        monitor = "DP-3";
+        path = "~/pictures/wallpapers/forest-b.png";
+        blur_size = 4;
+        blur_passes = 3;
+        noise = 0.0117;
+        contrast = 1.3;
+        brightness = 0.8;
+        vibrancy = 0.21;
+        vibrancy_darkness = 0.0;
       }
     ];
   };

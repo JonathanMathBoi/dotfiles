@@ -15,4 +15,7 @@
       };
     };
   };
+
+  # Disable Nix/Home Manager managed catppuccin theme for alacritty since I already manage it myself
+  catppuccin.alacritty.enable = false;
 }

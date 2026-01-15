@@ -26,4 +26,7 @@
 
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+
+  # Disable Nix/Home Manager managed catppuccin theme for nvim since I already manage it myself
+  catppuccin.nvim.enable = false;
 }
