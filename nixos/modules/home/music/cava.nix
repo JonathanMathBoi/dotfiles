@@ -8,4 +8,9 @@
       input.source = "/tmp/mpd.fifo";
     };
   };
+
+  catppuccin.cava = {
+    enable = true;
+    transparent = true;
+  };
 }
