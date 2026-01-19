@@ -9,6 +9,7 @@
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop/common.nix
     ../../modules/home/music/common.nix
+    ../../modules/home/desktop/mangohud.nix
   ];
 
   programs.git.signing.key = "8D216E5BA2708CD8";
