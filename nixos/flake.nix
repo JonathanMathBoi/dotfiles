@@ -42,6 +42,27 @@
             }
           ];
         };
+
+        meadow = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/meadow/configuration.nix
+            disko.nixosModules.disko
+            nixos-hardware.nixosModules.microsoft-surface-go
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.jonathan = {
+                imports = [
+                  ./hosts/meadow/home.nix
+                  catppuccin.homeModules.catppuccin
+                ];
+              };
+            }
+          ];
+        };
       };
     };
 }
