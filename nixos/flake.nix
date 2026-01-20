@@ -6,6 +6,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
   outputs =
     inputs@{
@@ -13,6 +18,8 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      disko,
+      nixos-hardware,
       ...
     }:
     {
