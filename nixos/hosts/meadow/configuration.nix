@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -14,6 +14,8 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
   ];
+
+  hardware.microsoft-surface.kernelVersion = "stable";
 
   networking.hostName = "meadow";
 
