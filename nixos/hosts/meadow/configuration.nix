@@ -7,6 +7,7 @@
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
+    ../../modules/system/sshd.nix
     ../../modules/system/udisks.nix
     ../../modules/system/pipewire.nix
     ../../modules/system/bluetooth.nix
