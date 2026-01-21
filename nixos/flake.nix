@@ -10,8 +10,7 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # TODO: Switch back to upstream when kernel is fixed
-    nixos-hardware.url = "github:8bitbuddhist/nixos-hardware?ref=surface-rust-target-spec-fix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
   outputs =
     inputs@{
