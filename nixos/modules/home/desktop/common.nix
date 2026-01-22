@@ -16,5 +16,11 @@
 
     ./alacritty.nix
     ./brave.nix
+    ./discord.nix
   ];
+
+  # Help with some apps to run in wayland rather then XWayland
+  systemd.user.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 }
