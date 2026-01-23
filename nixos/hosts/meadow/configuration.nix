@@ -23,6 +23,12 @@
 
   services.iptsd.enable = true;
 
+  # Enabled for USB-C PD charging
+  hardware.enableRedistributableFirmware = true;
+  services.power-profiles-daemon.enable = true;
+  # Disabled since power-profiles-daemon is the new standard way to deal with that
+  services.tlp.enable = false;
+
   environment.systemPackages = with pkgs; [
     surface-control
   ];
