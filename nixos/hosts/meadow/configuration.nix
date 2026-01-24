@@ -25,10 +25,14 @@
 
   # Enabled for USB-C PD charging
   hardware.enableRedistributableFirmware = true;
+
+  # Power management
   services.power-profiles-daemon.enable = true;
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
 
+  # TODO: Make this actually work.
+  # Currently all uses of surface control just error
   environment.systemPackages = with pkgs; [
     surface-control
   ];
