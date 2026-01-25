@@ -8,11 +8,14 @@
     ../../modules/home/common.nix
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop
-    ../../modules/home/desktop/music/common.nix
+    ../../modules/home/desktop/music
     ../../modules/home/desktop/mangohud.nix
   ];
 
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    mpd.enable = true;
+  };
 
   programs.git.signing.key = "8D216E5BA2708CD8";
 

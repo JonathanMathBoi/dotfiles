@@ -8,10 +8,13 @@
     ../../modules/home/common.nix
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop
-    ../../modules/home/desktop/music/common.nix
+    ../../modules/home/desktop/music
   ];
 
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    mpd.enable = true;
+  };
 
   programs.git.signing.key = "E44941267E6C7C82";
 
