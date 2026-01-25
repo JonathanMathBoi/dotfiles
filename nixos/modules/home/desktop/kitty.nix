@@ -11,6 +11,8 @@ in
         font_family = "JetBrainsMono NF";
         font_size = "11.25";
 
+        text_composition_strategy = "legacy";
+
         # Foreground and background colors copied from alacritty default
         foreground = "#d8d8d8";
         background = "#181818";
