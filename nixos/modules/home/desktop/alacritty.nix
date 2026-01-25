@@ -4,7 +4,7 @@ let
   cfg = config.desktop;
 in
 {
-  config = lib.mkIf (cfg.enable && cfg.terminal == "alacritty") {
+  config = lib.mkIf (cfg.enable && cfg.alacritty.enable) {
     programs.alacritty = {
       enable = true;
       settings = {
