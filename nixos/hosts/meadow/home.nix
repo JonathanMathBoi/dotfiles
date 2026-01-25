@@ -8,7 +8,7 @@
     ../../modules/home/common.nix
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop
-    ../../modules/home/music/common.nix
+    ../../modules/home/desktop/music/common.nix
   ];
 
   desktop.enable = true;
