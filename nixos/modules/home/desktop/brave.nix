@@ -1,5 +1,10 @@
-{ ... }:
+{ config, lib, ... }:
 
+let
+  cfg = config.desktop;
+in
 {
-  programs.brave.enable = true;
+  config = lib.mkIf (cfg.enable && cfg.browser == "brave") {
+    programs.brave.enable = true;
+  };
 }

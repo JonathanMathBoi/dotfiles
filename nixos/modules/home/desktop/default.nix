@@ -30,6 +30,12 @@ in
       default = "alacritty";
       description = "The main terminal emulator for the DE to use.";
     };
+
+    browser = mkOption {
+      type = types.enum [ "brave" ];
+      default = "brave";
+      description = "The default browser";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -41,6 +47,7 @@ in
     # Generate hyprland variables based on options
     xdg.configFile."hypr/nix-vars.conf".text = ''
       $terminal = ${cfg.terminal}
+      $browser = ${cfg.browser}
     '';
   };
 }
