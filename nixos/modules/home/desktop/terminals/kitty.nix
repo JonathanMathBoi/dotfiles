@@ -19,6 +19,8 @@ in
         background = "#111111";
         background_opacity = "0.82";
         confirm_os_window_close = 0;
+
+        # TODO: Switch Kitty to prefered (alacritty default) color palette
       };
     };
 
