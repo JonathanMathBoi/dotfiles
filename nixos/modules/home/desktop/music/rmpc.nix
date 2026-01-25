@@ -37,19 +37,28 @@ in
                   ),
                   (
                     size: "60%",
-                    pane: Split(
-                      direction: Vertical,
-                      panes: [
-                        (
-                          size: "70%",
+                    ${
+                      if cfg.cava.enable then
+                        ''
+                          pane: Split(
+                            direction: Vertical,
+                            panes: [
+                              (
+                                size: "70%",
+                                pane: Pane(Queue),
+                              ),
+                              (
+                                size: "30%",
+                                pane: Pane(Cava),
+                              ),
+                            ],
+                          ),
+                        ''
+                      else
+                        ''
                           pane: Pane(Queue),
-                        ),
-                        (
-                          size: "30%",
-                          pane: Pane(Cava),
-                        ),
-                      ],
-                    ),
+                        ''
+                    }
                   ),
                 ],
               ),
@@ -79,15 +88,17 @@ in
               pane: Pane(Search),
             ),
           ],
-          cava: (
-            input: (
-              method: Fifo,
-              source: "/tmp/mpd.fifo",
-              sample_rate: 44100,
-              channels: 2,
-              sample_bits: 16,
+          ${optionalString cfg.cava.enable ''
+            cava: (
+              input: (
+                method: Fifo,
+                source: "/tmp/mpd.fifo",
+                sample_rate: 44100,
+                channels: 2,
+                sample_bits: 16,
+              ),
             ),
-          ),
+          ''}
         )
       '';
     };
