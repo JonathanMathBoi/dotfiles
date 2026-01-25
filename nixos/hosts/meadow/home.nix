@@ -7,9 +7,11 @@
   imports = [
     ../../modules/home/common.nix
     ../../modules/home/user-dirs.nix
-    ../../modules/home/desktop/common.nix
+    ../../modules/home/desktop
     ../../modules/home/music/common.nix
   ];
+
+  desktop.enable = true;
 
   programs.git.signing.key = "E44941267E6C7C82";
 
