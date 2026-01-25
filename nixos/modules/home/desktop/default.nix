@@ -17,10 +17,10 @@ in
     ./waybar.nix
     ./dunst.nix
 
-    ./alacritty.nix
-    ./kitty.nix
     ./brave.nix
     ./discord.nix
+
+    ./terminals
   ];
 
   options.desktop = {
