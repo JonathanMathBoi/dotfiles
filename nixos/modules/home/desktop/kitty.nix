@@ -9,11 +9,11 @@ in
       enable = true;
       settings = {
         font_family = "JetBrainsMono NF";
-        font_size = "12.0";
-        bold_font = "auto";
-        italic_font = "auto";
-        bold_italic_font = "auto";
+        font_size = "11.25";
 
+        # Foreground and background colors copied from alacritty default
+        foreground = "#d8d8d8";
+        background = "#181818";
         background_opacity = "0.82";
         confirm_os_window_close = 0;
       };
