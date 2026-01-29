@@ -18,10 +18,10 @@ in
     ./dunst.nix
 
     ./brave.nix
-    ./discord.nix
 
     ./terminals
     ./music
+    ./applications
   ];
 
   options.desktop = {
