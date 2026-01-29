@@ -8,7 +8,6 @@
     ../../modules/home/common.nix
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop
-    ../../modules/home/desktop/music
   ];
 
   desktop = {

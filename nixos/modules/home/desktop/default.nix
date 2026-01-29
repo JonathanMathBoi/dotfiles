@@ -21,6 +21,7 @@ in
     ./discord.nix
 
     ./terminals
+    ./music
   ];
 
   options.desktop = {
