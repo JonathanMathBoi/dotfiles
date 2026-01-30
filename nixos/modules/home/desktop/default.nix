@@ -17,21 +17,14 @@ in
     ./waybar.nix
     ./dunst.nix
 
-    ./brave.nix
-
     ./terminals
+    ./browsers
     ./music
     ./applications
   ];
 
   options.desktop = {
     enable = mkEnableOption "desktop environment";
-
-    browser = mkOption {
-      type = types.enum [ "brave" ];
-      default = "brave";
-      description = "The default browser";
-    };
   };
 
   config = mkIf cfg.enable {
