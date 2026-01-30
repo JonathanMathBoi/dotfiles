@@ -26,6 +26,7 @@ return {
       { '<leader>c', group = 'Code' },
       { '<leader>d', group = 'Diagnostics' },
       { '<leader>f', group = 'Find' },
+      { '<leader>h', group = 'Harpoon' },
     })
   end,
 }
