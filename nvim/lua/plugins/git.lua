@@ -15,13 +15,13 @@ return {
         -- TODO: Consider adding commands to jump between hunks
 
         -- Keybinds for hunk staging
-        map('n', '<leader>hs', gs.stage_hunk, { desc = 'Stage Hunk' })
-        map('n', '<leader>hr', gs.reset_hunk, { desc = 'Reset Hunk' })
-        map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'Undo Stage Hunk' })
+        map('n', '<leader>ghs', gs.stage_hunk, { desc = 'Stage Hunk' })
+        map('n', '<leader>ghr', gs.reset_hunk, { desc = 'Reset Hunk' })
+        map('n', '<leader>ghu', gs.undo_stage_hunk, { desc = 'Undo Stage Hunk' })
 
         -- Keybinds for buffer staging
-        map('n', '<leader>bs', gs.stage_buffer, { desc = 'Stage Buffer' })
-        map('n', '<leader>br', gs.reset_buffer, { desc = 'Reset Buffer' })
+        map('n', '<leader>gfs', gs.stage_buffer, { desc = 'Stage File' })
+        map('n', '<leader>gfr', gs.reset_buffer, { desc = 'Reset File' })
 
         -- Keybinds for git blame
         map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = 'Toggle Blame' })

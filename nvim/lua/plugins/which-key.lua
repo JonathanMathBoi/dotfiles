@@ -21,8 +21,8 @@ return {
 
     wk.add({
       { '<leader>g', group = 'Git' },
-      { '<leader>h', group = 'Git Hunks' },
-      { '<leader>b', group = 'Buffer' },
+      { '<leader>gh', group = 'Git Hunks' },
+      { '<leader>gf', group = 'Git File' },
       { '<leader>c', group = 'Code' },
       { '<leader>d', group = 'Diagnostics' },
       { '<leader>f', group = 'Find' },
