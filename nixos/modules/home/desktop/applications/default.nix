@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.desktop;
+  cfg = config.dots.desktop;
 in
 {
   imports = [
@@ -10,7 +10,7 @@ in
     ./xournalpp.nix
   ];
 
-  options.desktop = {
+  options.dots.desktop = {
     discord.enable = mkOption {
       type = lib.types.bool;
       default = true;

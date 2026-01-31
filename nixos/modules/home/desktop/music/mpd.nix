@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.desktop.mpd;
+  cfg = config.dots.desktop.mpd;
 in
 {
   config = mkIf cfg.enable {

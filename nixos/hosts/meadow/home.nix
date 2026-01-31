@@ -10,7 +10,7 @@
     ../../modules/home/desktop
   ];
 
-  desktop = {
+  dots.desktop = {
     enable = true;
     mpd.enable = true;
 

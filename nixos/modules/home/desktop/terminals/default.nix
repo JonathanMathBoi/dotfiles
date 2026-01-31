@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.desktop;
+  cfg = config.dots.desktop;
 in
 {
   imports = [
@@ -10,7 +10,7 @@ in
     ./kitty.nix
   ];
 
-  options.desktop = {
+  options.dots.desktop = {
     terminal = mkOption {
       type = types.enum [
         "alacritty"
@@ -25,8 +25,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    desktop.alacritty.enable = mkDefault (cfg.terminal == "alacritty");
-    desktop.kitty.enable = mkDefault (cfg.terminal == "kitty");
+    dots.desktop.alacritty.enable = mkDefault (cfg.terminal == "alacritty");
+    dots.desktop.kitty.enable = mkDefault (cfg.terminal == "kitty");
 
     assertions = [
       {

@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.desktop.mpd;
+  cfg = config.dots.desktop.mpd;
 in
 {
   imports = [
@@ -11,7 +11,7 @@ in
     ./rmpc.nix
   ];
 
-  options.desktop.mpd = {
+  options.dots.desktop.mpd = {
     enable = mkEnableOption "mpd";
 
     client = mkOption {
@@ -31,7 +31,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    desktop.mpd.rmpc.enable = mkDefault (cfg.client == "rmpc");
+    dots.desktop.mpd.rmpc.enable = mkDefault (cfg.client == "rmpc");
 
     assertions = [
       {

@@ -1,7 +1,7 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.desktop;
+  cfg = config.dots.desktop;
 in
 {
   imports = [
@@ -23,7 +23,7 @@ in
     ./applications
   ];
 
-  options.desktop = {
+  options.dots.desktop = {
     enable = mkEnableOption "desktop environment";
   };
 

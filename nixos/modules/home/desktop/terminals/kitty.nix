@@ -1,10 +1,11 @@
 { config, lib, ... }:
 
+with lib;
 let
-  cfg = config.desktop;
+  cfg = config.dots.desktop;
 in
 {
-  config = lib.mkIf (cfg.enable && cfg.kitty.enable) {
+  config = mkIf (cfg.enable && cfg.kitty.enable) {
     programs.kitty = {
       enable = true;
       settings = {

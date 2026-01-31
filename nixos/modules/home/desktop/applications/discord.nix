@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.desktop;
+  cfg = config.dots.desktop;
 in
 {
   config = mkIf (cfg.enable && cfg.discord.enable) {

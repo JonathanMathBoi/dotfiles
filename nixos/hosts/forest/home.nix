@@ -11,7 +11,7 @@
     ../../modules/home/desktop/mangohud.nix
   ];
 
-  desktop = {
+  dots.desktop = {
     enable = true;
     mpd.enable = true;
   };

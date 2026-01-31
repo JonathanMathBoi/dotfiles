@@ -2,14 +2,14 @@
 
 with lib;
 let
-  cfg = config.desktop;
+  cfg = config.dots.desktop;
 in
 {
   imports = [
     ./brave.nix
   ];
 
-  options.desktop = {
+  options.dots.desktop = {
     browser = mkOption {
       type = types.enum [ "brave" ];
       default = "brave";
@@ -20,7 +20,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    desktop.brave.enable = mkDefault (cfg.browser == "brave");
+    dots.desktop.brave.enable = mkDefault (cfg.browser == "brave");
 
     assertions = [
       {
