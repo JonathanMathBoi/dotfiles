@@ -3,8 +3,9 @@ return {
   opts = {},
   cmd = 'Trouble',
   keys = {
-    { '<leader>dt', '<CMD>Trouble diagnostics toggle<CR>', desc = 'Project Diagnostics (Trouble)' },
-    { '<leader>dT', '<CMD>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)' },
+    { '<leader>td', '<CMD>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Trouble Diagnostics (Buffer)' },
+    { '<leader>tD', '<CMD>Trouble diagnostics toggle<CR>', desc = 'Trouble Diagnostics (Project)' },
+    { '<leader>tt', '<CMD>Trouble todo toggle<CR>', desc = 'Trouble TODO comments' },
     {
       ']d',
       function()
