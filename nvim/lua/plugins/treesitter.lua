@@ -3,6 +3,7 @@ return {
   lazy = false,
   build = ':TSUpdate',
   opts = {
+    -- TODO: Convert treesitter parser management to Nix/Home Manager
     ensure_installed = {
       'lua',
       'javascript',

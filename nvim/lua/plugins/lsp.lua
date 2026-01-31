@@ -8,6 +8,7 @@ return {
     config = function()
       local is_nixos = vim.fn.has('unix') == 1 and vim.fn.executable('nixos-version') == 1
 
+      -- TODO: Convert LSP installs to Nix/Home Manager completely
       require('mason').setup()
       require('mason-lspconfig').setup({
         ensure_installed = is_nixos and {} or {
