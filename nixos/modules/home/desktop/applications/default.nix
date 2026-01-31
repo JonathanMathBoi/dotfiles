@@ -7,6 +7,7 @@ in
 {
   imports = [
     ./discord.nix
+    ./xournalpp.nix
   ];
 
   options.desktop = {
@@ -16,5 +17,7 @@ in
       example = true;
       description = "Whether to enable discord.";
     };
+
+    xournalpp.enable = mkEnableOption "xournalpp";
   };
 }
