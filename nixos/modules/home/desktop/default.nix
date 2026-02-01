@@ -21,6 +21,7 @@ in
     ./browsers
     ./music
     ./applications
+    ./creative
   ];
 
   options.dots.desktop = {
