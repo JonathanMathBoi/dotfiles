@@ -6,6 +6,14 @@ let
 in
 {
   config = mkIf (cfg.enable && cfg.brave.enable) {
-    programs.brave.enable = true;
+    programs.brave = {
+      enable = true;
+      commandLineArgs = [
+        # BUG: Surface Stylus crashes on Wayland when stylus and then touchpad
+        # Submitt bug report and switch back to Wayland as soon as possible
+        "--ozone-platform=x11"
+        "--force-device-scale-factor=1.25"
+      ];
+    };
   };
 }
