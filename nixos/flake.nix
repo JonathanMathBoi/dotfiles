@@ -10,7 +10,8 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # FIXME: Switch to main nixos-hardware branch when PR is merged
+    # BUG: Main NixOS Hardware branch's surface kernel is behind and can't compile
+    # Switch to main nixos-hardware branch when PR is merged
     nixos-hardware.url = "github:8bitbuddhist/nixos-hardware/surface-kernel-6.18";
   };
   outputs =
