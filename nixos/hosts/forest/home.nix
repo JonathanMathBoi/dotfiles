@@ -17,6 +17,7 @@
     gaming = {
       enable = true;
       mangohud.enable = true;
+      prism.enable = true;
     };
   };
 

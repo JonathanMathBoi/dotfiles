@@ -7,6 +7,7 @@ in
 {
   imports = [
     ./mangohud.nix
+    ./prism.nix
   ];
 
   options.dots.desktop.gaming = {
