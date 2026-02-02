@@ -8,12 +8,16 @@
     ../../modules/home/common.nix
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop
-    ../../modules/home/desktop/mangohud.nix
   ];
 
   dots.desktop = {
     enable = true;
     mpd.enable = true;
+
+    gaming = {
+      enable = true;
+      mangohud.enable = true;
+    };
   };
 
   programs.git.signing.key = "8D216E5BA2708CD8";

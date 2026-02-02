@@ -23,6 +23,7 @@ in
     ./music
     ./applications
     ./creative
+    ./gaming
   ];
 
   options.dots.desktop = {
