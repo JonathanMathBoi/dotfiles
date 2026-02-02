@@ -8,10 +8,11 @@ in
     ./hyprland.nix
     ./cursor.nix
     ./hyprpaper.nix
-    ./hyprlauncher.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./mpris.nix
+
+    ./launchers
 
     # TODO: Switch from waybar to AGS
     ./waybar.nix
@@ -36,6 +37,7 @@ in
 
     # Generate hyprland variables based on options
     xdg.configFile."hypr/nix-vars.conf".text = ''
+      $launcher = ${cfg.launcher}
       $terminal = ${cfg.terminal}
       $browser = ${cfg.browser}
     '';
