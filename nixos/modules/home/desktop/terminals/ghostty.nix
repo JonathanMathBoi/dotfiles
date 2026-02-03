@@ -19,6 +19,7 @@ in
 
         window-decoration = false;
         confirm-close-surface = false;
+        resize-overlay = "never";
 
         theme = "alacritty-default";
       };
