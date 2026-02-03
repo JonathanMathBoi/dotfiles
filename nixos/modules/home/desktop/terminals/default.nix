@@ -15,6 +15,7 @@ in
       type = types.enum [
         "alacritty"
         "kitty"
+        # TODO: Add ghostty
       ];
       default = "alacritty";
       description = "The main terminal emulator for the DE to use.";
