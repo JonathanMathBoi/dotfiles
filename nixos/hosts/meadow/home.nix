@@ -20,6 +20,8 @@
       enable = true;
       krita.enable = true;
     };
+
+    ghostty.enable = true;
   };
 
   programs.git.signing.key = "E44941267E6C7C82";
