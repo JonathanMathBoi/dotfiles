@@ -17,10 +17,8 @@ in
         background-opacity = 0.82;
         alpha-blending = "native";
 
-        # Performance & Integration (recommended for your stack)
-        # window-decoration = false; # Clean look like Alacritty
-        # confirm-close-surface = false; # Don't prompt when closing via tmux
-        theme = "default";
+        window-decoration = false;
+        confirm-close-surface = false;
       };
     };
 
