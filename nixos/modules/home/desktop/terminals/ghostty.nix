@@ -20,7 +20,12 @@ in
         # Performance & Integration (recommended for your stack)
         # window-decoration = false; # Clean look like Alacritty
         # confirm-close-surface = false; # Don't prompt when closing via tmux
+        theme = "default";
       };
     };
+
+    # Disable Nix/Home Manager managed catppuccin theme for ghostty
+    # since I don't love the purple background
+    catppuccin.alacritty.enable = false;
   };
 }
