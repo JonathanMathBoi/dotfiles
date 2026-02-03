@@ -8,11 +8,13 @@ in
     ./hyprland.nix
     ./cursor.nix
     ./hyprpaper.nix
+
+    # TODO: Convert lock screen and ilde to module options
+    # TODO: Add mobile vs desktop idle options
     ./hypridle.nix
     ./hyprlock.nix
-    ./mpris.nix
 
-    ./launchers
+    ./mpris.nix
 
     # TODO: Switch from waybar to AGS
     ./waybar.nix
@@ -24,6 +26,7 @@ in
     ./applications
     ./creative
     ./gaming
+    ./launchers
   ];
 
   options.dots.desktop = {
