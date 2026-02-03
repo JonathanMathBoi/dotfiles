@@ -18,7 +18,7 @@ in
         "kitty"
         "ghostty"
       ];
-      default = "alacritty";
+      default = "ghostty";
       description = "The main terminal emulator for the DE to use.";
     };
 
