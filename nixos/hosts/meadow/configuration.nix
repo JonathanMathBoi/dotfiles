@@ -13,6 +13,7 @@
     ../../modules/system/bluetooth.nix
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
+    ../../modules/system/tailscale.nix
   ];
 
   hardware.microsoft-surface.kernelVersion = "stable";

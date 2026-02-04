@@ -23,6 +23,7 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
     ../../modules/system/steam.nix
+    ../../modules/system/tailscale.nix
   ];
 
   # Use latest kernel.
