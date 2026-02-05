@@ -20,6 +20,7 @@ in
         window-decoration = false;
         confirm-close-surface = false;
         resize-overlay = "never";
+        # TODO: Find a way to turn off clipboard notifications
 
         theme = "alacritty-default";
       };
