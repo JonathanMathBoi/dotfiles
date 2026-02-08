@@ -46,6 +46,34 @@
     ];
   };
 
+  environment.systemPackages = with pkgs; [
+    intel-gpu-tools
+    clinfo
+  ];
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-vulkan;
+    user = "ollama";
+    group = "ollama";
+  };
+
+  environment.variables = {
+    ONEAPI_DEVICE_SELECTOR = "level_zero:0";
+  };
+
+  # The ollama NixOS module defaults DynamicUser to true, which conflicts with
+  # /var/lib/ollama being a separate subvolume mount point.
+  # mkForce is used here to override the default and allow the service to manage
+  # its data on the pre-existing subvolume.
+  systemd.services.ollama.serviceConfig.DynamicUser = lib.mkForce false;
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/ollama 0750 ollama ollama - -"
+    "d /var/lib/ollama/models 0750 ollama ollama - -"
+    "d /home/jonathan/.local/share/Steam 0755 jonathan users - -"
+  ];
+
   boot.loader.systemd-boot = {
     windows = {
       "11" = {
@@ -54,11 +82,6 @@
       };
     };
   };
-
-  # Make sure steam library gets mounted without weird permission issues
-  systemd.tmpfiles.rules = [
-    "d /home/jonathan/.local/share/Steam 0755 jonathan users - -"
-  ];
 
   # TODO: Switch to tmpfs root / Erase your darlings with Impermanence
 

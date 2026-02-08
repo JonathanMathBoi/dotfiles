@@ -83,6 +83,16 @@
     ];
   };
 
+  fileSystems."/var/lib/ollama" = {
+    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
+    fsType = "btrfs";
+    options = [
+      "subvol=@ollama"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   swapDevices = [
     {
       device = "/swap/swapfile";
