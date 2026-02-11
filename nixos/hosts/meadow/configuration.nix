@@ -38,6 +38,42 @@
     surface-control
   ];
 
+  fileSystems."/home/jonathan/music" = {
+    device = "/dev/disk/by-label/MEDIA_SD";
+    fsType = "btrfs";
+    options = [
+      "subvol=@music"
+      "compress=zstd"
+      "noatime"
+
+      # Systemd automount options
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+
+      # Allows to mount and umount without sudo
+      "user"
+    ];
+  };
+
+  fileSystems."/home/jonathan/videos" = {
+    device = "/dev/disk/by-label/MEDIA_SD";
+    fsType = "btrfs";
+    options = [
+      "subvol=@videos"
+      "compress=zstd"
+      "noatime"
+
+      # Systemd automount options
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+
+      # Allows to mount and umount without sudo
+      "user"
+    ];
+  };
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
