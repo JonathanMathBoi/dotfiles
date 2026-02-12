@@ -66,6 +66,9 @@ return {
       vim.lsp.enable('ts_ls')
       vim.lsp.enable('cssls')
       vim.lsp.enable('jsonls')
+
+      -- Enable Java LSP
+      vim.lsp.enable('jdtls')
     end,
   },
 }
