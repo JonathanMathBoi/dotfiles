@@ -61,16 +61,16 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1770902628,
-        "narHash": "sha256-WoLLk0iFyWYWlNW3Be4s88DLFsqrKU29DNOOo8Wbtqw=",
-        "owner": "mexisme",
+        "lastModified": 1769790339,
+        "narHash": "sha256-aH00WqZJmnefVAXZSV2I46KwIm6b960oUeoQMRjROno=",
+        "owner": "8bitbuddhist",
         "repo": "nixos-hardware",
-        "rev": "3652e05fa7a64e4c2acaf221ccb0ccf98e2fe11f",
+        "rev": "ac6458d3bcef09b40317be72e2b4f3795936732c",
         "type": "github"
       },
       "original": {
-        "owner": "mexisme",
-        "ref": "microsoft-surface/update-kernel-6.18.8",
+        "owner": "8bitbuddhist",
+        "ref": "surface-kernel-6.18",
         "repo": "nixos-hardware",
         "type": "github"
       }
