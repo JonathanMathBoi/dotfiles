@@ -32,7 +32,7 @@
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
 
-  # TODO: Make this actually work.
+  # TODO: Make surface-control work / make the various surface hardware accessable
   # Currently all uses of surface control just error
   environment.systemPackages = with pkgs; [
     surface-control
@@ -73,6 +73,8 @@
       "user"
     ];
   };
+
+  # TODO: Configure remote building with forest
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

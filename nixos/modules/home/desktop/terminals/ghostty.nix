@@ -20,7 +20,13 @@ in
         window-decoration = false;
         confirm-close-surface = false;
         resize-overlay = "never";
-        # TODO: Find a way to turn off clipboard notifications
+
+        # Disables the "Copied to clipboard" toast notification
+        app-notifications = "no-clipboard-copy";
+
+        # Allows OSC 52 for things like Neovim
+        clipboard-read = "allow";
+        clipboard-write = "allow";
 
         theme = "alacritty-default";
       };

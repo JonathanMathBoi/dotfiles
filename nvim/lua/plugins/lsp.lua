@@ -62,6 +62,9 @@ return {
       -- Nix LSP
       vim.lsp.enable('nixd')
 
+      -- Rust LSP
+      vim.lsp.enable('rust_analyzer')
+
       -- Enable web deb LSPs
       vim.lsp.enable('ts_ls')
       vim.lsp.enable('cssls')
