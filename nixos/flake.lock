@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771037579,
-        "narHash": "sha256-NX5XuhGcsmk0oEII2PEtMRgvh2KaAv3/WWQsOpxAgR4=",
+        "lastModified": 1771188132,
+        "narHash": "sha256-qLXxN/tPrZtnekaLBQuVtxQfvqqs5cT5WbyH4zZaTGI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "05e6dc0f6ed936f918cb6f0f21f1dad1e4c53150",
+        "rev": "ae8003d8b61d0d373e7ca3da1a48f9c870d15df9",
         "type": "github"
       },
       "original": {
@@ -61,16 +61,16 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1769790339,
-        "narHash": "sha256-aH00WqZJmnefVAXZSV2I46KwIm6b960oUeoQMRjROno=",
-        "owner": "8bitbuddhist",
+        "lastModified": 1771171797,
+        "narHash": "sha256-ngIarpog/Hv5r9M1YyvsaaSUBCqtWqHl6pibq6n2ppo=",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "ac6458d3bcef09b40317be72e2b4f3795936732c",
+        "rev": "531af1dbaee7cfdd7aed1e595ce418b7e2e99a80",
         "type": "github"
       },
       "original": {
-        "owner": "8bitbuddhist",
-        "ref": "surface-kernel-6.18",
+        "owner": "NixOS",
+        "ref": "master",
         "repo": "nixos-hardware",
         "type": "github"
       }
