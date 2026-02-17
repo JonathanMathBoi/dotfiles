@@ -17,6 +17,9 @@
     vimAlias = true;
   };
 
+  # Because I use impermenance on some machines, mutableUsers can lead to erphemeral state headaches
+  users.mutableUsers = false;
+
   users.users.jonathan = {
     isNormalUser = true;
     hashedPasswordFile = "/etc/secrets/jonathan-password";

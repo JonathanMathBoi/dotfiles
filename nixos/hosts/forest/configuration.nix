@@ -100,9 +100,6 @@
     ];
     files = [
       "/etc/machine-id"
-      "/etc/shadow"
-      "/etc/passwd"
-      "/etc/group"
     ];
   };
 
