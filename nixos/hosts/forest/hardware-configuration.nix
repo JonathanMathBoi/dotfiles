@@ -27,11 +27,23 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [
+      "defaults"
+      "size=8G"
+      "mode=755"
+    ];
+  };
+
+  fileSystems."/persist" = {
     device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
     fsType = "btrfs";
+    neededForBoot = true;
     options = [
-      "subvol=@"
+      "subvol=@persist"
       "compress=zstd"
+      "noatime"
     ];
   };
 

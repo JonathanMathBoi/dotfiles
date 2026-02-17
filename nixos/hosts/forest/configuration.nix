@@ -83,7 +83,27 @@
     };
   };
 
-  # TODO: Switch to tmpfs root / Erase your darlings with Impermanence
+  environment.persistence."/persist" = {
+    enable = true;
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      "/var/lib/docker"
+      "/var/lib/tailscale"
+      "/var/lib/systemd/coredump"
+      "/var/lib/systemd/timers"
+      "/etc/NetworkManager/system-connections"
+      "/etc/ssh"
+    ];
+    files = [
+      "/etc/machine-id"
+      "/etc/shadow"
+      "/etc/passwd"
+      "/etc/group"
+    ];
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
