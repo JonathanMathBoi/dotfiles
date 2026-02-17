@@ -22,13 +22,17 @@
 
   users.users.jonathan = {
     isNormalUser = true;
-    hashedPasswordFile = "/etc/secrets/jonathan-password";
     extraGroups = [
       "wheel"
       "video"
       "audio"
     ];
     shell = pkgs.fish;
+
+    # TODO: Switch to sops-nix for passwords
+    # Make sure to use seperate passwords for each host, since that's what storing on host currently
+    # does
+    hashedPasswordFile = "/etc/secrets/jonathan-password";
   };
 
   programs.gnupg.agent = {
