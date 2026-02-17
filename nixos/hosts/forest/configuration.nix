@@ -96,6 +96,7 @@
       "/var/lib/systemd/timers"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
+      "/etc/secrets"
     ];
     files = [
       "/etc/machine-id"

@@ -20,8 +20,6 @@
 
   networking.hostName = "meadow";
 
-  users.users.jonathan.hashedPasswordFile = "/etc/secrets/jonathan-password";
-
   services.iptsd.enable = true;
 
   # Enabled for USB-C PD charging

@@ -19,6 +19,7 @@
 
   users.users.jonathan = {
     isNormalUser = true;
+    hashedPasswordFile = "/etc/secrets/jonathan-password";
     extraGroups = [
       "wheel"
       "video"
