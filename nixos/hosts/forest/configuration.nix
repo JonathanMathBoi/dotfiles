@@ -88,6 +88,7 @@
     hideMounts = true;
     directories = [
       "/var/log"
+      "/var/db/sudo"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/docker"
