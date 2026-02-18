@@ -103,11 +103,12 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
       "/etc/ssh/ssh_host_rsa_key"
       "/etc/ssh/ssh_host_rsa_key.pub"
-
-      # HACK: Remove /etc/secrets when switching to sops-nix
-      "/etc/secrets/jonathan-password"
     ];
   };
+
+  # HACK: Bind mount for secrets so passwords work
+  # Remove when implementing sops-nix
+  # TODO: Add bind mount for /etc/secrets
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
