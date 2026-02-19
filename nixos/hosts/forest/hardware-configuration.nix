@@ -66,6 +66,16 @@
     ];
   };
 
+  fileSystems."/var/lib/docker" = {
+    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
+    fsType = "btrfs";
+    options = [
+      "subvol=@docker"
+      "nodatacow"
+      "noatime"
+    ];
+  };
+
   fileSystems."/swap" = {
     device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
     fsType = "btrfs";

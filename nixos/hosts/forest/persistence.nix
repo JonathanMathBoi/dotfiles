@@ -9,7 +9,6 @@
       "/var/db/sudo"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
-      "/var/lib/docker"
       "/var/lib/tailscale"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
