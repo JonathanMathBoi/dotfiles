@@ -32,6 +32,7 @@
                         "compress=zstd"
                         "noatime"
                       ];
+                      mountpoint = "/persist";
                     };
                     "@home" = {
                       mountOptions = [
