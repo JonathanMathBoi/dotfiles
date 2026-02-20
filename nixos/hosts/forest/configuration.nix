@@ -11,8 +11,9 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./disko.nix
     ./persistence.nix
+    ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix

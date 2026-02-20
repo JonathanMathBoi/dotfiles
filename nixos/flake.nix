@@ -31,6 +31,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/forest/configuration.nix
+            disko.nixosModules.disko
             impermanence.nixosModules.impermanence
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
