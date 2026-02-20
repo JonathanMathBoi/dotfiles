@@ -20,85 +20,12 @@
     "nvme"
     "usb_storage"
     "usbhid"
+    "uas"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
-    fsType = "btrfs";
-    options = [
-      "subvol=@"
-      "compress=zstd"
-    ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
-    fsType = "btrfs";
-    options = [
-      "subvol=@home"
-      "compress=zstd"
-    ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
-    fsType = "btrfs";
-    options = [
-      "subvol=@nix"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
-    fsType = "btrfs";
-    options = [
-      "subvol=@swap"
-      "noatime"
-      "nodatacow"
-    ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0E8A-2770";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
-
-  fileSystems."/home/jonathan/.local/share/Steam" = {
-    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
-    fsType = "btrfs";
-    options = [
-      "subvol=@steam"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/var/lib/ollama" = {
-    device = "/dev/disk/by-uuid/82853c47-1e2e-458e-9672-d2b7c3402cc6";
-    fsType = "btrfs";
-    options = [
-      "subvol=@ollama"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  swapDevices = [
-    {
-      device = "/swap/swapfile";
-      size = 8 * 1024; # 8 * 1 GB
-    }
-  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

@@ -11,7 +11,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    impermanence.url = "github:nix-community/impermanence";
   };
+
   outputs =
     inputs@{
       self,
@@ -20,6 +22,7 @@
       catppuccin,
       disko,
       nixos-hardware,
+      impermanence,
       ...
     }:
     {
@@ -28,6 +31,8 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/forest/configuration.nix
+            disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {

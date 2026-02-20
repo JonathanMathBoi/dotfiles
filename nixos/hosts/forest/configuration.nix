@@ -11,6 +11,8 @@
 
 {
   imports = [
+    ./disko.nix
+    ./persistence.nix
     ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
@@ -83,7 +85,7 @@
     };
   };
 
-  # TODO: Switch to tmpfs root / Erase your darlings with Impermanence
+  # TODO: Convert forest SSD to LUKS
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
