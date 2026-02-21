@@ -1,39 +1,31 @@
 { inputs, lib, pkgs, ... }:
 
 let
-  # Maps each lazy.nvim plugin directory name (from lazy-lock.json) to the
-  # corresponding nixpkgs vimPlugin. These are copied into
-  # ~/.local/share/nvim/lazy/ at activation time so that lazy sees all
-  # plugins as already installed — no network required, no janky first-run.
-  lazyPlugins = {
-    "lazy.nvim"               = pkgs.vimPlugins.lazy-nvim;
-    "LuaSnip"                 = pkgs.vimPlugins.luasnip;
-    "catppuccin"              = pkgs.vimPlugins.catppuccin-nvim;
-    "cmp-buffer"              = pkgs.vimPlugins.cmp-buffer;
-    "cmp-nvim-lsp"            = pkgs.vimPlugins.cmp-nvim-lsp;
-    "cmp-path"                = pkgs.vimPlugins.cmp-path;
-    "cmp_luasnip"             = pkgs.vimPlugins.cmp_luasnip;
-    "conform.nvim"            = pkgs.vimPlugins.conform-nvim;
-    "gitsigns.nvim"           = pkgs.vimPlugins.gitsigns-nvim;
-    "harpoon"                 = pkgs.vimPlugins.harpoon;
-    "lualine.nvim"            = pkgs.vimPlugins.lualine-nvim;
-    "mason-lspconfig.nvim"    = pkgs.vimPlugins.mason-lspconfig-nvim;
-    "mason.nvim"              = pkgs.vimPlugins.mason-nvim;
-    "nvim-autopairs"          = pkgs.vimPlugins.nvim-autopairs;
-    "nvim-cmp"                = pkgs.vimPlugins.nvim-cmp;
-    "nvim-lspconfig"          = pkgs.vimPlugins.nvim-lspconfig;
-    "nvim-surround"           = pkgs.vimPlugins.nvim-surround;
-    "nvim-treesitter"         = pkgs.vimPlugins.nvim-treesitter;
-    "nvim-web-devicons"       = pkgs.vimPlugins.nvim-web-devicons;
-    "oil.nvim"                = pkgs.vimPlugins.oil-nvim;
-    "plenary.nvim"            = pkgs.vimPlugins.plenary-nvim;
-    "rainbow-delimiters.nvim" = pkgs.vimPlugins.rainbow-delimiters-nvim;
-    "telescope.nvim"          = pkgs.vimPlugins.telescope-nvim;
-    "todo-comments.nvim"      = pkgs.vimPlugins.todo-comments-nvim;
-    "trouble.nvim"            = pkgs.vimPlugins.trouble-nvim;
-    "vim-fugitive"            = pkgs.vimPlugins.vim-fugitive;
-    "which-key.nvim"          = pkgs.vimPlugins.which-key-nvim;
+  # Read the plugin list directly from lazy-lock.json so this stays in sync
+  # automatically whenever plugins are added or removed.
+  lockFile = builtins.fromJSON (builtins.readFile ../../nvim/lazy-lock.json);
+
+  # Normalize a Lazy directory name to the nixpkgs vimPlugins attribute name.
+  # Convention: replace '.' with '-' and lowercase.
+  # A small override table handles the handful of plugins whose nixpkgs name
+  # differs from what normalization produces.
+  nameOverrides = {
+    "catppuccin" = "catppuccin-nvim";
   };
+
+  toNixName = name:
+    if nameOverrides ? ${name}
+    then nameOverrides.${name}
+    else lib.replaceStrings [ "." ] [ "-" ] (lib.toLower name);
+
+  # Build the map of lazy-dir-name → store-path, silently skipping any plugin
+  # that isn't packaged in nixpkgs (it will fall back to Lazy's normal install).
+  lazyPlugins = lib.filterAttrs (_: v: v != null) (
+    lib.mapAttrs (name: _:
+      let nixName = toNixName name;
+      in if pkgs.vimPlugins ? ${nixName} then pkgs.vimPlugins.${nixName} else null
+    ) lockFile
+  );
 in
 
 {
