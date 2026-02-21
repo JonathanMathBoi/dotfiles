@@ -41,7 +41,7 @@
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/nixos/configuration.nix
+            ./hosts/iso/configuration.nix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
@@ -50,7 +50,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.jonathan = {
                 imports = [
-                  ./hosts/nixos/home.nix
+                  ./hosts/iso/home.nix
                   catppuccin.homeModules.catppuccin
                 ];
               };
