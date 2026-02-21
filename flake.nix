@@ -26,11 +26,10 @@
       ...
     }:
     {
-      # Build the live ISO with: nix build .#iso
-      packages.x86_64-linux.iso = self.nixosConfigurations.nixos.config.system.build.isoImage;
+      packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
 
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        iso = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/iso/configuration.nix

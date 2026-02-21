@@ -10,7 +10,6 @@
     ../../modules/home/desktop
   ];
 
-  # inputs.self now covers the full repo root (hypr/, nvim/, waybar/, wallpapers/)
   home.file."dotfiles".source = inputs.self;
 
   dots.desktop = {
