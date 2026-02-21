@@ -9,10 +9,8 @@ in
     ./cursor.nix
     ./hyprpaper.nix
 
-    # TODO: Convert lock screen and ilde to module options
-    # TODO: Add mobile vs desktop idle options
-    ./hypridle.nix
-    ./hyprlock.nix
+    ./idle
+    ./lock
 
     ./mpris.nix
 
@@ -44,6 +42,7 @@ in
       $launcher = ${cfg.launcher}
       $terminal = ${cfg.terminal}
       $browser = ${cfg.browser}
+      $lock = ${cfg.lock}
     '';
   };
 }
