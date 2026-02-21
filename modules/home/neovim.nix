@@ -9,12 +9,8 @@
     extraPackages = with pkgs; [
       # LSPs
       lua-language-server
-      typescript-language-server # Provides ts_ls
-      vscode-langservers-extracted # Provides cssls, jsonls, and html
-      emmet-ls
+      vscode-langservers-extracted # Provides cssls, jsonls, and html useful for various configs
       nixd
-      rust-analyzer
-      jdt-language-server
 
       # Formatters
       stylua
@@ -32,6 +28,9 @@
         json
         html
         embedded_template
+        nix
+        rust
+        java
       ]))
     ];
   };
