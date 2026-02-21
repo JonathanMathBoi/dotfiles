@@ -15,6 +15,8 @@
   # a real machine has a writable git clone at ~/dotfiles.
   # Also copy lazy.nvim itself as a real writable directory so lazy does not
   # attempt to re-clone it on every startup (a symlink to the store won't work).
+  # Finally, run a headless Lazy sync so all plugins are installed before the
+  # user opens nvim for the first time, avoiding the janky first-launch install.
   home.activation.setupDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD rm -rf $HOME/dotfiles
     $DRY_RUN_CMD cp -rT --no-preserve=mode ${inputs.self} $HOME/dotfiles
@@ -23,6 +25,8 @@
     $DRY_RUN_CMD rm -rf "$lazydir"
     $DRY_RUN_CMD mkdir -p "$(dirname "$lazydir")"
     $DRY_RUN_CMD cp -rT --no-preserve=mode ${pkgs.vimPlugins.lazy-nvim} "$lazydir"
+
+    $DRY_RUN_CMD ${pkgs.neovim}/bin/nvim --headless "+Lazy! sync" +qa
   '';
 
   dots.desktop = {
