@@ -15,6 +15,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Add Nix-managed plugins (e.g. treesitter parsers from programs.neovim.plugins) to rtp
+-- before lazy.nvim setup, since packpath auto-loading runs after init.lua completes
+for _, path in ipairs(vim.fn.globpath(vim.o.packpath, 'pack/*/start/*', 0, 1)) do
+  vim.opt.rtp:append(path)
+end
+
 -- Setup lazy.nvim
 require('lazy').setup({
   spec = {
