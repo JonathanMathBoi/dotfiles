@@ -12,13 +12,6 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     impermanence.url = "github:nix-community/impermanence";
-    # The flake lives in nixos/, so self only covers that subdirectory.
-    # This input points to the repo root so home modules can access hypr/,
-    # nvim/, waybar/, and wallpapers/.
-    dotfiles = {
-      url = "path:..";
-      flake = false;
-    };
   };
 
   outputs =
@@ -30,7 +23,6 @@
       disko,
       nixos-hardware,
       impermanence,
-      dotfiles,
       ...
     }:
     {

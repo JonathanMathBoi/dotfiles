@@ -10,9 +10,8 @@
     ../../modules/home/desktop
   ];
 
-  # inputs.dotfiles is the full repo root (path:.. input), which includes
-  # hypr/, nvim/, waybar/, and wallpapers/ that mkOutOfStoreSymlink configs need.
-  home.file."dotfiles".source = inputs.dotfiles;
+  # inputs.self now covers the full repo root (hypr/, nvim/, waybar/, wallpapers/)
+  home.file."dotfiles".source = inputs.self;
 
   dots.desktop = {
     enable = true;

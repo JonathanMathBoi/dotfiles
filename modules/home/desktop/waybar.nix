@@ -4,7 +4,7 @@ let
   # Manage the dependancies for the weather python script
   wttr-weather = pkgs.writers.writePython3Bin "wttr-weather" {
     libraries = [ pkgs.python3Packages.requests ];
-  } (builtins.readFile ../../../../waybar/scripts/wttr.py);
+  } (builtins.readFile ../../../waybar/scripts/wttr.py);
 in
 {
   programs.waybar = {
