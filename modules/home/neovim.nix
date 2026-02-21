@@ -9,9 +9,7 @@
     extraPackages = with pkgs; [
       # LSPs
       lua-language-server
-      typescript-language-server # Provides ts_ls
-      vscode-langservers-extracted # Provides cssls, jsonls, and html
-      emmet-ls
+      vscode-langservers-extracted # Provides cssls, jsonls, and html useful for various configs
       nixd
 
       # Formatters
@@ -21,6 +19,17 @@
 
       # Telescope Live Grep
       ripgrep
+    ];
+    plugins = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+      lua
+      javascript
+      css
+      json
+      html
+      embedded_template
+      nix
+      rust
+      java
     ];
   };
 

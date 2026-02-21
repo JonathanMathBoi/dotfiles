@@ -1,28 +1,7 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-    },
     config = function()
-      local is_nixos = vim.fn.has('unix') == 1 and vim.fn.executable('nixos-version') == 1
-
-      -- TODO: Convert LSP installs to Nix/Home Manager completely
-      require('mason').setup()
-      require('mason-lspconfig').setup({
-        ensure_installed = is_nixos and {} or {
-          'lua_ls',
-          'ts_ls',
-          'cssls',
-          'jsonls',
-
-          -- Needed for Web Dev course
-          'html',
-          'emmet_ls',
-        },
-      })
-
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
@@ -69,6 +48,8 @@ return {
       vim.lsp.enable('ts_ls')
       vim.lsp.enable('cssls')
       vim.lsp.enable('jsonls')
+      vim.lsp.enable('html')
+      vim.lsp.enable('emmet_ls')
 
       -- Enable Java LSP
       vim.lsp.enable('jdtls')
