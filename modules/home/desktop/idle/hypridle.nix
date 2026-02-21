@@ -16,7 +16,7 @@ in
         };
 
         listener =
-          if cfg.mobile == "mobile" then
+          if cfg."form-factor" == "mobile" then
             [
               {
                 # Turn off screen after 2 min idle on mobile
