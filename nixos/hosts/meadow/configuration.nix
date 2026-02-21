@@ -72,6 +72,9 @@
     ];
   };
 
+  # Accept bluetooth audio connections in
+  hardware.bluetooth.settings.General.Enable = "Source,Sink,Media,Socket";
+
   # TODO: Configure remote building with forest
 
   # This option defines the first version of NixOS you have installed on this particular machine,
