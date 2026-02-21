@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 {
   home.stateVersion = "25.11";
@@ -10,10 +10,15 @@
     ../../modules/home/desktop
   ];
 
-  home.file."dotfiles".source = inputs.self;
+  # Copy dotfiles to ~/dotfiles as a writable directory so that tools like
+  # lazy.nvim can write lock files into the config tree, replicating how
+  # a real machine has a writable git clone at ~/dotfiles.
+  home.activation.setupDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD rm -rf $HOME/dotfiles
+    $DRY_RUN_CMD cp -rT --no-preserve=mode ${inputs.self} $HOME/dotfiles
+  '';
 
-  # Pre-seed lazy.nvim from the Nix store so the bootstrap git-clone is skipped.
-  # Without this, neovim crashes on first launch because there is no network on the ISO.
+  # Pre-seed lazy.nvim so neovim starts without requiring network for initial bootstrap.
   home.file.".local/share/nvim/lazy/lazy.nvim".source = pkgs.vimPlugins.lazy-nvim;
 
   dots.desktop = {
