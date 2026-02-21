@@ -13,13 +13,17 @@
   # Copy dotfiles to ~/dotfiles as a writable directory so that tools like
   # lazy.nvim can write lock files into the config tree, replicating how
   # a real machine has a writable git clone at ~/dotfiles.
+  # Also copy lazy.nvim itself as a real writable directory so lazy does not
+  # attempt to re-clone it on every startup (a symlink to the store won't work).
   home.activation.setupDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD rm -rf $HOME/dotfiles
     $DRY_RUN_CMD cp -rT --no-preserve=mode ${inputs.self} $HOME/dotfiles
-  '';
 
-  # Pre-seed lazy.nvim so neovim starts without requiring network for initial bootstrap.
-  home.file.".local/share/nvim/lazy/lazy.nvim".source = pkgs.vimPlugins.lazy-nvim;
+    lazydir="$HOME/.local/share/nvim/lazy/lazy.nvim"
+    $DRY_RUN_CMD rm -rf "$lazydir"
+    $DRY_RUN_CMD mkdir -p "$(dirname "$lazydir")"
+    $DRY_RUN_CMD cp -rT --no-preserve=mode ${pkgs.vimPlugins.lazy-nvim} "$lazydir"
+  '';
 
   dots.desktop = {
     enable = true;
