@@ -16,15 +16,6 @@ in
       description = "The idle daemon for the DE to use.";
     };
 
-    "form-factor" = mkOption {
-      type = types.enum [
-        "desktop"
-        "mobile"
-      ];
-      default = "desktop";
-      description = "The device form factor. Use 'mobile' for shorter idle timeouts to conserve battery.";
-    };
-
     hypridle.enable = mkEnableOption "hypridle";
   };
 

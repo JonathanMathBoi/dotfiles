@@ -29,6 +29,15 @@ in
 
   options.dots.desktop = {
     enable = mkEnableOption "desktop environment";
+
+    formFactor = mkOption {
+      type = types.enum [
+        "desktop"
+        "mobile"
+      ];
+      default = "desktop";
+      description = "The device form factor. Use 'mobile' for shorter idle timeouts to conserve battery.";
+    };
   };
 
   config = mkIf cfg.enable {

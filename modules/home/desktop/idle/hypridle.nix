@@ -10,13 +10,13 @@ in
       enable = true;
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || uwsm app -- hyprlock";
+          lock_cmd = "pidof ${cfg.lock} || uwsm app -- ${cfg.lock}";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
 
         listener =
-          if cfg."form-factor" == "mobile" then
+          if cfg.formFactor == "mobile" then
             [
               {
                 # Turn off screen after 2 min idle on mobile

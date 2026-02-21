@@ -12,7 +12,7 @@
 
   dots.desktop = {
     enable = true;
-    "form-factor" = "mobile";
+    formFactor = "mobile";
     mpd.enable = true;
 
     xournalpp.enable = true;
