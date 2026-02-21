@@ -12,7 +12,7 @@
 
   dots.desktop = {
     enable = true;
-    mobile = true;
+    mobile = "mobile";
     mpd.enable = true;
 
     xournalpp.enable = true;

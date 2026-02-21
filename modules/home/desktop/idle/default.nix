@@ -17,9 +17,12 @@ in
     };
 
     mobile = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether the system is a mobile/laptop device. Enables shorter idle timeouts to conserve battery.";
+      type = types.enum [
+        "desktop"
+        "mobile"
+      ];
+      default = "desktop";
+      description = "The device type. Use 'mobile' for shorter idle timeouts to conserve battery.";
     };
 
     hypridle.enable = mkEnableOption "hypridle";

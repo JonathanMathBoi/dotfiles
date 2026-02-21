@@ -11,7 +11,8 @@ in
     # Script for quickly recovering from a hyprlock crash from TTY
     home.packages = [
       (pkgs.writeShellScriptBin "hyprlock-recover" ''
-        loginctl unlock-session && pkill hyprlock || true
+        hyprctl --instance 0 'keyword misc:allow_session_lock_restore 1'
+        hyprctl --instance 0 'dispatch exec hyprlock'
       '')
     ];
   };

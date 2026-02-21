@@ -16,18 +16,18 @@ in
         };
 
         listener =
-          if cfg.mobile then
+          if cfg.mobile == "mobile" then
             [
               {
-                # Lock screen after 2 min idle on mobile
+                # Turn off screen after 2 min idle on mobile
                 timeout = 2 * 60;
-                on-timeout = "loginctl lock-session";
-              }
-              {
-                # Turn off screen after 3 min idle on mobile
-                timeout = 3 * 60;
                 on-timeout = "hyprctl dispatch dpms off";
                 on-resume = "hyprctl dispatch dpms on";
+              }
+              {
+                # Lock screen after 3 min idle on mobile
+                timeout = 3 * 60;
+                on-timeout = "loginctl lock-session";
               }
             ]
           else
