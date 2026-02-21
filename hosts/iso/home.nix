@@ -13,17 +13,24 @@ let
     "catppuccin" = "catppuccin-nvim";
   };
 
+  # Plugins whose nixpkgs package doesn't match the branch/version required by
+  # the Lazy spec (e.g. harpoon wants branch = 'harpoon2' but nixpkgs ships v1).
+  # These are excluded from pre-seeding and Lazy installs them normally from git.
+  pluginExcludes = [ "harpoon" ];
+
   toNixName = name:
     if nameOverrides ? ${name}
     then nameOverrides.${name}
     else lib.replaceStrings [ "." ] [ "-" ] (lib.toLower name);
 
   # Build the map of lazy-dir-name → store-path, silently skipping any plugin
-  # that isn't packaged in nixpkgs (it will fall back to Lazy's normal install).
+  # that isn't packaged in nixpkgs or is listed in pluginExcludes.
   lazyPlugins = lib.filterAttrs (_: v: v != null) (
     lib.mapAttrs (name: _:
-      let nixName = toNixName name;
-      in if pkgs.vimPlugins ? ${nixName} then pkgs.vimPlugins.${nixName} else null
+      if builtins.elem name pluginExcludes then null
+      else
+        let nixName = toNixName name;
+        in if pkgs.vimPlugins ? ${nixName} then pkgs.vimPlugins.${nixName} else null
     ) lockFile
   );
 in
