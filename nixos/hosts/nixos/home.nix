@@ -10,10 +10,15 @@
     ../../modules/home/desktop
   ];
 
-  # Make dotfiles available at ~/dotfiles so symlinked configs resolve correctly
-  home.file."dotfiles".source = inputs.self;
+  # inputs.dotfiles is the full repo root (path:.. input), which includes
+  # hypr/, nvim/, waybar/, and wallpapers/ that mkOutOfStoreSymlink configs need.
+  home.file."dotfiles".source = inputs.dotfiles;
 
-  dots.desktop.enable = true;
+  dots.desktop = {
+    enable = true;
+    gaming.enable = false;
+    creative.enable = false;
+  };
 
   # Generic monitor config — let Hyprland pick the best mode automatically
   xdg.configFile."hypr/monitors.conf".text = ''
