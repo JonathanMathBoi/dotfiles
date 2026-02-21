@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.stateVersion = "25.11";
@@ -11,6 +11,10 @@
   ];
 
   home.file."dotfiles".source = inputs.self;
+
+  # Pre-seed lazy.nvim from the Nix store so the bootstrap git-clone is skipped.
+  # Without this, neovim crashes on first launch because there is no network on the ISO.
+  home.file.".local/share/nvim/lazy/lazy.nvim".source = pkgs.vimPlugins.lazy-nvim;
 
   dots.desktop = {
     enable = true;

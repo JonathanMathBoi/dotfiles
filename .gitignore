@@ -1,1 +1,3 @@
-# At the moment nothing needs to be ignored
+# nix build output symlink
+result
+result-*
