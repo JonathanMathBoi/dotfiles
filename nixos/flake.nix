@@ -26,7 +26,28 @@
       ...
     }:
     {
+      packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+
       nixosConfigurations = {
+        iso = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/iso/configuration.nix
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.jonathan = {
+                imports = [
+                  ./hosts/iso/home.nix
+                  catppuccin.homeModules.catppuccin
+                ];
+              };
+            }
+          ];
+        };
+
         forest = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
