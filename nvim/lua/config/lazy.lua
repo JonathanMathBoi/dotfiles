@@ -29,4 +29,10 @@ require('lazy').setup({
   change_detection = {
     notify = false,
   },
+  performance = {
+    rtp = {
+      -- Preserve Nix-managed paths (e.g. treesitter parsers from Home Manager)
+      reset = false,
+    },
+  },
 })
