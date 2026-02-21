@@ -13,6 +13,8 @@
       vscode-langservers-extracted # Provides cssls, jsonls, and html
       emmet-ls
       nixd
+      rust-analyzer
+      jdt-language-server
 
       # Formatters
       stylua
@@ -21,6 +23,16 @@
 
       # Telescope Live Grep
       ripgrep
+    ];
+    plugins = with pkgs.vimPlugins; [
+      (nvim-treesitter.withPlugins (p: with p; [
+        lua
+        javascript
+        css
+        json
+        html
+        embedded_template
+      ]))
     ];
   };
 
