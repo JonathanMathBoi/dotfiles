@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   # Read the plugin list directly from lazy-lock.json so this stays in sync
@@ -11,20 +16,25 @@ let
   # differs from what normalization produces.
   nameOverrides = {
     "catppuccin" = "catppuccin-nvim";
-    "harpoon"    = "harpoon2";
+    "harpoon" = "harpoon2";
   };
 
-  toNixName = name:
-    if nameOverrides ? ${name}
-    then nameOverrides.${name}
-    else lib.replaceStrings [ "." ] [ "-" ] (lib.toLower name);
+  toNixName =
+    name:
+    if nameOverrides ? ${name} then
+      nameOverrides.${name}
+    else
+      lib.replaceStrings [ "." ] [ "-" ] (lib.toLower name);
 
   # Build the map of lazy-dir-name → store-path, silently skipping any plugin
   # that isn't packaged in nixpkgs (it will fall back to Lazy's normal install).
   lazyPlugins = lib.filterAttrs (_: v: v != null) (
-    lib.mapAttrs (name: _:
-      let nixName = toNixName name;
-      in if pkgs.vimPlugins ? ${nixName} then pkgs.vimPlugins.${nixName} else null
+    lib.mapAttrs (
+      name: _:
+      let
+        nixName = toNixName name;
+      in
+      if pkgs.vimPlugins ? ${nixName} then pkgs.vimPlugins.${nixName} else null
     ) lockFile
   );
 in
