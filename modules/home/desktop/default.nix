@@ -9,10 +9,8 @@ in
     ./cursor.nix
     ./hyprpaper.nix
 
-    # TODO: Convert lock screen and ilde to module options
-    # TODO: Add mobile vs desktop idle options
-    ./hypridle.nix
-    ./hyprlock.nix
+    ./idle
+    ./lock
 
     ./mpris.nix
 
@@ -31,6 +29,15 @@ in
 
   options.dots.desktop = {
     enable = mkEnableOption "desktop environment";
+
+    formFactor = mkOption {
+      type = types.enum [
+        "desktop"
+        "mobile"
+      ];
+      default = "desktop";
+      description = "The device form factor. Use 'mobile' for shorter idle timeouts to conserve battery.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -44,6 +51,7 @@ in
       $launcher = ${cfg.launcher}
       $terminal = ${cfg.terminal}
       $browser = ${cfg.browser}
+      $lock = ${cfg.lock}
     '';
   };
 }

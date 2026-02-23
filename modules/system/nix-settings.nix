@@ -34,7 +34,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/jonathan/dotfiles/nixos";
+    flake = "/home/jonathan/dotfiles";
     clean = {
       enable = true;
       extraArgs = "--keep-since 7d --keep 5";

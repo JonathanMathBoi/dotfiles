@@ -20,6 +20,7 @@
     ../../modules/system/sshd.nix
     ../../modules/system/udisks.nix
     ../../modules/system/docker.nix
+    ../../modules/system/libvirtd.nix
     ../../modules/system/pipewire.nix
     ../../modules/system/bluetooth.nix
     ../../modules/system/hyprland.nix
