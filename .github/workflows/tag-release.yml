@@ -5,11 +5,12 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   tag:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     outputs:
       new_tag: ${{ steps.create_tag.outputs.tag }}
     steps:
