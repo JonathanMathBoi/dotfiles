@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - "v*"
+  workflow_call:
+    inputs:
+      tag_name:
+        required: true
+        type: string
 
 jobs:
   build:
@@ -13,12 +18,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag_name || github.ref }}
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v14
 
       - name: Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build ISO
         run: nix build .#iso
@@ -30,6 +39,6 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
-          name: "Release ${{ github.ref_name }}"
+          tag_name: ${{ inputs.tag_name || github.ref_name }}
+          name: "Release ${{ inputs.tag_name || github.ref_name }}"
           files: ${{ steps.find_iso.outputs.iso_path }}

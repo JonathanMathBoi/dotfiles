@@ -10,14 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      new_tag: ${{ steps.create_tag.outputs.tag }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Create and push tag
+        id: create_tag
         run: |
           TAG="v$(date +%Y.%m.%d).${{ github.run_number }}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag "$TAG"
           git push origin "$TAG"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+  # Directly call the build workflow instead of waiting for a push trigger
+  trigger-build:
+    needs: tag
+    uses: ./.github/workflows/build-iso.yml
+    with:
+      tag_name: ${{ needs.tag.outputs.new_tag }}
