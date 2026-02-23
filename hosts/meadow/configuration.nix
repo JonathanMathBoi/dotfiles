@@ -47,7 +47,6 @@
       # Systemd automount options
       "noauto"
       "x-systemd.automount"
-      "x-systemd.idle-timeout=60"
 
       # Allows to mount and umount without sudo
       "user"
@@ -65,7 +64,6 @@
       # Systemd automount options
       "noauto"
       "x-systemd.automount"
-      "x-systemd.idle-timeout=60"
 
       # Allows to mount and umount without sudo
       "user"
