@@ -6,7 +6,9 @@ let
 in
 {
   options.dots.desktop = {
-    discord.enable = mkGatedEnable cfg "discord" // { default = true; };
+    discord.enable = mkGatedEnable cfg "discord" // {
+      default = true;
+    };
   };
 
   config = mkIf cfg.discord.enable {

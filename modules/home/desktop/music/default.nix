@@ -22,7 +22,9 @@ in
 
     rmpc.enable = mkGatedEnable cfg "rmpc";
 
-    cava.enable = mkGatedEnable cfg "cava" // { default = true; };
+    cava.enable = mkGatedEnable cfg "cava" // {
+      default = true;
+    };
   };
 
   config = mkIf cfg.enable {
