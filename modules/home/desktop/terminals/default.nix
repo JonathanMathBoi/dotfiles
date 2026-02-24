@@ -3,6 +3,7 @@
 with lib;
 let
   cfg = config.dots.desktop;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -22,9 +23,9 @@ in
       description = "The main terminal emulator for the DE to use.";
     };
 
-    alacritty.enable = mkEnableOption "alacritty";
-    kitty.enable = mkEnableOption "kitty";
-    ghostty.enable = mkEnableOption "ghostty";
+    alacritty.enable = dotsLib.mkGatedEnable cfg "alacritty";
+    kitty.enable = dotsLib.mkGatedEnable cfg "kitty";
+    ghostty.enable = dotsLib.mkGatedEnable cfg "ghostty";
   };
 
   config = mkIf cfg.enable {

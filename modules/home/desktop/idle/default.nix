@@ -3,6 +3,7 @@
 with lib;
 let
   cfg = config.dots.desktop;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -16,7 +17,7 @@ in
       description = "The idle daemon for the DE to use.";
     };
 
-    hypridle.enable = mkEnableOption "hypridle";
+    hypridle.enable = dotsLib.mkGatedEnable cfg "hypridle";
   };
 
   config = mkIf cfg.enable {

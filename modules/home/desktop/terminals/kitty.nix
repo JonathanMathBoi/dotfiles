@@ -5,7 +5,7 @@ let
   cfg = config.dots.desktop;
 in
 {
-  config = mkIf (cfg.enable && cfg.kitty.enable) {
+  config = mkIf cfg.kitty.enable {
     programs.kitty = {
       enable = true;
       settings = {

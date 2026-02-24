@@ -3,6 +3,7 @@
 with lib;
 let
   cfg = config.dots.desktop;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -16,7 +17,7 @@ in
       description = "The lock screen for the DE to use.";
     };
 
-    hyprlock.enable = mkEnableOption "hyprlock";
+    hyprlock.enable = dotsLib.mkGatedEnable cfg "hyprlock";
   };
 
   config = mkIf cfg.enable {

@@ -11,10 +11,11 @@ in
       default = true;
       example = true;
       description = "Whether to enable discord.";
+      apply = v: v && cfg.enable;
     };
   };
 
-  config = mkIf (cfg.enable && cfg.discord.enable) {
+  config = mkIf cfg.discord.enable {
     programs.discord.enable = true;
   };
 }

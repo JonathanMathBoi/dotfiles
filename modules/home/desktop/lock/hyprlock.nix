@@ -10,7 +10,7 @@ let
   cfg = config.dots.desktop;
 in
 {
-  config = mkIf (cfg.enable && cfg.hyprlock.enable) {
+  config = mkIf cfg.hyprlock.enable {
     programs.hyprlock.enable = true;
 
     # Script for quickly recovering from a hyprlock crash from TTY

@@ -3,6 +3,7 @@
 with lib;
 let
   cfg = config.dots.desktop;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -16,7 +17,7 @@ in
       description = "The default browser.";
     };
 
-    brave.enable = mkEnableOption "brave";
+    brave.enable = dotsLib.mkGatedEnable cfg "brave";
   };
 
   config = mkIf cfg.enable {

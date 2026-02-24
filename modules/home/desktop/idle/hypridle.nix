@@ -5,7 +5,7 @@ let
   cfg = config.dots.desktop;
 in
 {
-  config = mkIf (cfg.enable && cfg.hypridle.enable) {
+  config = mkIf cfg.hypridle.enable {
     services.hypridle = {
       enable = true;
       settings = {

@@ -3,6 +3,7 @@
 with lib;
 let
   cfg = config.dots.desktop.mpd;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -20,13 +21,14 @@ in
       description = "The default mpd client for the DE to use.";
     };
 
-    rmpc.enable = mkEnableOption "rmpc";
+    rmpc.enable = dotsLib.mkGatedEnable cfg "rmpc";
 
     cava.enable = mkOption {
       default = true;
       example = true;
       description = "Whether to enable cava.";
       type = lib.types.bool;
+      apply = v: v && cfg.enable;
     };
   };
 

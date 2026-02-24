@@ -8,13 +8,14 @@
 with lib;
 let
   cfg = config.dots.desktop;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   options.dots.desktop = {
-    xournalpp.enable = mkEnableOption "xournalpp";
+    xournalpp.enable = dotsLib.mkGatedEnable cfg "xournalpp";
   };
 
-  config = mkIf (cfg.enable && cfg.xournalpp.enable) {
+  config = mkIf cfg.xournalpp.enable {
     home.packages = with pkgs; [
       xournalpp
     ];

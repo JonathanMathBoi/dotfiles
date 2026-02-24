@@ -5,7 +5,7 @@ let
   cfg = config.dots.desktop;
 in
 {
-  config = mkIf (cfg.enable && cfg.alacritty.enable) {
+  config = mkIf cfg.alacritty.enable {
     programs.alacritty = {
       enable = true;
       settings = {
