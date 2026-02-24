@@ -1,13 +1,12 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
-  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   options.dots.desktop = {
-    discord.enable = dotsLib.mkGatedEnable cfg "discord" // { default = true; };
+    discord.enable = mkGatedEnable cfg "discord" // { default = true; };
   };
 
   config = mkIf cfg.discord.enable {

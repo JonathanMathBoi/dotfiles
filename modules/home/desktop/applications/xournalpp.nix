@@ -5,14 +5,13 @@
   ...
 }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
-  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   options.dots.desktop = {
-    xournalpp.enable = dotsLib.mkGatedEnable cfg "xournalpp";
+    xournalpp.enable = mkGatedEnable cfg "xournalpp";
   };
 
   config = mkIf cfg.xournalpp.enable {

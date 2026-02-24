@@ -1,9 +1,8 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
-  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -17,7 +16,7 @@ in
       description = "The lock screen for the DE to use.";
     };
 
-    hyprlock.enable = dotsLib.mkGatedEnable cfg "hyprlock";
+    hyprlock.enable = mkGatedEnable cfg "hyprlock";
   };
 
   config = mkIf cfg.enable {

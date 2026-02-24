@@ -5,14 +5,13 @@
   ...
 }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.creative;
-  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   options.dots.desktop.creative.krita = {
-    enable = dotsLib.mkGatedEnable cfg "krita";
+    enable = mkGatedEnable cfg "krita";
   };
 
   config = mkIf cfg.krita.enable {

@@ -7,8 +7,8 @@
   # of the repetitive `mkIf (cfg.enable && cfg.foo.enable)`.
   #
   # Usage:
-  #   let dotsLib = import ../lib.nix { inherit lib; }; in
-  #   options.dots.desktop.foo.enable = dotsLib.mkGatedEnable cfg "foo";
+  #   with lib // (import ../lib.nix { inherit lib; });
+  #   options.dots.desktop.foo.enable = mkGatedEnable cfg "foo";
   mkGatedEnable =
     parentCfg: description: lib.mkEnableOption description // { apply = v: v && parentCfg.enable; };
 }

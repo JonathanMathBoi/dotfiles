@@ -1,9 +1,8 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
-  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   imports = [
@@ -17,7 +16,7 @@ in
       description = "The default browser.";
     };
 
-    brave.enable = dotsLib.mkGatedEnable cfg "brave";
+    brave.enable = mkGatedEnable cfg "brave";
   };
 
   config = mkIf cfg.enable {
