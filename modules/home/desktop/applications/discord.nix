@@ -3,16 +3,11 @@
 with lib;
 let
   cfg = config.dots.desktop;
+  dotsLib = import ../../../lib.nix { inherit lib; };
 in
 {
   options.dots.desktop = {
-    discord.enable = mkOption {
-      type = lib.types.bool;
-      default = true;
-      example = true;
-      description = "Whether to enable discord.";
-      apply = v: v && cfg.enable;
-    };
+    discord.enable = dotsLib.mkGatedEnable cfg "discord" // { default = true; };
   };
 
   config = mkIf cfg.discord.enable {

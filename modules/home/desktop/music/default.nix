@@ -23,13 +23,7 @@ in
 
     rmpc.enable = dotsLib.mkGatedEnable cfg "rmpc";
 
-    cava.enable = mkOption {
-      default = true;
-      example = true;
-      description = "Whether to enable cava.";
-      type = lib.types.bool;
-      apply = v: v && cfg.enable;
-    };
+    cava.enable = dotsLib.mkGatedEnable cfg "cava" // { default = true; };
   };
 
   config = mkIf cfg.enable {

@@ -10,6 +10,5 @@
   #   let dotsLib = import ../lib.nix { inherit lib; }; in
   #   options.dots.desktop.foo.enable = dotsLib.mkGatedEnable cfg "foo";
   mkGatedEnable =
-    parentCfg: description:
-    lib.mkEnableOption description // { apply = v: v && parentCfg.enable; };
+    parentCfg: description: lib.mkEnableOption description // { apply = v: v && parentCfg.enable; };
 }
