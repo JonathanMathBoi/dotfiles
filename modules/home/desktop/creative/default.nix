@@ -1,8 +1,9 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.creative;
+  deskCfg = config.dots.desktop;
 in
 {
   imports = [
@@ -10,6 +11,6 @@ in
   ];
 
   options.dots.desktop.creative = {
-    enable = mkEnableOption "creative apps";
+    enable = mkGatedEnable deskCfg "creative apps";
   };
 }

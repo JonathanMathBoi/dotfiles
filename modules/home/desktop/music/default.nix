@@ -3,6 +3,7 @@
 with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.mpd;
+  deskCfg = config.dots.desktop;
 in
 {
   imports = [
@@ -12,7 +13,7 @@ in
   ];
 
   options.dots.desktop.mpd = {
-    enable = mkEnableOption "mpd";
+    enable = mkGatedEnable deskCfg "mpd";
 
     client = mkOption {
       type = types.enum [ "rmpc" ];
