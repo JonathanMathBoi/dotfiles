@@ -32,6 +32,7 @@
         p.nix
         p.rust
         p.java
+        p.cpp
       ]))
     ];
   };
