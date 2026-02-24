@@ -4,16 +4,16 @@
   ...
 }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.gaming;
 in
 {
   options.dots.desktop.gaming.mangohud = {
-    enable = mkEnableOption "mangohud";
+    enable = mkGatedEnable cfg "mangohud";
   };
 
-  config = mkIf (cfg.enable && cfg.mangohud.enable) {
+  config = mkIf cfg.mangohud.enable {
     programs.mangohud.enable = true;
   };
 }

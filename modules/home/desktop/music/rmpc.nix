@@ -5,7 +5,7 @@ let
   cfg = config.dots.desktop.mpd;
 in
 {
-  config = mkIf (cfg.enable && cfg.rmpc.enable) {
+  config = mkIf cfg.rmpc.enable {
     programs.rmpc = {
       enable = true;
       config = ''

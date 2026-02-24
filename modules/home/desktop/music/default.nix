@@ -1,6 +1,6 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.mpd;
 in
@@ -20,13 +20,10 @@ in
       description = "The default mpd client for the DE to use.";
     };
 
-    rmpc.enable = mkEnableOption "rmpc";
+    rmpc.enable = mkGatedEnable cfg "rmpc";
 
-    cava.enable = mkOption {
+    cava.enable = mkGatedEnable cfg "cava" // {
       default = true;
-      example = true;
-      description = "Whether to enable cava.";
-      type = lib.types.bool;
     };
   };
 

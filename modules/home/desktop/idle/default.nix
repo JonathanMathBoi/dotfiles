@@ -1,6 +1,6 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
 in
@@ -16,7 +16,7 @@ in
       description = "The idle daemon for the DE to use.";
     };
 
-    hypridle.enable = mkEnableOption "hypridle";
+    hypridle.enable = mkGatedEnable cfg "hypridle";
   };
 
   config = mkIf cfg.enable {

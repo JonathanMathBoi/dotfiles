@@ -5,7 +5,7 @@ let
   cfg = config.dots.desktop.mpd;
 in
 {
-  config = mkIf (cfg.enable && cfg.cava.enable) {
+  config = mkIf cfg.cava.enable {
     programs.cava = {
       enable = true;
       settings = {
