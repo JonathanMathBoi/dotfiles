@@ -33,6 +33,8 @@
         p.rust
         p.java
         p.cpp
+        p.toml
+        p.python
       ]))
     ];
   };
