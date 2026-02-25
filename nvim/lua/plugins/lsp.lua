@@ -50,7 +50,17 @@ return {
     vim.lsp.enable('html')
     vim.lsp.enable('emmet_ls')
 
-    -- Enable Java LSP
-    vim.lsp.enable('jdtls')
-  end,
+      -- Enable Java LSP
+      vim.lsp.enable('jdtls')
+
+      -- Enable clangd
+      vim.lsp.config('clangd', {
+        cmd = {
+          'clangd',
+          '--function-arg-placeholders=0',
+        },
+      })
+      vim.lsp.enable('clangd')
+    end,
+  },
 }
