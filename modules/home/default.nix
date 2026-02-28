@@ -14,6 +14,7 @@ in
     ./fastfetch.nix
 
     ./desktop
+    ./ai
   ];
 
   options.dots = {

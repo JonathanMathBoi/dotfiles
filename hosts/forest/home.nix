@@ -12,6 +12,11 @@
   dots = {
     enable = true;
 
+    ai = {
+      enable = true;
+      copilot.enable = true;
+    };
+
     desktop = {
       enable = true;
       mpd.enable = true;
