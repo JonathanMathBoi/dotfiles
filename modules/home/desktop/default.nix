@@ -1,7 +1,9 @@
 { lib, config, ... }:
-with lib;
+
+with lib // (import ../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
+  dotsCfg = config.dots;
 in
 {
   imports = [
@@ -28,7 +30,7 @@ in
   ];
 
   options.dots.desktop = {
-    enable = mkEnableOption "desktop environment";
+    enable = mkGatedEnable dotsCfg "desktop environment";
 
     formFactor = mkOption {
       type = types.enum [

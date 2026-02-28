@@ -7,17 +7,20 @@
   imports = [
     ../../modules/home
     ../../modules/home/user-dirs.nix
-    ../../modules/home/desktop
   ];
 
-  dots.desktop = {
+  dots = {
     enable = true;
-    mpd.enable = true;
 
-    gaming = {
+    desktop = {
       enable = true;
-      mangohud.enable = true;
-      prism.enable = true;
+      mpd.enable = true;
+
+      gaming = {
+        enable = true;
+        mangohud.enable = true;
+        prism.enable = true;
+      };
     };
   };
 

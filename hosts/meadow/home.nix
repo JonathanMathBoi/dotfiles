@@ -7,22 +7,25 @@
   imports = [
     ../../modules/home
     ../../modules/home/user-dirs.nix
-    ../../modules/home/desktop
   ];
 
-  dots.desktop = {
+  dots = {
     enable = true;
-    formFactor = "mobile";
-    mpd.enable = true;
 
-    xournalpp.enable = true;
-
-    creative = {
+    desktop = {
       enable = true;
+      formFactor = "mobile";
+      mpd.enable = true;
 
-      # BUG: nixpkgs issue #485826: boost system removal breaks lager which krita depends on
-      # Reenable when possible
-      krita.enable = false;
+      xournalpp.enable = true;
+
+      creative = {
+        enable = true;
+
+        # BUG: nixpkgs issue #485826: boost system removal breaks lager which krita depends on
+        # Reenable when possible
+        krita.enable = false;
+      };
     };
   };
 
