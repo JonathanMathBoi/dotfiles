@@ -1,8 +1,9 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.mpd;
+  deskCfg = config.dots.desktop;
 in
 {
   imports = [
@@ -12,7 +13,7 @@ in
   ];
 
   options.dots.desktop.mpd = {
-    enable = mkEnableOption "mpd";
+    enable = mkGatedEnable deskCfg "mpd";
 
     client = mkOption {
       type = types.enum [ "rmpc" ];
@@ -20,13 +21,10 @@ in
       description = "The default mpd client for the DE to use.";
     };
 
-    rmpc.enable = mkEnableOption "rmpc";
+    rmpc.enable = mkGatedEnable cfg "rmpc";
 
-    cava.enable = mkOption {
+    cava.enable = mkGatedEnable cfg "cava" // {
       default = true;
-      example = true;
-      description = "Whether to enable cava.";
-      type = lib.types.bool;
     };
   };
 

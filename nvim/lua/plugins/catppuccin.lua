@@ -13,7 +13,6 @@ return {
         enabled = true,
       },
       which_key = true,
-      mason = true,
     },
   },
   config = function(_, opts)

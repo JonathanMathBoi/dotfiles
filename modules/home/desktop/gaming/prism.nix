@@ -5,16 +5,16 @@
   ...
 }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.gaming;
 in
 {
   options.dots.desktop.gaming.prism = {
-    enable = mkEnableOption "prism minecraft launcher";
+    enable = mkGatedEnable cfg "prism minecraft launcher";
   };
 
-  config = mkIf (cfg.enable && cfg.prism.enable) {
+  config = mkIf cfg.prism.enable {
     home.packages = with pkgs; [
       prismlauncher
     ];

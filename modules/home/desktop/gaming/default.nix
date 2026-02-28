@@ -1,8 +1,9 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.gaming;
+  deskCfg = config.dots.desktop;
 in
 {
   imports = [
@@ -11,6 +12,6 @@ in
   ];
 
   options.dots.desktop.gaming = {
-    enable = mkEnableOption "gaming tools";
+    enable = mkGatedEnable deskCfg "gaming tools";
   };
 }

@@ -5,16 +5,16 @@
   ...
 }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop.creative;
 in
 {
   options.dots.desktop.creative.krita = {
-    enable = mkEnableOption "krita";
+    enable = mkGatedEnable cfg "krita";
   };
 
-  config = mkIf (cfg.enable && cfg.krita.enable) {
+  config = mkIf cfg.krita.enable {
     home.packages = with pkgs; [
       krita
     ];

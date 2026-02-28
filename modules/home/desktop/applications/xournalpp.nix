@@ -5,16 +5,16 @@
   ...
 }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
 in
 {
   options.dots.desktop = {
-    xournalpp.enable = mkEnableOption "xournalpp";
+    xournalpp.enable = mkGatedEnable cfg "xournalpp";
   };
 
-  config = mkIf (cfg.enable && cfg.xournalpp.enable) {
+  config = mkIf cfg.xournalpp.enable {
     home.packages = with pkgs; [
       xournalpp
     ];

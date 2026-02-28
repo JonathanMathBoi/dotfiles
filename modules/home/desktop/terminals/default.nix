@@ -1,6 +1,6 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
 in
@@ -22,9 +22,9 @@ in
       description = "The main terminal emulator for the DE to use.";
     };
 
-    alacritty.enable = mkEnableOption "alacritty";
-    kitty.enable = mkEnableOption "kitty";
-    ghostty.enable = mkEnableOption "ghostty";
+    alacritty.enable = mkGatedEnable cfg "alacritty";
+    kitty.enable = mkGatedEnable cfg "kitty";
+    ghostty.enable = mkGatedEnable cfg "ghostty";
   };
 
   config = mkIf cfg.enable {

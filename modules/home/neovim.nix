@@ -20,16 +20,23 @@
       # Telescope Live Grep
       ripgrep
     ];
-    plugins = with pkgs.vimPlugins.nvim-treesitter-parsers; [
-      lua
-      javascript
-      css
-      json
-      html
-      embedded_template
-      nix
-      rust
-      java
+
+    plugins = with pkgs.vimPlugins; [
+      (nvim-treesitter.withPlugins (p: [
+        p.lua
+        p.javascript
+        p.css
+        p.json
+        p.html
+        p.embedded_template
+        p.nix
+        p.rust
+        p.java
+        p.cpp
+        p.llvm
+        p.toml
+        p.python
+      ]))
     ];
   };
 

@@ -1,20 +1,17 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
 in
 {
   options.dots.desktop = {
-    discord.enable = mkOption {
-      type = lib.types.bool;
+    discord.enable = mkGatedEnable cfg "discord" // {
       default = true;
-      example = true;
-      description = "Whether to enable discord.";
     };
   };
 
-  config = mkIf (cfg.enable && cfg.discord.enable) {
+  config = mkIf cfg.discord.enable {
     programs.discord.enable = true;
   };
 }

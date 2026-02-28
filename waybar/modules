@@ -85,6 +85,7 @@
     },
 
     // TODO: adjust for btrfs compression
+    // TODO: adjust for impermanence
     "disk": {
         "interval": 30,
         "format": "{percentage_used}% 󰋊",

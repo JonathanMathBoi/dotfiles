@@ -1,6 +1,6 @@
 { lib, config, ... }:
 
-with lib;
+with lib // (import ../../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
 in
@@ -16,7 +16,7 @@ in
       description = "The default browser.";
     };
 
-    brave.enable = mkEnableOption "brave";
+    brave.enable = mkGatedEnable cfg "brave";
   };
 
   config = mkIf cfg.enable {
