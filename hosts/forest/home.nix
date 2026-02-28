@@ -31,17 +31,17 @@
 
   services.hyprpaper.settings = {
     preload = [
-      "~/pictures/wallpapers/toon-totk.jpg"
-      "~/pictures/wallpapers/forest-b-verse.jpg"
+      "~/dotfiles/wallpapers/toon-totk.jpg"
+      "~/dotfiles/wallpapers/forest-b-verse.jpg"
     ];
     wallpaper = [
       {
         monitor = "DP-5";
-        path = "~/pictures/wallpapers/toon-totk.jpg";
+        path = "~/dotfiles/wallpapers/toon-totk.jpg";
       }
       {
         monitor = "DP-3";
-        path = "pictures/wallpapers/forest-b-verse.jpg";
+        path = "~/dotfiles/wallpapers/forest-b-verse.jpg";
       }
     ];
   };
@@ -50,7 +50,7 @@
     background = [
       {
         monitor = "DP-5";
-        path = "~/pictures/wallpapers/toon-totk.png";
+        path = "~/dotfiles/wallpapers/toon-totk.png";
         blur_size = 4;
         blur_passes = 3;
         noise = 0.0117;
@@ -61,7 +61,7 @@
       }
       {
         monitor = "DP-3";
-        path = "~/pictures/wallpapers/forest-b.png";
+        path = "~/dotfiles/wallpapers/forest-b.png";
         blur_size = 4;
         blur_passes = 3;
         noise = 0.0117;
