@@ -44,7 +44,7 @@ in
   programs.home-manager.enable = true;
 
   imports = [
-    ../../modules/home/common.nix
+    ../../modules/home
     ../../modules/home/user-dirs.nix
     ../../modules/home/desktop
   ];
