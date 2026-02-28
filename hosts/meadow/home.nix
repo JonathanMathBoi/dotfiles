@@ -19,7 +19,10 @@
 
     creative = {
       enable = true;
-      krita.enable = true;
+
+      # BUG: nixpkgs issue #485826: boost system removal breaks lager which krita depends on
+      # Reenable when possible
+      krita.enable = false;
     };
   };
 
