@@ -4,11 +4,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      source = [
-        "~/.config/hypr/monitors.conf"
-        "~/.config/hypr/nix-vars.conf"
-      ];
-
       env = [
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,24"

@@ -76,9 +76,9 @@ in
   };
 
   # Generic monitor config — let Hyprland pick the best mode automatically
-  xdg.configFile."hypr/monitors.conf".text = ''
-    monitor=,preferred,auto,1
-  '';
+  wayland.windowManager.hyprland.settings.monitor = [
+    ",preferred,auto,1"
+  ];
 
   services.hyprpaper.settings = {
     preload = [ "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg" ];
