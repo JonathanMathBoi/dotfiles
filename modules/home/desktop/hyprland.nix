@@ -27,9 +27,11 @@
         kb_options = "";
         kb_rules = "";
         follow_mouse = 1;
+
         touchpad = {
           natural_scroll = true;
         };
+
         sensitivity = 0;
       };
 
@@ -74,6 +76,7 @@
       };
 
       gesture = "3, horizontal, workspace";
+
       "$mainMod" = "SUPER";
 
       bind = [
@@ -138,6 +141,8 @@
         ", XF86AudioPrev, exec, playerctl previous"
       ];
     };
+
+    # TODO: Convert from extraConfig to wayland.windowManager.hyprland.submaps
     extraConfig = ''
       bind = $mainMod, s, submap, screenshot
       submap = screenshot
