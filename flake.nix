@@ -16,6 +16,8 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # TODO: Add sops-nix
+    # TODO: Add zmk-nix for Lily58
   };
 
   outputs =
