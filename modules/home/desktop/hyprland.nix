@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  xdg.configFile."hypr/hyprland.conf".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr/hyprland.conf";
+  xdg.configFile."hypr/hyprland.conf".source = ../../../hypr/hyprland.conf;
 
   services.hyprpolkitagent.enable = true;
 
