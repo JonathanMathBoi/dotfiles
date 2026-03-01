@@ -119,13 +119,6 @@
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod, right, workspace, e+1"
         "$mainMod, left, workspace, e-1"
-        "$mainMod, s, submap, screenshot"
-        ", f, exec, grimblast copysave screen \"$HOME/pictures/screenshots/full/\"$(date +'%F-%T.png')"
-        ", f, submap, reset"
-        ", s, exec, grimblast copysave area \"$HOME/pictures/screenshots/area/\"$(date +'%F-%T.png')"
-        ", s, submap, reset"
-        ", a, exec, grimblast copysave active \"$HOME/pictures/screenshots/active/\"$(date +'%F-%T.png')"
-        ", a, submap, reset"
       ];
 
       bindm = [
@@ -144,12 +137,22 @@
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
-
-      submap = [
-        "screenshot"
-        "reset"
-      ];
     };
+    extraConfig = ''
+      bind = $mainMod, s, submap, screenshot
+      submap = screenshot
+
+      bind = , f, exec, grimblast copysave screen "$HOME/pictures/screenshots/full/"$(date +'%F-%T.png')
+      bind = , f, submap, reset
+
+      bind = , s, exec, grimblast copysave area "$HOME/pictures/screenshots/area/"$(date +'%F-%T.png')
+      bind = , s, submap, reset
+
+      bind = , a, exec, grimblast copysave active "$HOME/pictures/screenshots/active/"$(date +'%F-%T.png')
+      bind = , a, submap, reset
+
+      submap = reset
+    '';
   };
 
   services.hyprpolkitagent.enable = true;
