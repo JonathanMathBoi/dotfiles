@@ -31,11 +31,11 @@
 
   programs.git.signing.key = "8D216E5BA2708CD8";
 
-  xdg.configFile."hypr/monitors.conf".text = ''
-    # Ultrawide only has VRR in fullscreen to prevent desktop flickering
-    monitor=DP-5,3440x1440@144,0x0,1,vrr,0
-    monitor=DP-3,2560x1440@100,3440x0,1
-  '';
+  # Ultrawide only has VRR in fullscreen to prevent desktop flickering
+  wayland.windowManager.hyprland.settings.monitor = [
+    "DP-5,3440x1440@144,0x0,1,vrr,0"
+    "DP-3,2560x1440@100,3440x0,1"
+  ];
 
   services.hyprpaper.settings = {
     preload = [

@@ -49,11 +49,11 @@ in
     };
 
     # Generate hyprland variables based on options
-    xdg.configFile."hypr/nix-vars.conf".text = ''
-      $launcher = ${cfg.launcher}
-      $terminal = ${cfg.terminal}
-      $browser = ${cfg.browser}
-      $lock = ${cfg.lock}
-    '';
+    wayland.windowManager.hyprland.settings = {
+      "$launcher" = cfg.launcher;
+      "$terminal" = cfg.terminal;
+      "$browser" = cfg.browser;
+      "$lock" = cfg.lock;
+    };
   };
 }
