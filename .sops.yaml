@@ -1,0 +1,17 @@
+keys:
+  # Personal Keys
+  - &admin_forest "age15zf2dxdsfd052ckk9xjmfs98e050xpe35p8l3p90nql8g20u3sjsuk5ttd"
+  - &admin_meadow "age1_YOUR_MEADOW_PERSONAL_KEY_HERE"
+
+  # Host Keys
+  - &host_forest "age14cd45gdtp5ue48nv6htukc7mjjp27j5t2qp7aqefc5jy6jg2z52slats7s"
+  - &host_meadow "age1_YOUR_MEADOW_HOST_KEY_HERE"
+
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+    - age:
+      - *admin_forest
+      - *admin_meadow
+      - *host_forest
+      - *host_meadow
