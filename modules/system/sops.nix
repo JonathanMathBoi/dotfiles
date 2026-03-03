@@ -1,4 +1,9 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -9,10 +14,6 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
-    age = {
-      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-    };
-
     secrets = {
       # Dynamically assign the password secret based on the current hostname
       "${config.networking.hostName}/jonathan/password" = {
@@ -20,4 +21,9 @@
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    sops
+    age
+  ];
 }

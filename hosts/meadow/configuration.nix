@@ -36,6 +36,9 @@
     surface-control
   ];
 
+  # TODO: Updated to Impermanence
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
   fileSystems."/home/jonathan/music" = {
     device = "/dev/disk/by-label/MEDIA_SD";
     fsType = "btrfs";
