@@ -23,13 +23,4 @@
       "/etc/ssh/ssh_host_rsa_key.pub"
     ];
   };
-
-  # HACK: Bind mount for secrets so passwords work
-  # Remove when implementing sops-nix
-  fileSystems."/etc/secrets" = {
-    device = "/persist/etc/secrets";
-    fsType = "none";
-    neededForBoot = true;
-    options = [ "bind" ];
-  };
 }

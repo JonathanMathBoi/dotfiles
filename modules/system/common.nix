@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
     ./nix-settings.nix
     ./fonts.nix
+    ./sops.nix
   ];
 
   time.timeZone = "America/New_York";
@@ -29,10 +30,7 @@
     ];
     shell = pkgs.fish;
 
-    # TODO: Switch to sops-nix for passwords
-    # Make sure to use seperate passwords for each host, since that's what storing on host currently
-    # does
-    hashedPasswordFile = "/etc/secrets/jonathan-password";
+    hashedPasswordFile = config.sops.secrets."${config.networking.hostName}/jonathan/password".path;
   };
 
   programs.gnupg.agent = {
