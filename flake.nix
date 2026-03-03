@@ -33,6 +33,7 @@
       nixos-hardware,
       impermanence,
       treefmt-nix,
+      sops-nix,
       ...
     }:
     let
