@@ -19,7 +19,12 @@
         ff = "only";
       };
 
-      merge.ff = false;
+      merge = {
+        ff = false;
+        log = 50;
+      };
+
+      commit.verbose = true;
 
       init.defaultBranch = "main";
     };

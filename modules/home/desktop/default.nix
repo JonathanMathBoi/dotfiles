@@ -1,7 +1,9 @@
 { lib, config, ... }:
-with lib;
+
+with lib // (import ../../lib.nix { inherit lib; });
 let
   cfg = config.dots.desktop;
+  dotsCfg = config.dots;
 in
 {
   imports = [
@@ -28,7 +30,7 @@ in
   ];
 
   options.dots.desktop = {
-    enable = mkEnableOption "desktop environment";
+    enable = mkGatedEnable dotsCfg "desktop environment";
 
     formFactor = mkOption {
       type = types.enum [
@@ -47,11 +49,11 @@ in
     };
 
     # Generate hyprland variables based on options
-    xdg.configFile."hypr/nix-vars.conf".text = ''
-      $launcher = ${cfg.launcher}
-      $terminal = ${cfg.terminal}
-      $browser = ${cfg.browser}
-      $lock = ${cfg.lock}
-    '';
+    wayland.windowManager.hyprland.settings = {
+      "$launcher" = cfg.launcher;
+      "$terminal" = cfg.terminal;
+      "$browser" = cfg.browser;
+      "$lock" = cfg.lock;
+    };
   };
 }

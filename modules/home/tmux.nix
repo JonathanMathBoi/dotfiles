@@ -8,6 +8,9 @@
     terminal = "tmux-256color";
     keyMode = "vi";
 
+    # TODO: Switch prefix to CTRL + Enter
+    # TODO: Add nvim integration for navigation
+
     plugins = with pkgs.tmuxPlugins; [
       sensible
     ];

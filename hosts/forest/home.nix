@@ -5,43 +5,51 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ../../modules/home/common.nix
+    ../../modules/home
     ../../modules/home/user-dirs.nix
-    ../../modules/home/desktop
   ];
 
-  dots.desktop = {
+  dots = {
     enable = true;
-    mpd.enable = true;
 
-    gaming = {
+    ai = {
       enable = true;
-      mangohud.enable = true;
-      prism.enable = true;
+      copilot.enable = true;
+    };
+
+    desktop = {
+      enable = true;
+      mpd.enable = true;
+
+      gaming = {
+        enable = true;
+        mangohud.enable = true;
+        prism.enable = true;
+      };
     };
   };
 
   programs.git.signing.key = "8D216E5BA2708CD8";
 
-  xdg.configFile."hypr/monitors.conf".text = ''
-    # Ultrawide only has VRR in fullscreen to prevent desktop flickering
-    monitor=DP-5,3440x1440@144,0x0,1,vrr,0
-    monitor=DP-3,2560x1440@100,3440x0,1
-  '';
+  # Ultrawide only has VRR in fullscreen to prevent desktop flickering
+  wayland.windowManager.hyprland.settings.monitor = [
+    "DP-5,3440x1440@144,0x0,1,vrr,0"
+    "DP-3,2560x1440@100,3440x0,1"
+  ];
 
   services.hyprpaper.settings = {
     preload = [
-      "~/pictures/wallpapers/toon-totk.jpg"
-      "~/pictures/wallpapers/forest-b-verse.jpg"
+      "~/dotfiles/wallpapers/toon-totk.jpg"
+      "~/dotfiles/wallpapers/forest-b-verse.jpg"
     ];
     wallpaper = [
       {
         monitor = "DP-5";
-        path = "~/pictures/wallpapers/toon-totk.jpg";
+        path = "~/dotfiles/wallpapers/toon-totk.jpg";
       }
       {
         monitor = "DP-3";
-        path = "pictures/wallpapers/forest-b-verse.jpg";
+        path = "~/dotfiles/wallpapers/forest-b-verse.jpg";
       }
     ];
   };
@@ -50,7 +58,7 @@
     background = [
       {
         monitor = "DP-5";
-        path = "~/pictures/wallpapers/toon-totk.png";
+        path = "~/dotfiles/wallpapers/toon-totk.png";
         blur_size = 4;
         blur_passes = 3;
         noise = 0.0117;
@@ -61,7 +69,7 @@
       }
       {
         monitor = "DP-3";
-        path = "~/pictures/wallpapers/forest-b.png";
+        path = "~/dotfiles/wallpapers/forest-b.png";
         blur_size = 4;
         blur_passes = 3;
         noise = 0.0117;

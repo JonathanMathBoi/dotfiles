@@ -44,9 +44,8 @@ in
   programs.home-manager.enable = true;
 
   imports = [
-    ../../modules/home/common.nix
+    ../../modules/home
     ../../modules/home/user-dirs.nix
-    ../../modules/home/desktop
   ];
 
   # Copy dotfiles to ~/dotfiles as a writable directory so that tools like
@@ -66,16 +65,20 @@ in
     '') (builtins.attrNames lazyPlugins)}
   '';
 
-  dots.desktop = {
+  dots = {
     enable = true;
-    gaming.enable = false;
-    creative.enable = false;
+
+    desktop = {
+      enable = true;
+      gaming.enable = false;
+      creative.enable = false;
+    };
   };
 
   # Generic monitor config — let Hyprland pick the best mode automatically
-  xdg.configFile."hypr/monitors.conf".text = ''
-    monitor=,preferred,auto,1
-  '';
+  wayland.windowManager.hyprland.settings.monitor = [
+    ",preferred,auto,1"
+  ];
 
   services.hyprpaper.settings = {
     preload = [ "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg" ];

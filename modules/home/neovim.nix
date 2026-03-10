@@ -36,6 +36,7 @@
         p.llvm
         p.toml
         p.python
+        p.yaml
       ]))
     ];
   };
