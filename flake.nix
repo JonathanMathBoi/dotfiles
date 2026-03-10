@@ -77,9 +77,7 @@
 
         enableZmkStudio = true;
 
-        # Placeholder: run `nix build .#lily58` once, copy the "got:" hash from
-        # the mismatch error, and replace this value with the correct hash.
-        zephyrDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        zephyrDepsHash = "sha256-gsqiTDJLAihVyBXVFlgXwqRmlREcFJctKpl4tEWmVlY=";
 
         meta = {
           description = "ZMK firmware for Lily58 Pro with nice!view screens";
