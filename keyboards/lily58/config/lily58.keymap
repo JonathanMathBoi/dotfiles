@@ -40,7 +40,7 @@
 &trans  &trans           &trans            &trans                &trans          &trans                         &trans     &trans           &trans                 &trans             &trans            &trans
 &trans  &kp EXCLAMATION  &kp AT_SIGN       &kp POUND             &kp DOLLAR      &kp PERCENT                    &kp CARET  &kp AMPERSAND    &kp ASTERISK           &kp PLUS           &kp EQUAL         &trans
 &trans  &kp LESS_THAN    &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp BSLH                       &kp PIPE   &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp GREATER_THAN  &trans
-&trans  &trans           &trans            &kp UNDERSCORE        &kp TILDE       &trans       &trans    &trans  &trans     &kp GRAVE        &kp MINUS              &trans             &trans            &trans
+&trans  &trans           &trans            &kp TILDE             &kp UNDERSCORE  &trans       &trans    &trans  &trans     &kp MINUS        &kp GRAVE              &trans             &trans            &trans
                                            &trans                &trans          &trans       &trans    &trans  &trans     &trans           &trans
             >;
         };
