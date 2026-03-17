@@ -20,6 +20,9 @@
 
   networking.hostName = "meadow";
 
+  # TODO: Add HRM and custom keyboard layout to mirror Lily58
+  # Use Kanata
+
   services.iptsd.enable = true;
 
   # Enabled for USB-C PD charging
