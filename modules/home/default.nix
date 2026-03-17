@@ -12,6 +12,7 @@ in
     ./terminal-tools.nix
     ./tmux.nix
     ./fastfetch.nix
+    ./github.nix
 
     ./desktop
     ./ai
