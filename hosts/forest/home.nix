@@ -26,6 +26,11 @@
         mangohud.enable = true;
         prism.enable = true;
       };
+
+      creative = {
+        enable = true;
+        obs.enable = true;
+      };
     };
   };
 
