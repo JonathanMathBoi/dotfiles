@@ -27,6 +27,7 @@
       "wheel"
       "video"
       "audio"
+      "render" # For hardware encoding
     ];
     shell = pkgs.fish;
 
