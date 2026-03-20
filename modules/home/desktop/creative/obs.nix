@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib // (import ../../../lib.nix { inherit lib; });
 let
@@ -8,6 +13,11 @@ in
   options.dots.desktop.creative.obs.enable = mkGatedEnable cfg "OBS";
 
   config = mkIf cfg.obs.enable {
-    programs.obs-studio.enable = true;
+    programs.obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-vaapi
+      ];
+    };
   };
 }
