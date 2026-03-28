@@ -37,6 +37,7 @@
         p.toml
         p.python
         p.yaml
+        p.ocaml
       ]))
     ];
   };

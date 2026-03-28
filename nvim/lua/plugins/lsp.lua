@@ -43,6 +43,9 @@ return {
     -- Rust LSP
     vim.lsp.enable('rust_analyzer')
 
+    -- OCaml LSP
+    vim.lsp.enable('ocamllsp')
+
     -- Enable web deb LSPs
     vim.lsp.enable('ts_ls')
     vim.lsp.enable('cssls')
