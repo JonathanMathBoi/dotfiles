@@ -67,8 +67,7 @@
       # Keep this first so the second HDD can reference /dev/mapper/jungle-hdd1.
       hdd1 = {
         type = "disk";
-        # TODO: Replace with real by-id path.
-        device = "/dev/disk/by-id/REPLACE_WITH_HDD1_BY_ID";
+        device = "/dev/disk/by-id/wwn-0x5000c500ebe21402";
         content = {
           type = "gpt";
           partitions = {
@@ -89,8 +88,7 @@
 
       hdd2 = {
         type = "disk";
-        # TODO: Replace with real by-id path.
-        device = "/dev/disk/by-id/REPLACE_WITH_HDD2_BY_ID";
+        device = "/dev/disk/by-id/wwn-0x50014ee26c793ffd";
         content = {
           type = "gpt";
           partitions = {
