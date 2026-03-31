@@ -5,6 +5,7 @@
     ./disko.nix
     ./persistence.nix
     ./users.nix
+    ./samba.nix
     # TODO: Add hardware-configuration.nix
     # ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix

@@ -11,6 +11,8 @@
       "/var/db/sudo"
       "/var/lib/nixos"
       "/var/lib/tailscale"
+      "/var/lib/samba"
+      "/var/log/samba"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
       "/etc/NetworkManager/system-connections"

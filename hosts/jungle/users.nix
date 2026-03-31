@@ -7,22 +7,34 @@
 
   users.users.michael = {
     isNormalUser = true;
-    group = "family";
+    extraGroups = [ "family" ];
     shell = "${pkgs.shadow}/bin/nologin";
     hashedPassword = "!";
   };
 
   users.users.christopher = {
     isNormalUser = true;
-    group = "family";
+    extraGroups = [ "family" ];
     shell = "${pkgs.shadow}/bin/nologin";
     hashedPassword = "!";
   };
 
   users.users.lynn = {
     isNormalUser = true;
-    group = "family";
+    extraGroups = [ "family" ];
     shell = "${pkgs.shadow}/bin/nologin";
     hashedPassword = "!";
   };
+
+  systemd.tmpfiles.rules = [
+    "d /home/michael/documents 0750 michael michael - -"
+    "d /home/michael/pictures 0750 michael michael - -"
+    "d /home/michael/videos 0750 michael michael - -"
+    "d /home/christopher/documents 0750 christopher christopher - -"
+    "d /home/christopher/pictures 0750 christopher christopher - -"
+    "d /home/christopher/videos 0750 christopher christopher - -"
+    "d /home/lynn/documents 0750 lynn lynn - -"
+    "d /home/lynn/pictures 0750 lynn lynn - -"
+    "d /home/lynn/videos 0750 lynn lynn - -"
+  ];
 }
