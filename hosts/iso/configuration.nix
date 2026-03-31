@@ -30,6 +30,7 @@
 
   # Not useful on live/install media and can be noisy with transient devices.
   services.smartd.enable = lib.mkForce false;
+  services.btrfs.autoScrub.enable = lib.mkForce false;
 
   # Auto-login directly into Hyprland via UWSM (no login screen)
   services.greetd = {

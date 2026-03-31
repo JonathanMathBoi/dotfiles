@@ -6,6 +6,7 @@
     ./fonts.nix
     ./sops.nix
     ./smartd.nix
+    ./btrfs-scrub.nix
   ];
 
   time.timeZone = "America/New_York";
