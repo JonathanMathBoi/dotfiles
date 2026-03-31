@@ -158,6 +158,27 @@
             }
           ];
         };
+
+        jungle = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/jungle/configuration.nix
+            disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.jonathan = {
+                imports = [
+                  ./hosts/jungle/home.nix
+                  catppuccin.homeModules.catppuccin
+                ];
+              };
+            }
+          ];
+        };
       };
     };
 }
