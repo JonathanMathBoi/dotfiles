@@ -5,6 +5,7 @@
     ./nix-settings.nix
     ./fonts.nix
     ./sops.nix
+    ./smartd.nix
   ];
 
   time.timeZone = "America/New_York";

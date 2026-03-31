@@ -28,6 +28,9 @@
   # Passwordless sudo — no password is set, so it's required for usability
   security.sudo.wheelNeedsPassword = false;
 
+  # Not useful on live/install media and can be noisy with transient devices.
+  services.smartd.enable = lib.mkForce false;
+
   # Auto-login directly into Hyprland via UWSM (no login screen)
   services.greetd = {
     enable = true;
