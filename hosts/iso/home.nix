@@ -45,7 +45,6 @@ in
 
   imports = [
     ../../modules/home
-    ../../modules/home/user-dirs.nix
   ];
 
   # Copy dotfiles to ~/dotfiles as a writable directory so that tools like

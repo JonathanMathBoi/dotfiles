@@ -6,7 +6,6 @@
 
   imports = [
     ../../modules/home
-    ../../modules/home/user-dirs.nix
   ];
 
   dots = {

@@ -1,7 +1,12 @@
-{ ... }:
+{ config, ... }:
 
 {
-  services.tailscale.enable = true;
+  sops.secrets."api/tailscale" = { };
+
+  services.tailscale = {
+    enable = true;
+    authKeyFile = config.sops.secrets."api/tailscale".path;
+  };
 
   networking.firewall = {
     trustedInterfaces = [ "tailscale0" ];

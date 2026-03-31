@@ -6,6 +6,7 @@ let
 in
 {
   imports = [
+    ./user-dirs.nix
     ./shell.nix
     ./git.nix
     ./neovim.nix
