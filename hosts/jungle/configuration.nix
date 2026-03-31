@@ -6,6 +6,7 @@
     ./persistence.nix
     ./users.nix
     ./samba.nix
+    ./plex.nix
     # TODO: Add hardware-configuration.nix
     # ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
