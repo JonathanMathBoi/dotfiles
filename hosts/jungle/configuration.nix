@@ -4,6 +4,7 @@
   imports = [
     ./disko.nix
     ./persistence.nix
+    ./users.nix
     # TODO: Add hardware-configuration.nix
     # ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
