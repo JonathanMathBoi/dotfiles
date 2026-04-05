@@ -12,6 +12,7 @@
       "/var/lib/nixos"
       "/var/lib/tailscale"
       "/var/lib/samba"
+      "/var/lib/nut"
       "/var/log/samba"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"

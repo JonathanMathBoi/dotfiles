@@ -8,6 +8,7 @@
     ./samba.nix
     ./plex.nix
     ./headless-laptop.nix
+    ./nut.nix
     # TODO: Add hardware-configuration.nix
     # ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
