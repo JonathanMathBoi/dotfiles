@@ -23,6 +23,8 @@
   # TODO: Add HRM and custom keyboard layout to mirror Lily58
   # Use Kanata
 
+  hardware.ledger.enable = true;
+
   services.iptsd.enable = true;
 
   # Enabled for USB-C PD charging
