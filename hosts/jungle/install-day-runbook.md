@@ -37,6 +37,39 @@ ip addr
 - Set a temporary password for installer user `nixos`
 - Note the target IP address on Ethernet
 
+## 2.5) Identify best USB port for drive bay (before disk ops)
+
+Goal: ensure the drive bay links at SuperSpeed (USB 3.x), not High-Speed (USB 2.0), before install/format steps.
+
+On the installer shell (target), capture baseline:
+
+```fish
+lsusb -t
+```
+
+Plug in the drive bay directly (no hub), then run:
+
+```fish
+lsusb -t
+dmesg | grep -i -E 'usb|uas|scsi'
+```
+
+Interpretation:
+
+- Good: device path shows `5000M` (or higher) and kernel log mentions `SuperSpeed`
+- Bad: device path shows `480M` and/or kernel log only shows `high-speed`
+
+If ambiguous, map device details:
+
+```fish
+lsblk -o NAME,MODEL,TRAN,SERIAL,SIZE
+sudo udevadm info --query=property --name /dev/sdX | grep -E 'ID_BUS|ID_USB|ID_MODEL|ID_SERIAL'
+```
+
+Replace `/dev/sdX` with the drive bay device from `lsblk`.
+
+Repeat by moving the cable to each physical port until one consistently reports SuperSpeed (`5000M+`), then keep the bay on that port for install day.
+
 ## 3) Generate hardware config first (before nixos-anywhere)
 
 From repo root on your admin machine, generate and write it directly:
