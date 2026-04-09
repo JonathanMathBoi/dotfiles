@@ -20,12 +20,10 @@
 
   networking.hostName = "nixos";
 
-  # Override user settings from common.nix — no password file or password on the ISO
+  # Keep mutable users on live media so credentials can still be changed if needed.
   users.mutableUsers = lib.mkForce true;
-  users.users.jonathan.hashedPasswordFile = lib.mkForce null;
-  users.users.jonathan.hashedPassword = lib.mkForce "";
 
-  # Passwordless sudo — no password is set, so it's required for usability
+  # Passwordless sudo for convenience on live/install media.
   security.sudo.wheelNeedsPassword = false;
 
   # Not useful on live/install media and can be noisy with transient devices.
