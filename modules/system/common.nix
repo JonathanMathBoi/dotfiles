@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   imports = [
@@ -32,7 +32,8 @@
       "render" # For hardware encoding
     ];
     shell = pkgs.fish;
-
+  }
+  // lib.optionalAttrs (!config.users.mutableUsers) {
     hashedPasswordFile = config.sops.secrets."${config.networking.hostName}/jonathan/password".path;
   };
 

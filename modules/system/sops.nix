@@ -14,7 +14,7 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
-    secrets = {
+    secrets = if config.users.mutableUsers then { } else {
       # Dynamically assign the password secret based on the current hostname
       "${config.networking.hostName}/jonathan/password" = {
         neededForUsers = true;
