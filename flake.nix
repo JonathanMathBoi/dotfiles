@@ -143,7 +143,6 @@
           modules = [
             ./hosts/meadow/configuration.nix
             disko.nixosModules.disko
-            nixos-hardware.nixosModules.microsoft-surface-go
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
