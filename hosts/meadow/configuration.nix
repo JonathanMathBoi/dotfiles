@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     ./disko.nix
-    ./hardware-configuration.nix
+    ./surface-go-3
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
@@ -16,8 +16,6 @@
     ../../modules/system/tailscale.nix
   ];
 
-  hardware.microsoft-surface.kernelVersion = "stable";
-
   networking.hostName = "meadow";
 
   # TODO: Add HRM and custom keyboard layout to mirror Lily58
@@ -25,21 +23,10 @@
 
   hardware.ledger.enable = true;
 
-  services.iptsd.enable = true;
-
-  # Enabled for USB-C PD charging
-  hardware.enableRedistributableFirmware = true;
-
   # Power management
   services.power-profiles-daemon.enable = true;
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
-
-  # TODO: Make surface-control work / make the various surface hardware accessable
-  # Currently all uses of surface control just error
-  environment.systemPackages = with pkgs; [
-    surface-control
-  ];
 
   # TODO: Updated to Impermanence
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
