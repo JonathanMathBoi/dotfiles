@@ -3,6 +3,7 @@
 {
   imports = [
     ./disko.nix
+    ./persistence.nix
     ./surface-go-3
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
@@ -28,8 +29,7 @@
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
 
-  # TODO: Updated to Impermanence
-  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 
   fileSystems."/home/jonathan/music" = {
     device = "/dev/disk/by-label/MEDIA_SD";
