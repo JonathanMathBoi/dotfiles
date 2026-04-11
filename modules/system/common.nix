@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -44,6 +49,11 @@
 
   # Switched away from referance impl because it causes UWSM race conditions at shutdown
   services.dbus.implementation = "broker";
+
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
 
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {

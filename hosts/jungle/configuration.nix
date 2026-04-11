@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
   imports = [
@@ -9,8 +9,7 @@
     ./plex.nix
     ./headless-laptop.nix
     ./nut.nix
-    # TODO: Add hardware-configuration.nix
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
@@ -20,9 +19,6 @@
   ];
 
   networking.hostName = "jungle";
-
-  # HACK: To allow nix eval to run before the hardware-configuration is made
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # Keep HDD unlock resilient while keyfile automation is being bootstrapped.
   boot.initrd.luks.devices = {

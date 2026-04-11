@@ -21,6 +21,8 @@
   # TODO: Add HRM and custom keyboard layout to mirror Lily58
   # Use Kanata
 
+  hardware.ledger.enable = true;
+
   # Power management
   services.power-profiles-daemon.enable = true;
   # Disabled since power-profiles-daemon is the new standard way to deal with that

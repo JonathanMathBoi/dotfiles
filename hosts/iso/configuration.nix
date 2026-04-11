@@ -50,5 +50,20 @@
     util-linux
   ];
 
+  # Ignore Lid Switch for Laptops
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
+
+  # Prevent sleep states on a headless host.
+  systemd.targets = {
+    sleep.enable = false;
+    suspend.enable = false;
+    hibernate.enable = false;
+    hybrid-sleep.enable = false;
+  };
+
   system.stateVersion = "25.11";
 }
