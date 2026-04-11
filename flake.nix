@@ -121,8 +121,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/forest/configuration.nix
-            disko.nixosModules.disko
-            impermanence.nixosModules.impermanence
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
@@ -142,7 +140,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/meadow/configuration.nix
-            disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
@@ -162,8 +159,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/jungle/configuration.nix
-            disko.nixosModules.disko
-            impermanence.nixosModules.impermanence
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
