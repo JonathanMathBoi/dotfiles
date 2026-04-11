@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-set -e
-
 set -l top_mnt "/mnt/meadow-btrfs-top"
 set -l persist_mnt "/mnt/meadow-persist"
 
@@ -55,6 +53,10 @@ function run_cmd --argument-names dry_flag
     echo "[dry-run] "(string join " " -- $argv)
   else
     $argv
+    if test $status -ne 0
+      echo "Command failed: "(string join " " -- $argv) >&2
+      exit 1
+    end
   end
 end
 
