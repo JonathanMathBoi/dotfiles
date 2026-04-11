@@ -88,6 +88,10 @@ else
   set device (findmnt -n -o SOURCE /)
 end
 
+# findmnt on btrfs subvolumes can return values like /dev/nvme0n1p2[/@].
+# Mount expects the underlying block device path only.
+set device (string replace -r '\\[.*\\]$' '' -- "$device")
+
 if test -z "$device"
   echo "Unable to detect root source. Pass --root-device." >&2
   exit 1
