@@ -44,6 +44,11 @@
     "d /persist/etc/luks-keys 0700 root root - -"
   ];
 
+  boot.initrd.supportedFilesystems = [
+    "vfat"
+    "btrfs"
+  ];
+
   sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 
   # This option defines the first version of NixOS installed on this machine.

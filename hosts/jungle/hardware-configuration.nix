@@ -16,7 +16,9 @@
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
+    "ahci"
     "usb_storage"
+    "uas"
     "sdhci_pci"
     "e1000e"
   ];
