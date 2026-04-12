@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./disko.nix
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-12-13th-gen-intel
   ];
