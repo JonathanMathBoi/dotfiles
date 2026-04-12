@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -26,8 +26,27 @@
     jungle-hdd2.fallbackToPassword = true;
   };
 
+  # Allows LUKS password to be entered over ssh
+  boot.initrd.network = {
+    enable = true;
+    ssh = {
+      enable = true;
+      port = 2222;
+      authorizedKeys = config.users.users.jonathan.openssh.authorizedKeys.keys;
+      hostKeys = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+    };
+  };
+
+  # Fix IP to make sure we can connect to enter LUKS key
+  boot.kernelParams = [ "ip=192.168.86.25::192.168.86.1:255.255.255.0:jungle:eno1:none" ];
+
   systemd.tmpfiles.rules = [
     "d /persist/etc/luks-keys 0700 root root - -"
+  ];
+
+  boot.initrd.supportedFilesystems = [
+    "vfat"
+    "btrfs"
   ];
 
   sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
