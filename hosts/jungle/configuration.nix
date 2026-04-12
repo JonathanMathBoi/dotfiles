@@ -37,6 +37,9 @@
     };
   };
 
+  # Fix IP to make sure we can connect to enter LUKS key
+  boot.kernelParams = [ "ip=192.168.86.25::192.168.86.1:255.255.255.0:jungle:eno1:none" ];
+
   systemd.tmpfiles.rules = [
     "d /persist/etc/luks-keys 0700 root root - -"
   ];

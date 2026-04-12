@@ -78,7 +78,7 @@
                 name = "jungle-hdd1";
                 settings = {
                   allowDiscards = true;
-                  # keyFile = "/persist/etc/luks-keys/jungle-hdd.key";
+                  keyFile = "/persist/etc/luks-keys/jungle-hdd.key";
                 };
               };
             };
@@ -99,7 +99,7 @@
                 name = "jungle-hdd2";
                 settings = {
                   allowDiscards = true;
-                  # keyFile = "/persist/etc/luks-keys/jungle-hdd.key";
+                  keyFile = "/persist/etc/luks-keys/jungle-hdd.key";
                 };
                 content = {
                   type = "btrfs";
