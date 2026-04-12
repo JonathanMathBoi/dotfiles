@@ -18,6 +18,8 @@
 
   networking.hostName = "meadow";
 
+  hardware.sensor.iio.enable = true;
+
   # TODO: Add HRM and custom keyboard layout to mirror Lily58
   # Use Kanata
 
