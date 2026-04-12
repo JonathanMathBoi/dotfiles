@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -24,6 +24,17 @@
   boot.initrd.luks.devices = {
     jungle-hdd1.fallbackToPassword = true;
     jungle-hdd2.fallbackToPassword = true;
+  };
+
+  # Allows LUKS password to be entered over ssh
+  boot.initrd.network = {
+    enable = true;
+    ssh = {
+      enable = true;
+      port = 2222;
+      authorizedKeys = config.users.users.jonathan.openssh.authorizedKeys.keys;
+      hostKeys = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+    };
   };
 
   systemd.tmpfiles.rules = [

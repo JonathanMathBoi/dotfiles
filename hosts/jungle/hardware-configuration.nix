@@ -18,6 +18,7 @@
     "xhci_pci"
     "usb_storage"
     "sdhci_pci"
+    "e1000e"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
