@@ -37,16 +37,14 @@
     };
   };
 
-  # Fix IP to make sure we can connect to enter LUKS key
+  # Ethernet driver for ssh durring boot
+  boot.initrd.availableKernelModules = [ "e1000e" ];
+
+  # Static IP to make sure we can connect to enter LUKS key
   boot.kernelParams = [ "ip=192.168.86.25::192.168.86.1:255.255.255.0:jungle:eno1:none" ];
 
   systemd.tmpfiles.rules = [
     "d /persist/etc/luks-keys 0700 root root - -"
-  ];
-
-  boot.initrd.supportedFilesystems = [
-    "vfat"
-    "btrfs"
   ];
 
   sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
