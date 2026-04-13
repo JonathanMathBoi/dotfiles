@@ -40,6 +40,11 @@
         p.ocaml
       ]))
     ];
+
+    # Follow current Home Manager defaults. Enable these only if you need
+    # legacy provider support for Ruby/Python-based Neovim plugins.
+    withRuby = false;
+    withPython3 = false;
   };
 
   xdg.configFile."nvim".source =
