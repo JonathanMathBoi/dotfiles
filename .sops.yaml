@@ -6,7 +6,7 @@ keys:
   # Host Keys
   - &host_forest "age14cd45gdtp5ue48nv6htukc7mjjp27j5t2qp7aqefc5jy6jg2z52slats7s"
   - &host_meadow "age16tsed2mj6ykm2m0y9nds89d484ms5pf2m48pncl38cew05n3agkskqpk34"
-  - &host_jungle "age13lx5xs3q427xvjnhna6lhyv0q0felu74dlu9fp4kyqzsx42lzaxqtj0k8v"
+  - &host_jungle "age1fyh0w8lq2l8njuktuqu24kxlq65fh5uy8lq42qky03tf03dms30s7u5ln4"
 
 creation_rules:
   - path_regex: secrets/.*\.yaml$

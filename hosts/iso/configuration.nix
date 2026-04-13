@@ -55,6 +55,7 @@
   environment.systemPackages = with pkgs; [
     disko
     nixos-anywhere
+    ssh-to-age
     util-linux
   ];
 
