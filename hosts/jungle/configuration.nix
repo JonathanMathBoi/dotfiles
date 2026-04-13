@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -19,6 +24,8 @@
   ];
 
   networking.hostName = "jungle";
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Keep HDD unlock resilient while keyfile automation is being bootstrapped.
   boot.initrd.luks.devices = {
