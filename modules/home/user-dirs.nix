@@ -5,6 +5,10 @@
     enable = true;
     createDirectories = true;
 
+    # Follow current Home Manager default to avoid exporting XDG_*_DIR vars
+    # into the session unless explicitly needed by legacy scripts.
+    setSessionVariables = false;
+
     desktop = "${config.home.homeDirectory}/desktop";
     documents = "${config.home.homeDirectory}/documents";
     download = "${config.home.homeDirectory}/downloads";

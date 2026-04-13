@@ -8,6 +8,7 @@ in
 {
   imports = [
     ./hyprland.nix
+    ./theme.nix
     ./cursor.nix
     ./hyprpaper.nix
 
