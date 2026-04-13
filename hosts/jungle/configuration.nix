@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   imports = [
@@ -33,8 +33,12 @@
       enable = true;
       port = 2222;
       authorizedKeys = config.users.users.jonathan.openssh.authorizedKeys.keys;
-      hostKeys = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+      hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
     };
+  };
+
+  boot.initrd.secrets = {
+    "/etc/ssh/ssh_host_ed25519_key" = lib.mkForce "/persist/etc/ssh/ssh_host_ed25519_key";
   };
 
   # Ethernet driver for ssh durring boot
