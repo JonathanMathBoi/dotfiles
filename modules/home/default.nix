@@ -6,12 +6,14 @@ let
 in
 {
   imports = [
+    ./user-dirs.nix
     ./shell.nix
     ./git.nix
     ./neovim.nix
     ./terminal-tools.nix
     ./tmux.nix
     ./fastfetch.nix
+    ./github.nix
 
     ./desktop
     ./ai

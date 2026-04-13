@@ -8,5 +8,6 @@ in
   imports = [
     ./discord.nix
     ./xournalpp.nix
+    ./zmk-studio.nix
   ];
 }

@@ -8,17 +8,21 @@
   environment.persistence."/persist" = {
     enable = true;
     hideMounts = true;
+
     directories = [
+      "/etc/luks-keys"
       "/var/log"
       "/var/db/sudo"
-      "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/tailscale"
+      "/var/lib/samba"
+      "/var/lib/nut"
+      "/var/log/samba"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
       "/etc/NetworkManager/system-connections"
-      "/var/cache/tuigreet"
     ];
+
     files = [
       "/etc/machine-id"
       "/etc/ssh/ssh_host_ed25519_key"

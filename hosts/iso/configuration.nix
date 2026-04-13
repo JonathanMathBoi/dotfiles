@@ -28,6 +28,18 @@
   # Passwordless sudo — no password is set, so it's required for usability
   security.sudo.wheelNeedsPassword = false;
 
+  # Open up SSH for installs
+  # Very Insecure
+  services.openssh.settings = {
+    PasswordAuthentication = lib.mkForce true;
+    KbdInteractiveAuthentication = lib.mkForce true;
+    PermitRootLogin = lib.mkForce "yes";
+  };
+
+  # Not useful on live/install media and can be noisy with transient devices.
+  services.smartd.enable = lib.mkForce false;
+  services.btrfs.autoScrub.enable = lib.mkForce false;
+
   # Auto-login directly into Hyprland via UWSM (no login screen)
   services.greetd = {
     enable = true;
@@ -43,8 +55,24 @@
   environment.systemPackages = with pkgs; [
     disko
     nixos-anywhere
+    ssh-to-age
     util-linux
   ];
+
+  # Ignore Lid Switch for Laptops
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
+
+  # Prevent sleep states on a headless host.
+  systemd.targets = {
+    sleep.enable = false;
+    suspend.enable = false;
+    hibernate.enable = false;
+    hybrid-sleep.enable = false;
+  };
 
   system.stateVersion = "25.11";
 }

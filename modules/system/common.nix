@@ -1,10 +1,17 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   imports = [
     ./nix-settings.nix
     ./fonts.nix
     ./sops.nix
+    ./smartd.nix
+    ./btrfs-scrub.nix
   ];
 
   time.timeZone = "America/New_York";
@@ -27,9 +34,11 @@
       "wheel"
       "video"
       "audio"
+      "render" # For hardware encoding
     ];
     shell = pkgs.fish;
-
+  }
+  // lib.optionalAttrs (!config.users.mutableUsers) {
     hashedPasswordFile = config.sops.secrets."${config.networking.hostName}/jonathan/password".path;
   };
 
@@ -40,6 +49,12 @@
 
   # Switched away from referance impl because it causes UWSM race conditions at shutdown
   services.dbus.implementation = "broker";
+  programs.dconf.enable = true;
+
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
 
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -54,4 +69,9 @@
       }
     });
   '';
+
+  # To make ghostty pleasant on headless
+  environment.systemPackages = [
+    pkgs.ghostty.terminfo
+  ];
 }

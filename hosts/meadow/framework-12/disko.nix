@@ -9,12 +9,12 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Sabrent_SB-ROCKET-NVMe4-1TB_48790459514184";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "1G";
+              size = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -31,7 +31,7 @@
                 settings.allowDiscards = true;
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-f" ]; # Override existing partition
+                  extraArgs = [ "-f" ];
                   subvolumes = {
                     "@persist" = {
                       mountOptions = [
@@ -60,35 +60,7 @@
                         "nodatacow"
                       ];
                       mountpoint = "/swap";
-                      swap.swapfile.size = "8G";
-                    };
-                    "@docker" = {
-                      mountOptions = [
-                        "nodatacow"
-                        "noatime"
-                      ];
-                      mountpoint = "/var/lib/docker";
-                    };
-                    "@vms" = {
-                      mountOptions = [
-                        "nodatacow"
-                        "noatime"
-                      ];
-                      mountpoint = "/var/lib/libvirt";
-                    };
-                    "@steam" = {
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                      mountpoint = "/home/jonathan/.local/share/Steam";
-                    };
-                    "@ollama" = {
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                      mountpoint = "/var/lib/ollama";
+                      swap.swapfile.size = "4G";
                     };
                   };
                 };
@@ -98,6 +70,7 @@
         };
       };
     };
+
     nodev."/" = {
       fsType = "tmpfs";
       mountOptions = [
@@ -108,6 +81,5 @@
     };
   };
 
-  # Needed for impermanence to work right
   fileSystems."/persist".neededForBoot = true;
 }

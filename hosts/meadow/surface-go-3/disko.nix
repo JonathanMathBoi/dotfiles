@@ -1,4 +1,10 @@
+{ inputs, ... }:
+
 {
+  imports = [
+    inputs.disko.nixosModules.disko
+  ];
+
   disko.devices = {
     disk = {
       main = {
@@ -25,12 +31,12 @@
                 type = "btrfs";
                 extraArgs = [ "-f" ]; # Override existing partition
                 subvolumes = {
-                  "@" = {
+                  "@persist" = {
                     mountOptions = [
                       "compress=zstd"
                       "noatime"
                     ];
-                    mountpoint = "/";
+                    mountpoint = "/persist";
                   };
                   "@home" = {
                     mountOptions = [ "compress=zstd" ];
@@ -58,5 +64,15 @@
         };
       };
     };
+    nodev."/" = {
+      fsType = "tmpfs";
+      mountOptions = [
+        "size=8G"
+        "defaults"
+        "mode=755"
+      ];
+    };
   };
+
+  fileSystems."/persist".neededForBoot = true;
 }

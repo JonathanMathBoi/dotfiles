@@ -42,12 +42,15 @@
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       vpl-gpu-rt
       intel-media-driver
       intel-compute-runtime
     ];
   };
+
+  hardware.enableRedistributableFirmware = true;
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools

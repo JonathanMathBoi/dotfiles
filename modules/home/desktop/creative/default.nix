@@ -8,6 +8,7 @@ in
 {
   imports = [
     ./krita.nix
+    ./obs.nix
   ];
 
   options.dots.desktop.creative = {

@@ -6,7 +6,6 @@
 
   imports = [
     ../../modules/home
-    ../../modules/home/user-dirs.nix
   ];
 
   dots = {
@@ -25,6 +24,11 @@
         enable = true;
         mangohud.enable = true;
         prism.enable = true;
+      };
+
+      creative = {
+        enable = true;
+        obs.enable = true;
       };
     };
   };

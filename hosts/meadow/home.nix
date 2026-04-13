@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "25.11";
@@ -6,7 +6,7 @@
 
   imports = [
     ../../modules/home
-    ../../modules/home/user-dirs.nix
+    ./surface-go-3/home.nix
   ];
 
   dots = {
@@ -28,34 +28,20 @@
 
   programs.git.signing.key = "E44941267E6C7C82";
 
-  wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-1, 1920x1280@60, 0x0, 1.25"
-  ];
+  home.packages = with pkgs; [ iio-hyprland ];
 
-  services.hyprpaper.settings = {
-    preload = [ "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg" ];
-    wallpaper = [
-      {
-        monitor = "eDP-1";
-        path = "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg";
-      }
-    ];
-  };
-
-  programs.hyprlock.settings = {
-    background = [
-      {
-        monitor = "eDP-1";
-        path = "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg";
-        blur_size = 4;
-        blur_passes = 3;
-        noise = 0.0117;
-        contrast = 1.3;
-        brightness = 0.8;
-        vibrancy = 0.21;
-        vibrancy_darkness = 0.0;
-      }
-    ];
+  systemd.user.services.iio-hyprland = {
+    Unit = {
+      Description = "Auto-rotate Hyprland monitors from IIO sensors";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.iio-hyprland}/bin/iio-hyprland";
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 
   # Makes sure MPD can get to music library

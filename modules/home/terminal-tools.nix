@@ -1,6 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    disko
+    nixos-anywhere
+  ];
+
   programs.bat = {
     enable = true;
   };
