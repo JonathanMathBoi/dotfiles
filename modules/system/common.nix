@@ -49,6 +49,7 @@
 
   # Switched away from referance impl because it causes UWSM race conditions at shutdown
   services.dbus.implementation = "broker";
+  programs.dconf.enable = true;
 
   environment.pathsToLink = [
     "/share/applications"
@@ -68,4 +69,9 @@
       }
     });
   '';
+
+  # To make ghostty pleasant on headless
+  environment.systemPackages = [
+    pkgs.ghostty.terminfo
+  ];
 }
