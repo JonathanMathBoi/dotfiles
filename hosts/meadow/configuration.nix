@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./disko.nix
+    ./persistence.nix
     ./surface-go-3
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
@@ -18,6 +18,8 @@
 
   networking.hostName = "meadow";
 
+  hardware.sensor.iio.enable = true;
+
   # TODO: Add HRM and custom keyboard layout to mirror Lily58
   # Use Kanata
 
@@ -28,42 +30,7 @@
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
 
-  # TODO: Updated to Impermanence
-  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-
-  fileSystems."/home/jonathan/music" = {
-    device = "/dev/disk/by-label/MEDIA_SD";
-    fsType = "btrfs";
-    options = [
-      "subvol=@music"
-      "compress=zstd"
-      "noatime"
-
-      # Systemd automount options
-      "noauto"
-      "x-systemd.automount"
-
-      # Allows to mount and umount without sudo
-      "user"
-    ];
-  };
-
-  fileSystems."/home/jonathan/videos" = {
-    device = "/dev/disk/by-label/MEDIA_SD";
-    fsType = "btrfs";
-    options = [
-      "subvol=@videos"
-      "compress=zstd"
-      "noatime"
-
-      # Systemd automount options
-      "noauto"
-      "x-systemd.automount"
-
-      # Allows to mount and umount without sudo
-      "user"
-    ];
-  };
+  sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 
   # TODO: Configure remote building with forest
 

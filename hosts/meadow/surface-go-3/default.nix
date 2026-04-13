@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ./disko.nix
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.microsoft-surface-go
   ];
@@ -22,4 +23,30 @@
   environment.systemPackages = with pkgs; [
     surface-control
   ];
+
+  fileSystems."/home/jonathan/music" = {
+    device = "/dev/disk/by-label/MEDIA_SD";
+    fsType = "btrfs";
+    options = [
+      "subvol=@music"
+      "compress=zstd"
+      "noatime"
+      "noauto"
+      "x-systemd.automount"
+      "user"
+    ];
+  };
+
+  fileSystems."/home/jonathan/videos" = {
+    device = "/dev/disk/by-label/MEDIA_SD";
+    fsType = "btrfs";
+    options = [
+      "subvol=@videos"
+      "compress=zstd"
+      "noatime"
+      "noauto"
+      "x-systemd.automount"
+      "user"
+    ];
+  };
 }
