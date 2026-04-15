@@ -28,7 +28,10 @@
 
   programs.git.signing.key = "E44941267E6C7C82";
 
-  home.packages = with pkgs; [ iio-hyprland ];
+  home.packages = with pkgs; [
+    jq # Needed for iio-hyprland
+    iio-hyprland
+  ];
 
   systemd.user.services.iio-hyprland = {
     Unit = {
