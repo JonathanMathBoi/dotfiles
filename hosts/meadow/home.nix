@@ -6,7 +6,7 @@
 
   imports = [
     ../../modules/home
-    ./surface-go-3/home.nix
+    ./framework-12/home.nix
   ];
 
   dots = {

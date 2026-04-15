@@ -3,7 +3,7 @@
 {
   imports = [
     ./persistence.nix
-    ./surface-go-3
+    ./framework-12
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
