@@ -18,6 +18,8 @@
     extraConfig = ''
       # Make sure full color works on all terminals
       set -as terminal-overrides ",*:Tc"
+      set -as terminal-features ',*:clipboard'
+      set -s set-clipboard on
       # Pass through terminal so programs can do things like images
       set -g allow-passthrough on
       set -ga update-environment TERM
