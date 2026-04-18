@@ -30,6 +30,13 @@
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
 
+  # Prevent an acidental power button press from shutting the whole system down
+  services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+    HandlePowerKeyLongPress = "reboot";
+  };
+  # TODO: Consider adding Hyprland handling of power key
+
   sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 
   # TODO: Configure remote building with forest
