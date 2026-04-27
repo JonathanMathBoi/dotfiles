@@ -1,6 +1,15 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
+  systemd.user.sessionVariables = {
+    HYPRLAND_CONFIG = "${config.home.homeDirectory}/dotfiles/hypr/hyprland.lua";
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
