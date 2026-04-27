@@ -1,1 +1,5 @@
-require("monitors")
+require('monitors')
+
+hl.config({
+  dwindle = {},
+})
