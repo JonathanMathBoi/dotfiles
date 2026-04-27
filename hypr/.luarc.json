@@ -1,0 +1,8 @@
+{
+  "workspace": {
+    "library": ["/home/jonathan/.local/share/hypr/stubs"]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

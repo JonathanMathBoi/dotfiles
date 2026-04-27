@@ -163,6 +163,11 @@
 
   services.hyprpolkitagent.enable = true;
 
+  home.file.".local/share/hypr/stubs" = {
+    source = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/share/hypr/stubs";
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
     wl-clipboard
     grimblast
