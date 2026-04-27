@@ -68,7 +68,7 @@
       };
 
       dwindle = {
-        pseudotile = true;
+        # pseudotile = true;
         preserve_split = true;
       };
 
@@ -88,7 +88,7 @@
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, uwsm app -- $launcher"
         "$mainMod, P, pseudo,"
-        "$mainMod, U, togglesplit,"
+        # "$mainMod, U, togglesplit,"
         "$mainMod, B, exec, uwsm app -- $browser"
         "$mainMod, F, fullscreen"
         "$mainMod, H, movefocus, l"
