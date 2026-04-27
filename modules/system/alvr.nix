@@ -2,7 +2,8 @@
 
 {
   programs.alvr = {
-    enable = true;
+    # BUG: Failing to build. Temporarilly disabling
+    enable = false;
     openFirewall = true;
   };
 }
