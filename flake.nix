@@ -24,6 +24,7 @@
       url = "github:lilyinstarlight/zmk-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -38,6 +39,7 @@
       treefmt-nix,
       sops-nix,
       zmk-nix,
+      hyprland,
       ...
     }:
     let
@@ -126,6 +128,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.jonathan = {
                 imports = [
                   ./hosts/forest/home.nix
@@ -145,6 +148,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.jonathan = {
                 imports = [
                   ./hosts/meadow/home.nix
@@ -164,6 +168,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.jonathan = {
                 imports = [
                   ./hosts/jungle/home.nix
