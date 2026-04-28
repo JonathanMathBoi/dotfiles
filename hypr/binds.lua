@@ -1,7 +1,7 @@
 local main_mod = 'SUPER'
 
 hl.bind(main_mod .. ' + Q', hl.dsp.exec_cmd('uwsm app -- $TERMINAL'))
-hl.bind(main_mod .. ' + C', hl.dsp.window.kill())
+hl.bind(main_mod .. ' + C', hl.dsp.window.close())
 hl.bind(main_mod .. ' + M', hl.dsp.exec_cmd('uwsm stop'))
 hl.bind(main_mod .. ' + E', hl.dsp.exec_cmd('uwsm app -- $LOCK'))
 hl.bind(main_mod .. ' + V', hl.dsp.window.float({ action = 'toggle' }))
