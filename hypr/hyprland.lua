@@ -6,6 +6,7 @@ require('layout')
 require('input')
 require('animations')
 require('decoration')
+require('theme')
 
 hl.config({
   xwayland = {
