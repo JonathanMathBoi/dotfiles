@@ -49,12 +49,5 @@ in
       NIXOS_OZONE_WL = "1";
     };
 
-    # Generate hyprland variables based on options
-    wayland.windowManager.hyprland.settings = {
-      "$launcher" = cfg.launcher;
-      "$terminal" = cfg.terminal;
-      "$browser" = cfg.browser;
-      "$lock" = cfg.lock;
-    };
   };
 }

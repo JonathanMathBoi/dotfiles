@@ -1,12 +1,12 @@
 local main_mod = 'SUPER'
 
-hl.bind(main_mod .. ' + Q', hl.dsp.exec_cmd('uwsm app -- $terminal'))
+hl.bind(main_mod .. ' + Q', hl.dsp.exec_cmd('uwsm app -- $TERMINAL'))
 hl.bind(main_mod .. ' + C', hl.dsp.window.kill())
 hl.bind(main_mod .. ' + M', hl.dsp.exec_cmd('uwsm stop'))
-hl.bind(main_mod .. ' + E', hl.dsp.exec_cmd('uwsm app -- $lock'))
+hl.bind(main_mod .. ' + E', hl.dsp.exec_cmd('uwsm app -- $LOCK'))
 hl.bind(main_mod .. ' + V', hl.dsp.window.float({ action = 'toggle' }))
-hl.bind(main_mod .. ' + R', hl.dsp.exec_cmd('uwsm app -- $launcher'))
-hl.bind(main_mod .. ' + B', hl.dsp.exec_cmd('uwsm app -- $browser'))
+hl.bind(main_mod .. ' + R', hl.dsp.exec_cmd('uwsm app -- $LAUNCHER'))
+hl.bind(main_mod .. ' + B', hl.dsp.exec_cmd('uwsm app -- $BROWSER'))
 hl.bind(main_mod .. ' + F', hl.dsp.window.fullscreen({ action = 'toggle' }))
 
 -- Vim nav bindings

@@ -20,6 +20,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    systemd.user.sessionVariables = {
+      LOCK = cfg.lock;
+    };
+
     dots.desktop.hyprlock.enable = mkDefault (cfg.lock == "hyprlock");
 
     assertions = [
