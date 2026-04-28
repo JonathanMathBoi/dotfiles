@@ -6,3 +6,9 @@ require('layout')
 require('input')
 require('animations')
 require('decoration')
+
+hl.config({
+  xwayland = {
+    force_zero_scaling = true,
+  },
+})
