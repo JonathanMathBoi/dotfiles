@@ -13,3 +13,6 @@ hl.config({
     force_zero_scaling = true,
   },
 })
+
+-- FIX: Add iio display rotation functionality via Lua
+-- The Lua update broke iio-hyprland, and Lua can achieve the same effect
