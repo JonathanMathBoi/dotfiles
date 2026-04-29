@@ -27,7 +27,4 @@
   };
 
   programs.git.signing.key = "E44941267E6C7C82";
-
-  # Makes sure MPD can get to music library
-  systemd.user.services.mpd.Service.RequiresMountsFor = "/home/jonathan/music";
 }
