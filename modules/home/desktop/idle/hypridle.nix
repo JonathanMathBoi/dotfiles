@@ -12,7 +12,7 @@ in
         general = {
           lock_cmd = "pidof ${cfg.lock} || uwsm app -- ${cfg.lock}";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on";
+          after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms(\"on\")'";
         };
 
         listener =
@@ -21,8 +21,8 @@ in
               {
                 # Turn off screen after 2 min idle on mobile
                 timeout = 2 * 60;
-                on-timeout = "hyprctl dispatch dpms off";
-                on-resume = "hyprctl dispatch dpms on";
+                on-timeout = "hyprctl dispatch 'hl.dsp.dpms(\"off\")'";
+                on-resume = "hyprctl dispatch 'hl.dsp.dpms(\"on\")'";
               }
               {
                 # Lock screen after 3 min idle on mobile
@@ -40,8 +40,8 @@ in
               {
                 # Turn off screen after 10 min idle on desktop
                 timeout = 10 * 60;
-                on-timeout = "hyprctl dispatch dpms off";
-                on-resume = "hyprctl dispatch dpms on";
+                on-timeout = "hyprctl dispatch 'hl.dsp.dpms(\"off\")'";
+                on-resume = "hyprctl dispatch 'hl.dsp.dpms(\"on\")'";
               }
             ];
       };
