@@ -44,3 +44,6 @@ hl.bind('XF86AudioPlay', hl.dsp.exec_cmd('playerctl play'))
 hl.bind('XF86AudioPause', hl.dsp.exec_cmd('playerctl pause'))
 hl.bind('XF86AudioNext', hl.dsp.exec_cmd('playerctl next'))
 hl.bind('XF86AudioPrev', hl.dsp.exec_cmd('playerctl previous'))
+
+-- Emergency DPMS binding
+hl.bind(main_mod .. '+ SHIFT + XF86MonBrightnessUp', hl.dsp.dpms(), { locked = true })
