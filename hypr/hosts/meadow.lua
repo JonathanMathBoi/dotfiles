@@ -10,7 +10,7 @@ hl.config({
     touchpad = {
       -- BUG: FW12 touchpad y-axis motion is inverted for some reason
       -- Remove this when it's fixed and randomly is broken again (because it got fixed)
-      flip_y = true,
+      -- flip_y = true,
     },
   },
 })
