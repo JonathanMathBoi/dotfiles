@@ -6,11 +6,11 @@
   ];
 
   services.hyprpaper.settings = {
-    preload = [ "~/dotfiles/wallpapers/longwood_gardens_april_2026_1920x1200.jpg" ];
+    preload = [ "~/dotfiles/wallpapers/longwood_gardens_may_2026_1920x1200.jpg" ];
     wallpaper = [
       {
         monitor = "eDP-1";
-        path = "~/dotfiles/wallpapers/longwood_gardens_april_2026_1920x1200.jpg";
+        path = "~/dotfiles/wallpapers/longwood_gardens_may_2026_1920x1200.jpg";
       }
     ];
   };
@@ -19,7 +19,7 @@
     background = [
       {
         monitor = "eDP-1";
-        path = "~/dotfiles/wallpapers/longwood_gardens_april_2026_1920x1200.jpg";
+        path = "~/dotfiles/wallpapers/longwood_gardens_may_2026_1920x1200.jpg";
         blur_size = 4;
         blur_passes = 3;
         noise = 0.0117;
