@@ -4,7 +4,10 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {
     options = {
-      theme = 'catppuccin',
+      -- Not sure why this needed commenting
+      -- but Catppuccin is using the right theme without
+      -- so commented out it stays
+      -- theme = 'catppuccin',
       icons_enabled = true,
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
