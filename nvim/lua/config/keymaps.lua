@@ -8,3 +8,6 @@ vim.keymap.set({ 'n', 't' }, '<C-h>', '<C-w>h')
 vim.keymap.set({ 'n', 't' }, '<C-j>', '<C-w>j')
 vim.keymap.set({ 'n', 't' }, '<C-k>', '<C-w>k')
 vim.keymap.set({ 'n', 't' }, '<C-l>', '<C-w>l')
+
+-- Buffer Close
+vim.keymap.set({ 'n', 't' }, '<leader>bd', '<CMD>:bd<CR>', { desc = 'Delete Buffer and Window' })

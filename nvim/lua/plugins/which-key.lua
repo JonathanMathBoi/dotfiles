@@ -28,6 +28,7 @@ return {
       { '<leader>f', group = 'Find' },
       { '<leader>h', group = 'Harpoon' },
       { '<leader>t', group = 'Trouble' },
+      { '<leader>b', group = 'Buffer' },
     })
   end,
 }
