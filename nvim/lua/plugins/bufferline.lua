@@ -12,6 +12,7 @@ return {
     { ']B', '<cmd>BufferLineMoveNext<cr>', desc = 'Move buffer next' },
   },
   -- TODO: Add LSP diagnositics to bufferline
+  -- TODO: Add Git indicator to bufferline
   opts = function(_, opts)
     if (vim.g.colors_name or ''):find('catppuccin') then
       opts.highlights = require('catppuccin.special.bufferline').get_theme()
