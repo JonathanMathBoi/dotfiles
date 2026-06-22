@@ -7,8 +7,8 @@
     baseIndex = 1;
     terminal = "tmux-256color";
     keyMode = "vi";
+    prefix = "C-Space";
 
-    # TODO: Switch prefix to CTRL + Space
     # TODO: Add nvim integration for navigation
 
     plugins = with pkgs.tmuxPlugins; [

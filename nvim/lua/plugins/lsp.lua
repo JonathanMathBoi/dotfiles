@@ -19,6 +19,9 @@ return {
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action', buffer = ev.buf })
         vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Rename Symbol', buffer = ev.buf })
         vim.keymap.set('n', '<leader>cs', vim.lsp.buf.hover, { desc = 'Code Signature', buffer = ev.buf })
+
+        -- TODO: Consider adding <leader>something binding for bringing up fresh completions
+        -- (This is Ctrl+Space in normal defaults)
       end,
     })
 
