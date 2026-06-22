@@ -34,17 +34,15 @@
           end
         '';
       };
-      ssh = {
+      rsh = {
+        description = "Open new terminal sshed in to args";
         body = ''
-          function ssh
-              if set -q TMUX
-                  # We are inside tmux. Tell Ghostty to open a new window running raw SSH.
-                  # This completely avoids local tmux nesting.
-                  ghostty -e "ssh $argv"
-              else
-                  # We aren't in tmux (or are running a raw command), run ssh normally.
-                  command ssh $argv
-              end
+          if set -q TMUX
+              env WAYLAND_DISPLAY=$WAYLAND_DISPLAY DISPLAY=$DISPLAY ghostty -e ssh $argv >/dev/null 2>&1 &
+              disown
+          else
+              # We aren't in tmux (or are running a raw command), run ssh normally.
+              command ssh $argv
           end
         '';
       };
