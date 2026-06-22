@@ -4,6 +4,12 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      if status is-interactive
+          and not set -q TMUX
+          # Attach to an existing session named "main", or create it if it doesn't exist
+          exec tmux new-session -A -s main
+      end
+
       set -gx GPG_TTY (tty)
     '';
 
@@ -25,6 +31,20 @@
               systemctl reboot
           else
               echo "Aborted."
+          end
+        '';
+      };
+      ssh = {
+        body = ''
+          function ssh
+              if set -q TMUX
+                  # We are inside tmux. Tell Ghostty to open a new window running raw SSH.
+                  # This completely avoids local tmux nesting.
+                  ghostty -e "ssh $argv"
+              else
+                  # We aren't in tmux (or are running a raw command), run ssh normally.
+                  command ssh $argv
+              end
           end
         '';
       };
