@@ -28,6 +28,8 @@
     ../../modules/system/steam.nix
     ../../modules/system/alvr.nix
     ../../modules/system/tailscale.nix
+
+    ../../modules/system/nas-mount.nix
   ];
 
   # Use latest kernel.
