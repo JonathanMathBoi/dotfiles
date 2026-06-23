@@ -3,7 +3,6 @@
 let
   # Local User Info
   username = "jonathan";
-  uid = toString config.users.users.${username}.uid;
   gid = toString config.users.groups.users.gid;
 
   # NAS Shares Info
@@ -30,7 +29,7 @@ let
     "credentials=${config.sops.secrets."jungle/jonathan/samba-creds".path}"
 
     # Permissions Mapping
-    "uid=${uid}"
+    "uid=${username}"
     "gid=${gid}"
     "dir_mode=0755"
     "file_mode=0644"
@@ -59,7 +58,4 @@ in
       };
     }) shares
   );
-
-  # Populate folders to trip automounts
-  systemd.tmpfiles.rules = map (share: "d ${baseMountPath}/${share} 0755 root root -") shares;
 }
