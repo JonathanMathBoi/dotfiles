@@ -14,6 +14,8 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
     ../../modules/system/tailscale.nix
+
+    ../../modules/system/nas-mount.nix
   ];
 
   networking.hostName = "meadow";
