@@ -24,7 +24,7 @@ let
 
     # Ensure Tailscale is up
     "x-systemd.after=network-online.target"
-    "x-systemd.requires=tailscale_tun.service"
+    "x-systemd.requires=network-online.target"
 
     # Creds for Samba
     "credentials=${config.sops.secrets."jungle/jonathan/samba-creds".path}"
