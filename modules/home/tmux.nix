@@ -13,6 +13,7 @@
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
+      vim-tmux-navigator
     ];
 
     extraConfig = ''
@@ -27,6 +28,9 @@
 
       # Renumber windows when one closes
       set -g renumber-windows on
+
+      # Bind Ctrl+Space Ctrl+L to Ctrl+L to keep Ctrl+L accessable post Ctrl+hjkl nav
+      bind C-l send-keys 'C-l'
     '';
   };
 
