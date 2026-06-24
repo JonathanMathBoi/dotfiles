@@ -4,8 +4,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      if status is-interactive
-          and not set -q TMUX
+      if not set -q TMUX
           # Attach to an existing session named "main", or create it if it doesn't exist
           exec tmux new-session -A -s main
       end
