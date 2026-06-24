@@ -9,8 +9,6 @@
     keyMode = "vi";
     prefix = "C-Space";
 
-    # TODO: Add nvim integration for navigation
-
     plugins = with pkgs.tmuxPlugins; [
       sensible
       vim-tmux-navigator
