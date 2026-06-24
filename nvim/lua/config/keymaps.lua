@@ -10,4 +10,4 @@ vim.keymap.set({ 'n', 't' }, '<C-k>', '<C-w>k')
 vim.keymap.set({ 'n', 't' }, '<C-l>', '<C-w>l')
 
 -- Buffer Close
-vim.keymap.set({ 'n', 't' }, '<leader>bc', '<CMD>:bd<CR>', { desc = 'Close Buffer and Window' })
+vim.keymap.set({ 'n', 't' }, '<leader>bd', '<CMD>:bd<CR>', { desc = 'Delete Buffer and Window' })
