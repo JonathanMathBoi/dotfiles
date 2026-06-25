@@ -5,6 +5,8 @@ hl.monitor({
   scale = 1.07,
 })
 
+require('autorotate')
+
 hl.config({
   input = {
     touchpad = {

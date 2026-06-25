@@ -91,10 +91,13 @@ function M.start()
     local transform = get_orientation(accel)
     if transform and transform ~= current_transform then
       current_transform = transform
+
       hl.monitor({
         output = MONITOR,
         transform = transform,
       })
+
+      hl.config({ input = { touchdevice = { transform = transform }, tablet = { transform = transform } } })
     end
   end
 
