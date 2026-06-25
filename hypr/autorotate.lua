@@ -122,16 +122,20 @@ function M.toggle()
   end
 end
 
-hl.on('hyprland.start', function()
-  M.start()
-end)
+function M.setup()
+  hl.on('hyprland.start', function()
+    M.start()
+  end)
 
-hl.on('config.reloaded', function()
-  if timer_handle then
-    timer_handle:set_enabled(false)
-    timer_handle = nil
-  end
+  hl.on('config.reloaded', function()
+    if timer_handle then
+      timer_handle:set_enabled(false)
+      timer_handle = nil
+    end
+    M.start()
+  end)
+
   M.start()
-end)
+end
 
 return M

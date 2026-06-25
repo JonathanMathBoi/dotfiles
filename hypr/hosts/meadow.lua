@@ -5,7 +5,7 @@ hl.monitor({
   scale = 1.07,
 })
 
-require('autorotate')
+require('autorotate').setup()
 
 hl.config({
   input = {
