@@ -47,3 +47,6 @@ hl.bind('XF86AudioPrev', hl.dsp.exec_cmd('playerctl previous'))
 
 -- Emergency DPMS binding
 hl.bind(main_mod .. '+ SHIFT + XF86MonBrightnessUp', hl.dsp.dpms(), { locked = true })
+
+-- Auto-rotate toggle
+hl.bind(main_mod .. ' + O', function() require('autorotate').toggle() end)

@@ -7,6 +7,7 @@ require('input')
 require('animations')
 require('decoration')
 require('theme')
+require('autorotate')
 
 hl.config({
   xwayland = {
