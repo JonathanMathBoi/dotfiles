@@ -68,6 +68,9 @@ local timer_handle = nil
 
 function M.start()
   if timer_handle then
+    if timer_handle.is_enabled and not timer_handle:is_enabled() then
+      timer_handle:set_enabled(true)
+    end
     return
   end
 
@@ -92,14 +95,16 @@ function M.start()
 end
 
 function M.stop()
-  if timer_handle then
-    timer_handle:cancel()
-    timer_handle = nil
+  if timer_handle and timer_handle.set_enabled then
+    timer_handle:set_enabled(false)
   end
 end
 
 function M.toggle()
-  if timer_handle then
+  if timer_handle and timer_handle.is_enabled then
+    local enabled = timer_handle:is_enabled()
+    timer_handle:set_enabled(not enabled)
+  elseif timer_handle then
     M.stop()
   else
     M.start()
@@ -111,7 +116,10 @@ hl.on("hyprland.start", function()
 end)
 
 hl.on("config.reloaded", function()
-  M.stop()
+  if timer_handle then
+    timer_handle:set_enabled(false)
+    timer_handle = nil
+  end
   M.start()
 end)
 
