@@ -1,27 +1,35 @@
 local M = {}
 
-local ACCEL_PATH = "/sys/bus/iio/devices/iio:device1"
-local MONITOR = "eDP-1"
+local ACCEL_PATH = '/sys/bus/iio/devices/iio:device1'
+local MONITOR = 'eDP-1'
 local POLL_INTERVAL = 1000
 
 local function read_accel()
-  local x_file = io.open(ACCEL_PATH .. "/in_accel_x_raw", "r")
-  local y_file = io.open(ACCEL_PATH .. "/in_accel_y_raw", "r")
-  local z_file = io.open(ACCEL_PATH .. "/in_accel_z_raw", "r")
-  local scale_file = io.open(ACCEL_PATH .. "/scale", "r")
+  local x_file = io.open(ACCEL_PATH .. '/in_accel_x_raw', 'r')
+  local y_file = io.open(ACCEL_PATH .. '/in_accel_y_raw', 'r')
+  local z_file = io.open(ACCEL_PATH .. '/in_accel_z_raw', 'r')
+  local scale_file = io.open(ACCEL_PATH .. '/scale', 'r')
 
   if not x_file or not y_file or not z_file or not scale_file then
-    if x_file then x_file:close() end
-    if y_file then y_file:close() end
-    if z_file then z_file:close() end
-    if scale_file then scale_file:close() end
+    if x_file then
+      x_file:close()
+    end
+    if y_file then
+      y_file:close()
+    end
+    if z_file then
+      z_file:close()
+    end
+    if scale_file then
+      scale_file:close()
+    end
     return nil
   end
 
-  local x = tonumber(x_file:read("*l"))
-  local y = tonumber(y_file:read("*l"))
-  local z = tonumber(z_file:read("*l"))
-  local scale = tonumber(scale_file:read("*l"))
+  local x = tonumber(x_file:read('*l'))
+  local y = tonumber(y_file:read('*l'))
+  local z = tonumber(z_file:read('*l'))
+  local scale = tonumber(scale_file:read('*l'))
 
   x_file:close()
   y_file:close()
@@ -50,9 +58,9 @@ local function get_orientation(accel)
 
   if abs_x > abs_y then
     if accel.x > 0 then
-      return 1
-    else
       return 3
+    else
+      return 1
     end
   else
     if accel.y > 0 then
@@ -90,7 +98,7 @@ function M.start()
     end
   end
 
-  timer_handle = hl.timer(check_orientation, { timeout = POLL_INTERVAL, type = "repeat" })
+  timer_handle = hl.timer(check_orientation, { timeout = POLL_INTERVAL, type = 'repeat' })
   check_orientation()
 end
 
@@ -111,11 +119,11 @@ function M.toggle()
   end
 end
 
-hl.on("hyprland.start", function()
+hl.on('hyprland.start', function()
   M.start()
 end)
 
-hl.on("config.reloaded", function()
+hl.on('config.reloaded', function()
   if timer_handle then
     timer_handle:set_enabled(false)
     timer_handle = nil
