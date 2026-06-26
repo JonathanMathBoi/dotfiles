@@ -2,13 +2,81 @@ local M = {}
 
 local _initialized = false
 
--- BUG: iio:devices change numbers on boot
--- Update to handle dynamically
-local ACCEL_PATH = '/sys/bus/iio/devices/iio:device0'
+local ACCEL_PATH = nil
 local MONITOR = 'eDP-1'
 local POLL_INTERVAL = 1000
 
+local function find_accel_device()
+  local handle = io.popen('ls -d /sys/bus/iio/devices/iio:device* 2>/dev/null')
+  if not handle then
+    return nil
+  end
+
+  local devices = {}
+  for path in handle:lines() do
+    table.insert(devices, path)
+  end
+  handle:close()
+
+  local fallback_path = nil
+
+  for _, path in ipairs(devices) do
+    local x_file = io.open(path .. '/in_accel_x_raw', 'r')
+    local y_file = io.open(path .. '/in_accel_y_raw', 'r')
+    local z_file = io.open(path .. '/in_accel_z_raw', 'r')
+    local scale_file = io.open(path .. '/scale', 'r')
+
+    if x_file and y_file and z_file and scale_file then
+      x_file:close()
+      y_file:close()
+      z_file:close()
+      scale_file:close()
+
+      local label_file = io.open(path .. '/label', 'r')
+      local label = nil
+      if label_file then
+        label = label_file:read('*l')
+        label_file:close()
+      end
+
+      local name_file = io.open(path .. '/name', 'r')
+      local name = nil
+      if name_file then
+        name = name_file:read('*l')
+        name_file:close()
+      end
+
+      if label == 'accel-display' then
+        return path
+      elseif name == 'cros-ec-accel' and not fallback_path then
+        fallback_path = path
+      elseif not fallback_path then
+        fallback_path = path
+      end
+    else
+      if x_file then
+        x_file:close()
+      end
+      if y_file then
+        y_file:close()
+      end
+      if z_file then
+        z_file:close()
+      end
+      if scale_file then
+        scale_file:close()
+      end
+    end
+  end
+
+  return fallback_path
+end
+
 local function read_accel()
+  if not ACCEL_PATH then
+    return nil
+  end
+
   local x_file = io.open(ACCEL_PATH .. '/in_accel_x_raw', 'r')
   local y_file = io.open(ACCEL_PATH .. '/in_accel_y_raw', 'r')
   local z_file = io.open(ACCEL_PATH .. '/in_accel_z_raw', 'r')
@@ -79,7 +147,7 @@ local current_transform = -1
 local timer_handle = nil
 
 function M.start()
-  if not _initialized then
+  if not _initialized or not ACCEL_PATH then
     return
   end
   if timer_handle then
@@ -140,6 +208,8 @@ function M.setup()
     return
   end
   _initialized = true
+
+  ACCEL_PATH = find_accel_device()
 
   hl.on('hyprland.start', function()
     M.start()
