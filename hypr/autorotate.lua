@@ -1,6 +1,8 @@
 local M = {}
 
-local ACCEL_PATH = '/sys/bus/iio/devices/iio:device1'
+-- BUG: iio:devices change numbers on boot
+-- Update to handle dynamically
+local ACCEL_PATH = '/sys/bus/iio/devices/iio:device0'
 local MONITOR = 'eDP-1'
 local POLL_INTERVAL = 1000
 
