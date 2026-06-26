@@ -1,5 +1,7 @@
 local M = {}
 
+local _initialized = false
+
 -- BUG: iio:devices change numbers on boot
 -- Update to handle dynamically
 local ACCEL_PATH = '/sys/bus/iio/devices/iio:device0'
@@ -77,6 +79,9 @@ local current_transform = -1
 local timer_handle = nil
 
 function M.start()
+  if not _initialized then
+    return
+  end
   if timer_handle then
     if timer_handle.is_enabled and not timer_handle:is_enabled() then
       timer_handle:set_enabled(true)
@@ -108,12 +113,18 @@ function M.start()
 end
 
 function M.stop()
+  if not _initialized then
+    return
+  end
   if timer_handle and timer_handle.set_enabled then
     timer_handle:set_enabled(false)
   end
 end
 
 function M.toggle()
+  if not _initialized then
+    return
+  end
   if timer_handle and timer_handle.is_enabled then
     local enabled = timer_handle:is_enabled()
     timer_handle:set_enabled(not enabled)
@@ -125,6 +136,11 @@ function M.toggle()
 end
 
 function M.setup()
+  if _initialized then
+    return
+  end
+  _initialized = true
+
   hl.on('hyprland.start', function()
     M.start()
   end)
