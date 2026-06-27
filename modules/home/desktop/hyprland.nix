@@ -23,7 +23,9 @@
   services.hyprpolkitagent.enable = true;
 
   home.file.".local/share/hypr/stubs" = {
-    source = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/share/hypr/stubs";
+    # FIX: Bug in latest git hyprland breaks live rotation
+    # source = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/share/hypr/stubs";
+    source = "${pkgs.hyprland}/share/hypr/stubs";
     recursive = true;
   };
 
