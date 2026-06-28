@@ -12,6 +12,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "lua";
 
     # Use the development version of Hyprland
     # FIX: Bug in latest git hyprland breaks live rotation
