@@ -5,6 +5,9 @@ let
   wttr-weather = pkgs.writers.writePython3Bin "wttr-weather" {
     libraries = [ pkgs.python3Packages.requests ];
   } (builtins.readFile ../../../waybar/scripts/wttr.py);
+  waybar-countdown = pkgs.writers.writePython3Bin "waybar-countdown" { doCheck = false; } (
+    builtins.readFile ../../../waybar/scripts/countdown.py
+  );
 in
 {
   programs.waybar = {
@@ -12,7 +15,10 @@ in
     systemd.enable = true;
   };
 
-  home.packages = [ wttr-weather ];
+  home.packages = [
+    wttr-weather
+    waybar-countdown
+  ];
 
   xdg.configFile."waybar".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar";
