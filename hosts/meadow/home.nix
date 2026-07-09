@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "25.11";
@@ -25,6 +25,12 @@
       };
     };
   };
+
+  # HACK: Clean up Calibre installation into home manager module
+  home.packages = with pkgs; [
+    calibre
+    openssl
+  ];
 
   programs.git.signing.key = "E44941267E6C7C82";
 }
