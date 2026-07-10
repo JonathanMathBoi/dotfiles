@@ -20,6 +20,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    systemd.user.sessionVariables = {
+      BROWSER = cfg.browser;
+    };
+
     dots.desktop.brave.enable = mkDefault (cfg.browser == "brave");
 
     assertions = [

@@ -7,17 +7,18 @@
     baseIndex = 1;
     terminal = "tmux-256color";
     keyMode = "vi";
-
-    # TODO: Switch prefix to CTRL + Space
-    # TODO: Add nvim integration for navigation
+    prefix = "C-Space";
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
+      vim-tmux-navigator
     ];
 
     extraConfig = ''
       # Make sure full color works on all terminals
       set -as terminal-overrides ",*:Tc"
+      set -as terminal-features ',*:clipboard'
+      set -s set-clipboard on
       # Pass through terminal so programs can do things like images
       set -g allow-passthrough on
       set -ga update-environment TERM
@@ -25,6 +26,9 @@
 
       # Renumber windows when one closes
       set -g renumber-windows on
+
+      # Bind Ctrl+Space Ctrl+L to Ctrl+L to keep Ctrl+L accessable post Ctrl+hjkl nav
+      bind C-l send-keys 'C-l'
     '';
   };
 

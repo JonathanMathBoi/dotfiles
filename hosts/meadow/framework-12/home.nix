@@ -1,16 +1,19 @@
 { ... }:
 
+let
+  wallpaper_image = "~/dotfiles/wallpapers/longwood_gardens_june_2025_1920x1200.png";
+in
 {
   wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-1,1920x1200@60,0x0,1.1"
+    "eDP-1,1920x1200@60,0x0,1.07"
   ];
 
   services.hyprpaper.settings = {
-    preload = [ "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg" ];
+    preload = [ wallpaper_image ];
     wallpaper = [
       {
         monitor = "eDP-1";
-        path = "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg";
+        path = wallpaper_image;
       }
     ];
   };
@@ -19,7 +22,7 @@
     background = [
       {
         monitor = "eDP-1";
-        path = "~/dotfiles/wallpapers/longwood_gardens_nov_2025_1920x1200.jpg";
+        path = wallpaper_image;
         blur_size = 4;
         blur_passes = 3;
         noise = 0.0117;

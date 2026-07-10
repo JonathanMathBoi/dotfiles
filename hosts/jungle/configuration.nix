@@ -27,12 +27,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Keep HDD unlock resilient while keyfile automation is being bootstrapped.
-  boot.initrd.luks.devices = {
-    jungle-hdd1.fallbackToPassword = true;
-    jungle-hdd2.fallbackToPassword = true;
-  };
-
   # Allows LUKS password to be entered over ssh
   boot.initrd.network = {
     enable = true;

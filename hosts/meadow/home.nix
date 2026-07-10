@@ -6,7 +6,7 @@
 
   imports = [
     ../../modules/home
-    ./surface-go-3/home.nix
+    ./framework-12/home.nix
   ];
 
   dots = {
@@ -26,24 +26,11 @@
     };
   };
 
+  # HACK: Clean up Calibre installation into home manager module
+  home.packages = with pkgs; [
+    calibre
+    openssl
+  ];
+
   programs.git.signing.key = "E44941267E6C7C82";
-
-  home.packages = with pkgs; [ iio-hyprland ];
-
-  systemd.user.services.iio-hyprland = {
-    Unit = {
-      Description = "Auto-rotate Hyprland monitors from IIO sensors";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.iio-hyprland}/bin/iio-hyprland";
-      Restart = "on-failure";
-      RestartSec = 2;
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
-
-  # Makes sure MPD can get to music library
-  systemd.user.services.mpd.Service.RequiresMountsFor = "/home/jonathan/music";
 }

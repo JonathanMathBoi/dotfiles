@@ -6,6 +6,7 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    sideloadInitLua = true;
     extraPackages = with pkgs; [
       # LSPs
       lua-language-server

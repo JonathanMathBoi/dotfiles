@@ -18,4 +18,10 @@ in
       description = "The app launcher for the DE to use.";
     };
   };
+
+  config = mkIf cfg.enable {
+    systemd.user.sessionVariables = {
+      LAUNCHER = cfg.launcher;
+    };
+  };
 }

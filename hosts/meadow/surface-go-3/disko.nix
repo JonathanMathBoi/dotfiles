@@ -57,6 +57,13 @@
                     mountpoint = "/swap";
                     swap.swapfile.size = "12G";
                   };
+                  "@snapshots" = {
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                    mountpoint = "/.snapshots";
+                  };
                 };
               };
             };

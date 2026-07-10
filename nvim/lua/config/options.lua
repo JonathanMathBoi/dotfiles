@@ -16,21 +16,3 @@ vim.opt.smartindent = true
 
 -- Uses full color of the terminal
 vim.opt.termguicolors = true
-
--- Allows nice copy pasting with the system clipboard
-vim.opt.clipboard = 'unnamedplus'
-
--- Uses OSC 52 over SSH for clipboard
-if vim.env.SSH_TTY then
-  vim.g.clipboard = {
-    name = 'OSC 52',
-    copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-    },
-    paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-    },
-  }
-end

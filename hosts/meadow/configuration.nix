@@ -3,7 +3,7 @@
 {
   imports = [
     ./persistence.nix
-    ./surface-go-3
+    ./framework-12
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
     ../../modules/system/networkmanager.nix
@@ -14,6 +14,8 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
     ../../modules/system/tailscale.nix
+
+    ../../modules/system/nas-mount.nix
   ];
 
   networking.hostName = "meadow";
@@ -29,6 +31,13 @@
   services.power-profiles-daemon.enable = true;
   # Disabled since power-profiles-daemon is the new standard way to deal with that
   services.tlp.enable = false;
+
+  # Prevent an acidental power button press from shutting the whole system down
+  services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+    HandlePowerKeyLongPress = "reboot";
+  };
+  # TODO: Consider adding Hyprland handling of power key
 
   sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 

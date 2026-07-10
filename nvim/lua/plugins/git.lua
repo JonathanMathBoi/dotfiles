@@ -12,7 +12,7 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        -- TODO: Consider adding commands to jump between hunks
+        -- TODO: Add commands to jump between hunks
 
         -- Keybinds for hunk staging
         map('n', '<leader>ghs', gs.stage_hunk, { desc = 'Stage Hunk' })

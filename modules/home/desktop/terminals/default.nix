@@ -28,6 +28,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    systemd.user.sessionVariables = {
+      TERMINAL = cfg.terminal;
+    };
+
     dots.desktop.alacritty.enable = mkDefault (cfg.terminal == "alacritty");
     dots.desktop.kitty.enable = mkDefault (cfg.terminal == "kitty");
     dots.desktop.ghostty.enable = mkDefault (cfg.terminal == "ghostty");

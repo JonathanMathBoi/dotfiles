@@ -28,6 +28,8 @@ return {
       { '<leader>f', group = 'Find' },
       { '<leader>h', group = 'Harpoon' },
       { '<leader>t', group = 'Trouble' },
+      { '<leader>b', group = 'Buffer' },
+      { '<leader>w', group = 'Window' },
     })
   end,
 }

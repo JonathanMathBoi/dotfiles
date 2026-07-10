@@ -26,6 +26,14 @@
         "return-type": "json"
     },
 
+    "custom/countdown": {
+        "exec": "waybar-countdown",
+        "return-type": "json",
+        "interval": 60,
+        "format": "T-{}",
+        "tooltip": true
+    },
+
     "clock": {
         "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

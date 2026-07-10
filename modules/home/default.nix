@@ -31,6 +31,7 @@ in
     catppuccin = {
       flavor = "macchiato";
       enable = true;
+      autoEnable = true;
     };
   };
 }

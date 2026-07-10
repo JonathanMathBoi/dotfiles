@@ -26,7 +26,10 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
     ../../modules/system/steam.nix
+    ../../modules/system/alvr.nix
     ../../modules/system/tailscale.nix
+
+    ../../modules/system/nas-mount.nix
   ];
 
   # Use latest kernel.

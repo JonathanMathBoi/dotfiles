@@ -11,6 +11,7 @@
 
     fontconfig = {
       enable = true;
+      cache32Bit = true;
       defaultFonts = {
         monospace = [
           "JetBrainsMono Nerd Font"
