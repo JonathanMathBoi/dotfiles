@@ -14,6 +14,7 @@
     ai = {
       enable = true;
       copilot.enable = true;
+      opencode.enable = true;
     };
 
     desktop = {

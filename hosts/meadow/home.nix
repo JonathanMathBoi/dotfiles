@@ -12,6 +12,11 @@
   dots = {
     enable = true;
 
+    ai = {
+      enable = true;
+      opencode.enable = true;
+    };
+
     desktop = {
       enable = true;
       formFactor = "mobile";
