@@ -55,6 +55,15 @@
       formatter.${system} = treefmtEval.config.build.wrapper;
       checks.${system}.formatting = treefmtEval.config.build.check self;
 
+      homeConfigurations."jonathan@portable" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./profiles/portable.nix
+          catppuccin.homeModules.catppuccin
+        ];
+      };
+
       packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
       packages.x86_64-linux.lily58 =
         let

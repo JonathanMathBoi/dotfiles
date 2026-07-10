@@ -1,0 +1,40 @@
+{ lib, config, ... }:
+
+with lib;
+let
+  cfg = config.dots;
+in
+{
+  imports = [
+    ./user-dirs.nix
+    ./shell.nix
+    ./git.nix
+    ./neovim.nix
+    ./terminal-tools.nix
+    ./tmux.nix
+    ./fastfetch.nix
+    ./github.nix
+  ];
+
+  options.dots = {
+    enable = mkEnableOption "dotfiles";
+
+    repoPath = mkOption {
+      type = types.str;
+      default = "${config.home.homeDirectory}/dotfiles";
+      description = "Path to the dotfiles repository.";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    home.username = mkDefault "jonathan";
+    home.homeDirectory = mkDefault "/home/jonathan";
+    home.language.base = "en_US.UTF-8";
+
+    catppuccin = {
+      flavor = "macchiato";
+      enable = true;
+      autoEnable = true;
+    };
+  };
+}
