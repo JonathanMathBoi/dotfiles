@@ -21,7 +21,7 @@ in
   ];
 
   xdg.configFile."waybar".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar";
+    config.lib.file.mkOutOfStoreSymlink "${config.dots.repoPath}/waybar";
 
   # Disable Nix/Home Manager managed catppuccin theme for waybar since I already manage it myself
   catppuccin.waybar.enable = false;

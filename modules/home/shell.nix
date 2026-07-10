@@ -13,6 +13,7 @@
     '';
 
     functions = {
+      # WARNING: These commands require systemd and are not portable to every host.
       shutdown = {
         body = ''
           read -p "echo 'Shutdown the system? (y/N): '" -l confirm

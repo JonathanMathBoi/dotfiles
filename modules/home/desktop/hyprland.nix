@@ -7,7 +7,7 @@
 
 {
   systemd.user.sessionVariables = {
-    HYPRLAND_CONFIG = "${config.home.homeDirectory}/dotfiles/hypr/hyprland.lua";
+    HYPRLAND_CONFIG = "${config.dots.repoPath}/hypr/hyprland.lua";
   };
 
   wayland.windowManager.hyprland = {

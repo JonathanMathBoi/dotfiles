@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  # WARNING: These packages are NixOS-focused and may not be useful on portable hosts.
   home.packages = with pkgs; [
     disko
     nixos-anywhere

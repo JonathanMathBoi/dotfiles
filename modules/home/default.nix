@@ -21,6 +21,12 @@ in
 
   options.dots = {
     enable = mkEnableOption "dotfiles";
+
+    repoPath = mkOption {
+      type = types.str;
+      default = "${config.home.homeDirectory}/dotfiles";
+      description = "Path to the dotfiles repository.";
+    };
   };
 
   config = mkIf cfg.enable {
