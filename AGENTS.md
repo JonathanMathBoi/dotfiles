@@ -24,3 +24,30 @@
 - **ZMK Firmware Fixed-Outputs:** `flake.nix` contains the Lily58 `zephyrDepsHash`. If `nix build .#lily58` reports a fixed-output hash mismatch, replace the declared hash with the `got:` hash from that build output before retrying.
 - The `iso` output is installation media with intentionally insecure/passwordless installer SSH settings; do not copy those settings into normal hosts.
 - Storage layout and persistence are host-specific (`disko.nix` and `persistence.nix`). Treat changes there as destructive migration work, not ordinary module refactoring.
+
+## Git & Version Control
+
+You are responsible for managing your own version control. Do not wait for user prompts to stage or commit work. Use a "micro-commit" strategy so that if a change breaks the Nix build, we can easily roll back without losing progress.
+
+### Commit Cadence
+- **Commit Early and Often:** Commit after every single logical, atomic change. Examples:
+  - Added a new home module option.
+  - Fixed a single syntax error or formatter warning.
+  - Extracted a shared configuration into `modules/system`.
+- **Pre-Commit Verification:** Always run `nix flake check .` and `nix fmt` *before* committing. If the check fails, fix the issue before committing.
+- **Never pool changes:** Do not combine unrelated changes (e.g., updating a Waybar style and fixing a Neovim Lua error) into a single commit.
+
+### Branch Strategy & Workflow
+- **Current Branch:** We are working directly on the `dev` branch. 
+- **Branch Safety:** Before starting a new task, ensure you have the latest state. If you are instructed to create a feature branch for a large, destructive, or experimental change (e.g., Disko/Persistence migrations or adding the ARM Raspberry Pi host), do so using `git checkout -b feature/<feature-name>`.
+
+### Commit Message Guidelines
+Use clear, concise Conventional Commits formatting so history is easily scannable:
+
+- `feat(modules/home): add core visual modules for hyprland`
+- `fix(nvim): resolve lsp autocomplete crash in lua`
+- `style: run nix fmt across repository`
+- `chore(deps): update fixed-output zephyrDepsHash for lily58`
+
+### Error Recovery & Rollbacks
+- If a system switch (`nh os switch`) or build fails catastrophically and you cannot immediately identify the cause, use `git stash` or `git reset --hard HEAD~1` to revert to your last known working micro-commit. Do not attempt to write complex fixes on top of broken, uncommitted code.
