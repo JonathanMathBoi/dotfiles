@@ -27,6 +27,8 @@
       creative = {
         enable = true;
         krita.enable = true;
+        gimp.enable = true;
+        kdenlive.enable = true;
       };
     };
   };

@@ -9,8 +9,8 @@ in
   imports = [
     ./krita.nix
     ./obs.nix
-    # TODO: Add GIMP
-    # TODO: ADD Kdenlive
+    ./gimp.nix
+    ./kdenlive.nix
   ];
 
   options.dots.desktop.creative = {

@@ -30,6 +30,8 @@
       creative = {
         enable = true;
         obs.enable = true;
+        gimp.enable = true;
+        kdenlive.enable = true;
       };
     };
   };
