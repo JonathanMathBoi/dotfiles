@@ -9,6 +9,7 @@ in
   imports = [
     ./copilot.nix
     ./opencode.nix
+    ./mcp.nix
   ];
 
   options.dots.ai = {
