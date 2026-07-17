@@ -2,7 +2,7 @@ hl.monitor({
   output = 'eDP-1',
   mode = '1920x1200@60',
   position = '0x0',
-  scale = 1.07,
+  scale = 1.0,
 })
 
 require('autorotate').setup()

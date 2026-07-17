@@ -4,10 +4,6 @@ let
   wallpaper_image = "~/dotfiles/wallpapers/longwood_gardens_june_2025_1920x1200.png";
 in
 {
-  wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-1,1920x1200@60,0x0,1.07"
-  ];
-
   services.hyprpaper.settings = {
     preload = [ wallpaper_image ];
     wallpaper = [
