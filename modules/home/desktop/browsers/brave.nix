@@ -11,6 +11,7 @@ let
 in
 {
   config = mkIf cfg.brave.enable {
+    # TODO: Add Brave Origin option and switch to Origin
     programs.brave = {
       enable = true;
       commandLineArgs = [
