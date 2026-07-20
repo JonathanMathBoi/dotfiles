@@ -15,6 +15,7 @@
       "/var/db/sudo"
       "/var/lib/nixos"
       "/var/lib/tailscale"
+      "/var/lib/acme"
       "/var/lib/samba"
       "/var/lib/nut"
       "/var/log/samba"

@@ -14,6 +14,7 @@
     ./plex.nix
     ./headless-laptop.nix
     ./nut.nix
+    ./nginx.nix
     ./hardware-configuration.nix
     ../../modules/system/systemd-boot.nix
     ../../modules/system/common.nix
