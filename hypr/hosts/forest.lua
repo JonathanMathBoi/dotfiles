@@ -12,3 +12,5 @@ hl.monitor({
   position = '3440x0',
   scale = 1,
 })
+
+require('layouts.dwindle')
