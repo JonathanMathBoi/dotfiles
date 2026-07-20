@@ -19,4 +19,6 @@ hl.gesture({
   fingers = 3,
   direction = 'horizontal',
   action = 'scroll_move',
+  -- TODO: Update gesture handling to make activation curve smooth
+  scale = 1.5,
 })
