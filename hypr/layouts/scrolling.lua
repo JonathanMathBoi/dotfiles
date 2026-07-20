@@ -13,3 +13,10 @@ hl.config({
 local main_mod = 'SUPER'
 
 hl.bind(main_mod .. ' + T', hl.dsp.layout('colresize +conf'))
+
+-- Gestures Configuration
+hl.gesture({
+  fingers = 3,
+  direction = 'horizontal',
+  action = 'scroll_move',
+})

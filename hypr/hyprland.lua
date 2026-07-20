@@ -1,5 +1,4 @@
 require('monitors')
-require('gestures')
 require('binds')
 require('submaps.screenshot')
 require('input')
