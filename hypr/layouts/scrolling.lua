@@ -3,8 +3,8 @@ hl.config({
   general = { layout = 'scrolling' },
   scrolling = {
     direction = 'right',
+    wrap_swapcol = false,
     column_width = 0.8,
-    widths = { 0.5, 0.8, 1.0 },
   },
 })
 
