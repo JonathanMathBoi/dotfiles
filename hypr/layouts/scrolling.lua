@@ -16,6 +16,10 @@ local main_mod = 'SUPER'
 hl.bind(main_mod .. ' + bracketleft', hl.dsp.layout('swapcol l'))
 hl.bind(main_mod .. ' + bracketright', hl.dsp.layout('swapcol r'))
 
+-- Shrink and expand columns
+hl.bind(main_mod .. ' + SHIFT + bracketleft', hl.dsp.layout('colresize -0.2'))
+hl.bind(main_mod .. ' + SHIFT + bracketright', hl.dsp.layout('colresize +0.2'))
+
 -- Compress and expand behavior
 -- If window is alone in column, compress into
 -- If window is not alone, expand out of
