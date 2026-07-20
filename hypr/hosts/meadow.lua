@@ -5,6 +5,6 @@ hl.monitor({
   scale = 1.0,
 })
 
-require('layouts.dwindle')
+require('layouts.scrolling')
 
 require('autorotate').setup()
