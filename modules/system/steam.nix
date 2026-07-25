@@ -12,5 +12,13 @@
     extest.enable = true;
   };
 
+  # TODO: Consider moving outside of steam since more than just Steam games use controllers
+  hardware.steam-hardware.enable = true;
+  boot.kernelModules = [ "uinput" ];
+  users.users.jonathan.extraGroups = [
+    "input"
+    "uinput"
+  ];
+
   programs.gamescope.enable = true;
 }
