@@ -14,6 +14,7 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/greetd.nix
     ../../modules/system/tailscale.nix
+    ../../modules/system/forest-builder-client.nix
 
     ../../modules/system/nas-mount.nix
   ];
@@ -40,8 +41,6 @@
   # TODO: Consider adding Hyprland handling of power key
 
   sops.age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
-
-  # TODO: Configure remote building with forest
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

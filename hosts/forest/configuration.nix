@@ -28,6 +28,7 @@
     ../../modules/system/steam.nix
     ../../modules/system/alvr.nix
     ../../modules/system/tailscale.nix
+    ../../modules/system/forest-builder.nix
 
     ../../modules/system/nas-mount.nix
   ];
