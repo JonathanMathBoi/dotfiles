@@ -15,8 +15,12 @@ in
     programs.opencode = {
       enable = true;
       enableMcpIntegration = cfg.mcp.enable;
+
+      settings = {
+        theme = "catppuccin-macchiato";
+      };
+
       # TODO: Declaritive API config
-      # TODO: Declaritive theme and UI config
       # TODO: Look into formatters
     };
   };
