@@ -16,6 +16,7 @@
       "/var/lib/nixos"
       "/var/lib/tailscale"
       "/var/lib/acme"
+      "/var/lib/mongodb"
       "/var/lib/samba"
       "/var/lib/nut"
       "/var/log/samba"

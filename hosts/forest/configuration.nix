@@ -65,6 +65,7 @@
     package = pkgs.ollama-vulkan;
     user = "ollama";
     group = "ollama";
+    host = "0.0.0.0";
   };
 
   environment.variables = {

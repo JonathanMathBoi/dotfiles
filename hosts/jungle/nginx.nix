@@ -13,6 +13,7 @@
       extraDomainNames = [
         "mk.hyrulelabs.com"
         "plex.hyrulelabs.com"
+        "chat.hyrulelabs.com"
       ];
       dnsProvider = "cloudflare";
       credentialFiles = {
@@ -51,6 +52,15 @@
         useACMEHost = "hyrulelabs.com";
         locations."/" = {
           proxyPass = "http://127.0.0.1:32400";
+          proxyWebsockets = true;
+        };
+      };
+
+      "chat.hyrulelabs.com" = {
+        forceSSL = true;
+        useACMEHost = "hyrulelabs.com";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3080";
           proxyWebsockets = true;
         };
       };
