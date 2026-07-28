@@ -17,6 +17,7 @@ in
         protocol = "ssh-ng";
         sshUser = "nixbuilder";
         sshKey = builderKey;
+        publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIDnedLKPkv/K/8j2VuLwUweWnp4dI19mI9413Q1hGWiS";
         maxJobs = 4;
       }
     ];
