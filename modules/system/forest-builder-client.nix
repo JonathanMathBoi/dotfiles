@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 let
   builderKey = config.sops.secrets."builder/forest/private-key".path;
@@ -21,8 +21,5 @@ in
         maxJobs = 4;
       }
     ];
-
-    # Prefer the remote builder instead of consuming Meadow's local resources.
-    settings.max-jobs = lib.mkForce 0;
   };
 }
