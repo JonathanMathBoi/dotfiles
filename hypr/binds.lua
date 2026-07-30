@@ -7,7 +7,7 @@ hl.bind(main_mod .. ' + E', hl.dsp.exec_cmd('uwsm app -- $LOCK'))
 hl.bind(main_mod .. ' + V', hl.dsp.window.float({ action = 'toggle' }))
 hl.bind(main_mod .. ' + R', hl.dsp.exec_cmd('uwsm app -- $LAUNCHER'))
 hl.bind(main_mod .. ' + B', hl.dsp.exec_cmd('uwsm app -- $BROWSER'))
-hl.bind(main_mod .. ' + F', hl.dsp.window.fullscreen({ action = 'toggle' }))
+hl.bind(main_mod .. ' + F', hl.dsp.window.fullscreen({ action = 'toggle', layout_aware = true }))
 
 -- Vim nav bindings
 hl.bind(main_mod .. ' + H', hl.dsp.focus({ direction = 'l' }))
