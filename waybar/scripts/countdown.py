@@ -2,8 +2,8 @@
 import json
 from datetime import datetime, timezone
 
-# Target: July 8, 2026, at 9:00 AM EDT (UTC-4)
-TARGET = datetime(2026, 7, 8, 9, 0, 0).astimezone()
+# Target: Aug 4, 2026, at 4:00 PM EDT (UTC-4)
+TARGET = datetime(2026, 8, 4, 16, 0, 0).astimezone()
 
 def get_countdown():
     now = datetime.now().astimezone()
