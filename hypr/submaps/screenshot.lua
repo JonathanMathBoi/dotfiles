@@ -1,4 +1,6 @@
-hl.bind('SUPER + S', hl.dsp.submap('screenshot'))
+local mod = require('config').mod
+
+hl.bind(mod .. ' + S', hl.dsp.submap('screenshot'))
 
 hl.define_submap('screenshot', function()
   -- Fullscreen screenshot
