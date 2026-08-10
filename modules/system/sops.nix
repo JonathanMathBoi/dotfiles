@@ -14,6 +14,8 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
+    # TODO: Account for impermanence lack of /etc/ssh in early stages with options
+
     secrets =
       if config.users.mutableUsers then
         { }
