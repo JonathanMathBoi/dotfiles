@@ -37,13 +37,13 @@ hl.bind(mod .. ' + mouse_down', hl.dsp.focus({ workspace = 'e+1' }))
 hl.bind(mod .. ' + mouse_up', hl.dsp.focus({ workspace = 'e-1' }))
 
 -- Media bindings
-hl.bind('XF86AudioRaiseVolume', hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+'))
-hl.bind('XF86AudioLowerVolume', hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-'))
+hl.bind('XF86AudioRaiseVolume', hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+'), { locked = true })
+hl.bind('XF86AudioLowerVolume', hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-'), { locked = true })
 
-hl.bind('XF86AudioPlay', hl.dsp.exec_cmd('playerctl play'))
-hl.bind('XF86AudioPause', hl.dsp.exec_cmd('playerctl pause'))
-hl.bind('XF86AudioNext', hl.dsp.exec_cmd('playerctl next'))
-hl.bind('XF86AudioPrev', hl.dsp.exec_cmd('playerctl previous'))
+hl.bind('XF86AudioPlay', hl.dsp.exec_cmd('playerctl play'), { locked = true })
+hl.bind('XF86AudioPause', hl.dsp.exec_cmd('playerctl pause'), { locked = true })
+hl.bind('XF86AudioNext', hl.dsp.exec_cmd('playerctl next'), { locked = true })
+hl.bind('XF86AudioPrev', hl.dsp.exec_cmd('playerctl previous'), { locked = true })
 
 -- Emergency DPMS binding
 hl.bind(mod .. '+ SHIFT + XF86MonBrightnessUp', hl.dsp.dpms(), { locked = true })
