@@ -18,4 +18,5 @@ vim.keymap.set('n', '<leader>wh', '<CMD>split<CR>', { desc = 'Split Window Horiz
 vim.keymap.set('n', '<leader>wd', '<CMD>close<CR>', { desc = 'Delete Window' })
 
 -- Buffer Commands
+vim.keymap.set('n', '<leader>bn', '<CMD>enew<CR>', { desc = 'Create New Buffer' })
 vim.keymap.set({ 'n', 't' }, '<leader>bd', '<CMD>bd<CR>', { desc = 'Delete Buffer and Window' })
