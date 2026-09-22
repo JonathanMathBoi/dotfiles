@@ -11,6 +11,16 @@
 #define GAME_LAY 3
 
 / {
+    macros {
+        bt_p0: bt_pair_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kc BT_PAIR 0>; };
+        bt_p1: bt_pair_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kc BT_PAIR 1>; };
+        bt_p2: bt_pair_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kc BT_PAIR 2>; };
+
+        bt_r0: bt_recon_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kc BT_SEL 0>; };
+        bt_r1: bt_recon_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kc BT_SEL 1>; };
+        bt_r2: bt_recon_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kc BT_SEL 2>; };
+    };
+
     behaviors {
         hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -38,6 +48,32 @@
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
             tap-ms =<20>;
+        };
+
+
+        // Bluetooth behaviors
+        bt_slot0: bt_slot0 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <3000>;
+            bindings = <&bt_p0>, <&bt_r0>;
+        };
+
+        bt_slot1: bt_slot1 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <3000>;
+            bindings = <&bt_p1>, <&bt_r1>;
+        };
+
+        bt_slot2: bt_slot2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <3000>;
+            bindings = <&bt_p2>, <&bt_r2>;
         };
     };
 
@@ -86,7 +122,7 @@
         fn_layer {
             bindings = <
     &trans     &kp C_BRI_DN    &kp C_BRI_UP    &trans       &trans   &rgb_ug RGB_BRD &rgb_ug RGB_BRI  &kp C_PREV &kp C_PP   &kp C_NEXT &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans &rgb_ug RGB_TOG
-    &bt BT_CLR &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2 &trans   &trans          &trans           &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+    &trans     &bt_slot0       &bt_slot1       &bt_slot2    &trans   &trans          &trans           &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
     &trans     &rgb_ug RGB_TOG &rgb_ug RGB_EFF &trans       &trans   &trans          &trans           &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
     &trans     &trans     &trans     &trans     &trans     &trans    &trans          &trans           &trans     &trans     &trans     &trans     &trans                &kp END
     &trans                &trans     &trans     &trans     &trans    &kc BATINFO &trans     &trans     &trans     &trans     &trans     &trans
