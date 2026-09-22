@@ -28,6 +28,17 @@ let
 
     enableZmkStudio = true;
 
+    # The bundled nanopb generator imports the removed pkg_resources module
+    # even though its Python 3.10+ code path does not use it.
+    postConfigure = ''
+      for file in ../modules/lib/nanopb/generator/proto/{__init__,_utils}.py; do
+        sed -i \
+          -e 's/import pkg_resources/import importlib.resources as ir/' \
+          -e "s/pkg_resources.resource_filename('grpc_tools', '_proto')/str(ir.files('grpc_tools') \/ '_proto')/g" \
+          "$file"
+      done
+    '';
+
     # Placeholder: run `nix build .#lily58` once, copy the "got:" hash from
     # the mismatch error, and replace this value with the correct hash.
     zephyrDepsHash = "sha256-gsqiTDJLAihVyBXVFlgXwqRmlREcFJctKpl4tEWmVlY=";
