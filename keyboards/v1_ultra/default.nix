@@ -16,6 +16,8 @@ zmk-nix.legacyPackages.${system}.buildKeyboard {
 
   zephyrDepsHash = "sha256-cImuZChGyuEpohnf8qWObJhTyQK39XelUw5VO9ZMXoM=";
 
+  # Keychron's fork assumes an in-tree build and ships its post-build helper
+  # without executable permissions, so adapt the zmk-nix out-of-tree build.
   postConfigure = ''
     chmod +x ../zmk/app/tools/prepend_header/linux-x86_64/prepend_header
     ln -s zephyr.bin ../build/zephyr/zmk.bin
