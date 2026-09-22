@@ -16,6 +16,8 @@
     ../../modules/system/tailscale.nix
 
     ../../modules/system/nas-mount.nix
+
+    ../../keyboards/v1_ultra/udev-rules.nix
   ];
 
   networking.hostName = "meadow";
