@@ -68,7 +68,12 @@
       };
 
       packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+
       packages.x86_64-linux.lily58 = import ./keyboards/lily58 { inherit pkgs zmk-nix system; };
+      packages.x86_64-linux.v1-ultra = import ./keyboards/v1_ultra {
+        inherit zmk-nix system;
+        lib = pkgs.lib;
+      };
 
       nixosConfigurations = {
         iso = nixpkgs.lib.nixosSystem {
