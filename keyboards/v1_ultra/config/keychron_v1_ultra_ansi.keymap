@@ -158,10 +158,10 @@
         fn_layer {
             bindings = <
     &trans     &kp C_BRI_DN    &kp C_BRI_UP    &trans       &trans   &rgb_ug RGB_BRD &rgb_ug RGB_BRI  &kp C_PREV &kp C_PP   &kp C_NEXT &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans &rgb_ug RGB_TOG
-    &trans     &bt_slot0 0 0   &bt_slot1 0 0   &bt_slot2 0 0 &trans   &trans          &trans           &trans     &trans     &trans     &trans     &trans     &trans     &trans
+    &trans     &bt_slot0 0 0   &bt_slot1 0 0   &bt_slot2 0 0 &trans   &trans          &trans           &trans     &trans     &trans     &trans     &trans     &trans     &trans &trans
     &trans     &rgb_ug RGB_TOG &rgb_ug RGB_EFF &trans       &trans   &trans          &trans           &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
     &trans     &trans     &trans     &trans     &trans     &trans    &trans          &trans           &trans     &trans     &trans     &trans     &trans                &kp END
-    &trans                &trans     &trans     &trans     &trans    &kc BATINFO &trans     &trans     &trans     &trans     &trans     &trans
+    &trans                &trans     &trans     &trans     &trans    &kc BATINFO &trans     &trans     &trans     &trans     &trans     &trans &trans
     &trans     &trans     &trans                           &trans                                      &trans     &trans     &trans     &trans     &trans     &trans
     // Keychron Hardware Control
     &none      &trans           &trans           &trans           &trans
