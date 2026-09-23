@@ -54,6 +54,12 @@
             bindings = <&mo>, <&kp>;
         };
 
+        cw: caps_word {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
+        };
+
         rgb_encoder: rgb_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -120,7 +126,7 @@
     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
     &trans     &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT  &kp CARET  &kp AMPS   &kp STAR   &kp LPAR   &kp RPAR   &trans     &trans     &trans     &trans
-    &trans     &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &trans     &trans                &trans
+    &cw        &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &trans     &trans                &trans
     &trans                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                &trans
     &trans     &trans     &trans                           &trans                                      &trans     &trans     &trans     &trans     &trans     &trans
     // Keychron Hardware Control
