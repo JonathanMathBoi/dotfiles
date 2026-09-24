@@ -54,6 +54,15 @@
             bindings = <&mo>, <&kp>;
         };
 
+        shift_z: tap_dance_mod_tap_z {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+        };
+
         cw: caps_word {
             compatible = "zmk,behavior-caps-word";
             #binding-cells = <0>;
