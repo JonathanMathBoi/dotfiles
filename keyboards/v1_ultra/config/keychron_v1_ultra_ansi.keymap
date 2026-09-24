@@ -53,12 +53,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        cw: caps_word {
-            compatible = "zmk,behavior-caps-word";
-            #binding-cells = <0>;
-            continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
-        };
-
         rgb_encoder: rgb_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
