@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include "homerow_mods.dtsi"
 
 / {
     conditional_layers {
@@ -19,17 +20,6 @@
     };
 
     behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>; // Allow for holding a key to spam with intention
-            require-prior-idle-ms = <125>; // Prevent errors from fast typing
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-        };
-
         lt_thumb: layer_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_THUMB";
@@ -49,7 +39,7 @@
             bindings = <
 &caps_word  &kp N1  &kp N2  &kp N3     &kp N4     &kp N5                         &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp GRAVE
 &kp TAB     &kp Q   &kp W   &kp E      &kp R      &kp T                          &kp Y   &kp U     &kp I      &kp O    &kp P     &kp MINUS
-&kp ESC     &hm LALT A   &hm LGUI S   &hm LCTRL D      &hm LSHFT F      &kp G                          &kp H   &hm RSHFT J     &hm RCTRL K      &hm RGUI L    &hm RALT SEMI  &kp SQT
+&kp ESC     HRM_LEFT                                                        &kp G                          &kp H   HRM_RIGHT                                      &kp SQT
 &kp LSHFT   &kp Z   &kp X   &kp C      &kp V      &kp B   &kp LCTRL     &kp RGUI  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
                             &kp LSHFT  &kp LCTRL  &lt_thumb 2 BSPC   &kp SPACE    &kp RET   &lt_thumb 1 TAB   &kp RGUI  &kp RSHFT
             >;

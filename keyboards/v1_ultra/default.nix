@@ -1,13 +1,21 @@
 {
+  pkgs,
   zmk-nix,
   system,
   lib,
 }:
 
+let
+  zmkSource = pkgs.runCommand "keychron-v1-ultra-zmk-source" { } ''
+    mkdir -p $out/config
+    cp -r ${./.}/* $out/
+    cp ${../common/homerow_mods.dtsi} $out/config/homerow_mods.dtsi
+  '';
+in
 zmk-nix.legacyPackages.${system}.buildKeyboard {
   name = "keychron-v1-ultra-firmware";
 
-  src = ./.;
+  src = zmkSource;
 
   board = "keychron";
   shield = "keychron_v1_ultra_ansi";

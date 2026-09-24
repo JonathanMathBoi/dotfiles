@@ -1,0 +1,26 @@
+#define HRM_A    &hrm LALT A
+#define HRM_S    &hrm LGUI S
+#define HRM_D    &hrm LCTRL D
+#define HRM_F    &hrm LSHFT F
+#define HRM_J    &hrm RSHFT J
+#define HRM_K    &hrm RCTRL K
+#define HRM_L    &hrm RGUI L
+#define HRM_SEMI &hrm RALT SEMI
+
+#define HRM_LEFT  HRM_A HRM_S HRM_D HRM_F
+#define HRM_RIGHT HRM_J HRM_K HRM_L HRM_SEMI
+
+/ {
+    behaviors {
+        hrm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <200>; // Allow for holding a key to spam with intention
+            require-prior-idle-ms = <150>; // Prevent errors from fast typing
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+};
