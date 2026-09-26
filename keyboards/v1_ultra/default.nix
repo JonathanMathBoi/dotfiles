@@ -27,6 +27,7 @@ zmk-nix.legacyPackages.${system}.buildKeyboard {
   # Keychron's fork assumes an in-tree build and ships its post-build helper
   # without executable permissions, so adapt the zmk-nix out-of-tree build.
   postConfigure = ''
+    patch -d ../zmk -p1 < ${./ice-blue-white-gradient.patch}
     chmod +x ../zmk/app/tools/prepend_header/linux-x86_64/prepend_header
     ln -s zephyr.bin ../build/zephyr/zmk.bin
     ln -s ../../build ../zmk/app/build

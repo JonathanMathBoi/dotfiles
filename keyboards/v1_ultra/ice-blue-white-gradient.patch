@@ -1,0 +1,14 @@
+diff --git a/app/src/rgb/rgb_effects.c b/app/src/rgb/rgb_effects.c
+--- a/app/src/rgb/rgb_effects.c
++++ b/app/src/rgb/rgb_effects.c
+@@ -236,4 +236,9 @@
+ static HSV cycle_left_right_change(HSV hsv, uint8_t i, uint8_t time) {
+-    hsv.h = g_led_config.point[i].x - time;
++    uint8_t phase = g_led_config.point[i].x - time;
++    uint8_t blend = phase < 128 ? phase * 2 : (255 - phase) * 2;
++
++    // Fixed ice-blue to white gradient, moving from left to right.
++    hsv.h = 140;
++    hsv.s = scale8(180, 255 - blend);
+     return hsv;
+ }
