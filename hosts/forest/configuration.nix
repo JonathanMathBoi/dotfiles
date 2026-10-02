@@ -27,6 +27,7 @@
     ../../modules/system/greetd.nix
     ../../modules/system/steam.nix
     ../../modules/system/alvr.nix
+    ../../modules/system/wivrn.nix
     ../../modules/system/tailscale.nix
 
     ../../modules/system/nas-mount.nix
