@@ -41,9 +41,10 @@
   networking.hostName = "forest";
 
   boot.kernelParams = [
-    # Disable i915 drivers and enable xe drivers
-    "i915.force_probe=!56a1"
-    "xe.force_probe=56a1"
+    # Force i915 driver for A750 for VR compat
+    "xe.force_probe=!5690"
+    "i915.force_probe=5690"
+    "i915.enable_guc=3"
   ];
 
   hardware.graphics = {
