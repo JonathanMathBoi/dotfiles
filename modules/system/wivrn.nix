@@ -6,10 +6,17 @@
     openFirewall = true;
     autoStart = true;
     steam.enable = true;
+
+    config = {
+      enable = true;
+      json = {
+        application = [ pkgs.wayvr ];
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
-    wivrn
+    wayvr
     xrizer
   ];
 
