@@ -40,6 +40,11 @@
 
   networking.hostName = "forest";
 
+  # For VR hotspot
+  networking.firewall = {
+    trustedInterfaces = [ "wlo1" ];
+  };
+
   boot.kernelParams = [
     # Force i915 driver for A750 for VR compat
     "xe.force_probe=!5690"
