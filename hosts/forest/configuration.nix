@@ -27,6 +27,7 @@
     ../../modules/system/greetd.nix
     ../../modules/system/steam.nix
     ../../modules/system/alvr.nix
+    ../../modules/system/wivrn.nix
     ../../modules/system/tailscale.nix
 
     ../../modules/system/nas-mount.nix
@@ -39,10 +40,16 @@
 
   networking.hostName = "forest";
 
+  # For VR hotspot
+  networking.firewall = {
+    trustedInterfaces = [ "wlo1" ];
+  };
+
   boot.kernelParams = [
-    # Disable i915 drivers and enable xe drivers
-    "i915.force_probe=!56a1"
-    "xe.force_probe=56a1"
+    # Force i915 driver for A750 for VR compat
+    "xe.force_probe=!5690"
+    "i915.force_probe=5690"
+    "i915.enable_guc=3"
   ];
 
   hardware.graphics = {

@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
   };
 
   outputs =
@@ -43,6 +44,7 @@
       sops-nix,
       zmk-nix,
       hyprland,
+      nixpkgs-xr,
       ...
     }:
     let
@@ -101,6 +103,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/forest/configuration.nix
+            nixpkgs-xr.nixosModules.nixpkgs-xr
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
