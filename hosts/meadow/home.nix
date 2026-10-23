@@ -12,6 +12,8 @@
   dots = {
     enable = true;
 
+    finance.enable = true;
+
     ai = {
       enable = true;
       opencode.enable = true;

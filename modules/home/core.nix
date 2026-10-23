@@ -14,6 +14,7 @@ in
     ./tmux.nix
     ./fastfetch.nix
     ./github.nix
+    ./finance
   ];
 
   options.dots = {

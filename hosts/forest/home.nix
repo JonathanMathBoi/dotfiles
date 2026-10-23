@@ -11,6 +11,8 @@
   dots = {
     enable = true;
 
+    finance.enable = true;
+
     ai = {
       enable = true;
       copilot.enable = true;
